@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>我的第一篇博客</title>
+    <url>/2024/08/16/202408162041/</url>
+    <content><![CDATA[<p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
+<p>同时我也会吸取一些建议或意见，进行修正。</p>
+]]></content>
+      <categories>
+        <category>分享</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL的备份与恢复 (mysqldump)</title>
     <url>/2024/08/17/202408170839/</url>
     <content><![CDATA[<h2 id="mysqldump-语法">mysqldump 语法</h2>
@@ -109,19 +122,6 @@
         <tag>SQL</tag>
         <tag>MySQL</tag>
         <tag>备份</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客</title>
-    <url>/2024/08/16/202408162041/</url>
-    <content><![CDATA[<p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
-<p>同时我也会吸取一些建议或意见，进行修正。</p>
-]]></content>
-      <categories>
-        <category>分享</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -244,6 +244,32 @@
       <tags>
         <tag>Centos7</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换 yum 源</title>
+    <url>/2024/08/19/202408191114/</url>
+    <content><![CDATA[<p>备份原有源配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">sudo mv Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<p>刷新yum缓存</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo yum clean all</span><br><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure>
+<p>检查是否更换成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo yum repolist</span><br></pre></td></tr></table></figure>
+<p>更新软件包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<p>至此，换源完成~</p>
+]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+        <tag>配置</tag>
+        <tag>config</tag>
+        <tag>yum</tag>
       </tags>
   </entry>
   <entry>
@@ -373,29 +399,79 @@
       </tags>
   </entry>
   <entry>
-    <title>换 yum 源</title>
-    <url>/2024/08/19/202408191114/</url>
-    <content><![CDATA[<p>备份原有源配置文件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">sudo mv Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
-<p>刷新yum缓存</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo yum clean all</span><br><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure>
-<p>检查是否更换成功</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo yum repolist</span><br></pre></td></tr></table></figure>
-<p>更新软件包</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
-<p>至此，换源完成~</p>
-]]></content>
+    <title>pandas 库的使用</title>
+    <url>/2024/08/24/202408240914/</url>
+    <content><![CDATA[<p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
+<a href="https://pandas.ac.cn/docs/">https://pandas.ac.cn/docs/</a></p>
+<h3 id="安装-pandas">安装 pandas</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install pandas</span><br></pre></td></tr></table></figure>
+<h3 id="导入-pandas">导入 pandas</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br></pre></td></tr></table></figure>
+<h3 id="读取表格或数据库">读取表格或数据库</h3>
+<p>数据库以MySQL为例</p>
+<p>支持相对路径，绝对路径，网络路径</p>
+<p>读取操作返回DataFrame</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import pymysql</span><br><span class="line"></span><br><span class="line"># 在读取的时候添加parse_dates=[&quot;列名&quot;]，可使这个列变为Timestamp类型</span><br><span class="line"></span><br><span class="line"># 读取csv表格文件</span><br><span class="line">pd.read_csv(&quot;data.csv&quot;)</span><br><span class="line"></span><br><span class="line"># 读取xlsx或者xls表格文件</span><br><span class="line">pd.read_excel(&quot;data.xlsx&quot;)</span><br><span class="line"></span><br><span class="line"># 读取MySQL</span><br><span class="line"># 首先创建数据库连接对象</span><br><span class="line">conn = pymysql.connect(</span><br><span class="line">    host=&quot;localhost&quot;, # 数据库地址</span><br><span class="line">    port=3306, # 数据库端口</span><br><span class="line">    user=&quot;root&quot;, # 登录用户名</span><br><span class="line">    password=&quot;123456&quot;, # 登录密码</span><br><span class="line">    database=&quot;example&quot;, # 数据库名称</span><br><span class="line">    charset=&quot;utf8&quot; # 编码格式</span><br><span class="line">)</span><br><span class="line">#执行sql操作</span><br><span class="line"># %s 是占位符, index_col 是索引字段,可以是字符串也可以是列表</span><br><span class="line">sql = &quot;select * from user limit %s,%s&quot;</span><br><span class="line">pd.read_sql(sql,con=conn,params=[10,20],index_col=[&quot;id&quot;,&quot;type&quot;])</span><br></pre></td></tr></table></figure>
+<h3 id="写入表格">写入表格</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 写 csv 文件</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line"># 读取read.csv表格</span><br><span class="line">data_read = pd.read_csv(&quot;read.csv&quot;)</span><br><span class="line"># 将read.csv表格写入到write.csv表格,并去除索引,在写入时不能打开write.csv</span><br><span class="line">data_read.to_csv(&quot;write.csv&quot;,index=False) </span><br><span class="line"></span><br><span class="line"># 将read.csv表格写入到write.txt文件里，并设置分割方式，去除索引,在写入时不能打开write.txt</span><br><span class="line">data_read.to_csv(&quot;write.txt&quot;,sep=&quot;\t&quot;,index=False)</span><br><span class="line"></span><br><span class="line"># 将read.csv表格写入到write.xlsx表格,并去除索引,在写入时不能打开write.xlsx</span><br><span class="line">data_read.to_excel(&quot;write.xlsx&quot;,index=False)</span><br></pre></td></tr></table></figure>
+<h3 id="选择-DataFrame-的子集">选择 DataFrame 的子集</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br></pre></td></tr></table></figure>
+<h4 id="选择数值列">选择数值列</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.describe()</span><br></pre></td></tr></table></figure>
+<h4 id="选择特定列">选择特定列</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 选择Age列</span><br><span class="line">ages = data[&quot;Age&quot;]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"># 选择Name列和Age列</span><br><span class="line">name_age = data[[&quot;Name&quot;,&quot;Age&quot;]]</span><br><span class="line">name_age.head()</span><br></pre></td></tr></table></figure>
+<h4 id="选择特定行">选择特定行</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 筛选年龄超过35岁的乘客</span><br><span class="line"># data[&quot;Age&quot;] &gt; 35 将判断每一条数据的Age字段是否大于35</span><br><span class="line">ages = data[data[&quot;Age&quot;] &gt; 35]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"># 筛选泰坦尼克号 2 等舱和 3 等舱的乘客</span><br><span class="line"># 第一种写法</span><br><span class="line">class_23 = data[data[&quot;class&quot;].isin([2,3])]</span><br><span class="line"># 第二种写法</span><br><span class="line"># 注: 不能用 or/and,需要用or运算符 | 和and运算符 &amp;</span><br><span class="line">class_23 = data[(data[&quot;class&quot;] == 2) | (data[&quot;class&quot;] == 3)]</span><br><span class="line">class_23.head()</span><br><span class="line"></span><br><span class="line"># 获取已知年龄的乘客数据</span><br><span class="line">ages_no_na = data[data[&quot;Age&quot;].notna()]</span><br><span class="line">ages_no_na.head() </span><br></pre></td></tr></table></figure>
+<h4 id="选择特定的行和列">选择特定的行和列</h4>
+<p>需要在选择括号 [] 前面使用 loc/iloc 运算符。使用 loc/iloc 时，逗号前面的部分是要选择的行，逗号后面的部分是要选择的列</p>
+<p>loc是基于行标签和列标签进行索引的，基本用法为 DataFrame.loc[行标签,列标签]<br>
+iloc是基于行和列的位置进行索引的，索引从0开始，基本用法为 DataFrame.iloc[行位置,列位置]</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 年龄大于35岁的乘客的姓名</span><br><span class="line">names = data.loc[data[&quot;Age&quot;] &gt; 35,&quot;Name&quot;]</span><br><span class="line">names.head()</span><br><span class="line"></span><br><span class="line"># 获取第十行到30行的数据</span><br><span class="line">datas = data.iloc[9,30]</span><br><span class="line">datas.head()</span><br></pre></td></tr></table></figure>
+<h3 id="从现有列创建新列">从现有列创建新列</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br><span class="line"></span><br><span class="line"># 创建Age2列，值为Age列的2倍</span><br><span class="line">data[&#x27;Age2&#x27;] = data[&#x27;Age&#x27;] * 2</span><br></pre></td></tr></table></figure>
+<h3 id="修改列名称">修改列名称</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br><span class="line"></span><br><span class="line">data.rename(</span><br><span class="line">    columns=&#123;</span><br><span class="line">        &quot;现有列名称&quot;:&quot;新名称&quot;,</span><br><span class="line">        &quot;Age&quot;:&quot;年龄&quot;,</span><br><span class="line">        &quot;name&quot;:&quot;姓名&quot;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 也可以映射</span><br><span class="line">data.rename(columns=str.lower)</span><br></pre></td></tr></table></figure>
+<h3 id="计算汇总统计量">计算汇总统计量</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br></pre></td></tr></table></figure>
+<h4 id="平均值">平均值</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data[&quot;Age&quot;].mean()</span><br></pre></td></tr></table></figure>
+<h4 id="中位数">中位数</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data[&quot;Price&quot;].median()</span><br></pre></td></tr></table></figure>
+<h4 id="特定组合">特定组合</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.agg(</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Age&quot;: [&quot;min&quot;,&quot;max&quot;,&quot;median&quot;,&quot;skew&quot;],</span><br><span class="line">        &quot;Fare&quot;: [&quot;min&quot;,&quot;max&quot;,&quot;median&quot;,&quot;mean&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="按类别分组的汇总统计量">按类别分组的汇总统计量</h4>
+<p>1、男性和女性泰坦尼克号乘客的平均年龄是多少？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 先查询出Sex字段和Age字段的数据，然后将数据根据Sex分组，最后求年龄的平均值</span><br><span class="line">data[[&#x27;Sex&#x27;,&#x27;Age&#x27;]].groupby(&quot;Sex&quot;).mean()</span><br><span class="line"></span><br><span class="line"># 如果没有显式的选择Sex和Age两列，那么就需要使用numeric_only=True应用包含数值列的每一项</span><br><span class="line">data.groupby(&quot;Sex&quot;).mean(numeric_only=True)</span><br><span class="line"></span><br><span class="line"># 也可以对分组数据的列选择</span><br><span class="line">data.groupby(&quot;Sex&quot;)[&#x27;Age&#x27;].mean()</span><br></pre></td></tr></table></figure>
+<p>2、每个性别和客舱等级组合的平均票价是多少？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.groupby([&quot;Sex&quot;,&quot;Pclass&quot;])[&#x27;Fare&#x27;].mean()</span><br></pre></td></tr></table></figure>
+<h4 id="按类别统计记录数">按类别统计记录数</h4>
+<p>1、每个客舱等级有多少乘客？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># value_counts是一个快捷方式，它实际上是分组操作与每个组内记录数的计数相结合</span><br><span class="line"># 两个相同</span><br><span class="line">data[&#x27;Pclass&#x27;].value_counts()</span><br><span class="line">data.groupby(&quot;Pclass&quot;)[&#x27;Pclass&#x27;].count()</span><br><span class="line"></span><br><span class="line"># size 和 count 都可以与 groupby 结合使用。而 size 包含 NaN 值，只提供行数（表格的大小），count 排除缺失值。在 value_counts 方法中，使用 dropna 参数来包含或排除 NaN 值。</span><br><span class="line">data.groupby(&quot;Pclass&quot;)[&#x27;Pclass&#x27;].size()</span><br></pre></td></tr></table></figure>
+<h3 id="排序">排序</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 根据Age进行排序</span><br><span class="line"># 基本用法: sort_values(by,axis,ascending,inplace,kind,na_position)</span><br><span class="line"># by: 根据哪一列排序,可以为一个列表</span><br><span class="line"># axis: 轴来指导排序</span><br><span class="line"># ascending: 如果为真，按升序排序，否则按降序排序</span><br><span class="line"># inplace: 如果为真，就地执行操作</span><br><span class="line"># kind: 选择排序算法</span><br><span class="line"># na_position: 参数&#x27;first&#x27;将NaNs放在开头，&#x27;last&#x27;将NaNs放在结尾</span><br><span class="line">titanic.sort_values(by=&quot;Age&quot;).head()</span><br><span class="line"># sort_index和sort_value基本相似,只是一个按索引排序，一个按字段排序</span><br></pre></td></tr></table></figure>
+<h3 id="数据重塑">数据重塑</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># pivot(data,columns,index,values)</span><br><span class="line"># data: 数据帧</span><br><span class="line"># columns: str | object | str列表，用于创建新框架的列的列</span><br><span class="line"># index: str | object | str列表，可选，用于创建新帧索引的Column，如果未给出，则使用现有索引</span><br><span class="line"># values: str、对象或上一个列表，可选，用于填充新帧值的列，如果不指定，则将使用所有剩余列，结果将具有分层索引列</span><br><span class="line"># 返回重塑的DataFrame</span><br><span class="line">data.pivot()</span><br></pre></td></tr></table></figure>
+<h3 id="透视表">透视表</h3>
+<p>在 pivot() 的情况下，数据只是重新排列。当需要聚合多个值时，可以使用 pivot_table()，它提供一个聚合函数（例如平均值）来组合这些值。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.pivot_table(values=&quot;value&quot;, index=&quot;location&quot;, columns=&quot;parameter&quot;, aggfunc=&quot;mean&quot;)</span><br></pre></td></tr></table></figure>
+<h3 id="创建新索引">创建新索引</h3>
+<p>reset_index()</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.pivot(columns=&quot;location&quot;, values=&quot;value&quot;).reset_index()</span><br></pre></td></tr></table></figure>
+<h3 id="合并">合并</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data1 = pd.read_csv(&quot;data1.csv&quot;)</span><br><span class="line">data2 = pd.read_csv(&quot;data2.csv&quot;)</span><br><span class="line">pd.concat([data1,data2],axis=0)</span><br></pre></td></tr></table></figure>
+<h3 id="merge">merge</h3>
+<p>基本用法: merge(left,right,how,on,left_on,right_on,left_index,right_index,sort,suffixes,copy,indicator,validate)</p>
+<p>详细解释见: <a href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge">https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge</a></p>
+<h3 id="时间序列数据">时间序列数据</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pd.to_datetime(data[&quot;datetime&quot;])</span><br></pre></td></tr></table></figure>
+<h3 id="操作文本">操作文本</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 将Name字段的所有内容全部转为小写</span><br><span class="line">data[&#x27;Name&#x27;].str.lower</span><br><span class="line"></span><br><span class="line"># 分割Name字段的所有内容</span><br><span class="line">data[&#x27;Name&#x27;].str.split(&quot;,&quot;)</span><br><span class="line"></span><br><span class="line"># 基本用法: contains(pat,case,flags,na,regex)</span><br><span class="line"># pat: 字符串或正则</span><br><span class="line"># case: 是否区分大小写，默认True</span><br><span class="line"># flags: 默认0，传递给 re 模块的标志，例如 re.IGNORECASE 的 CASE。</span><br><span class="line"># na: 可选,默认对空值不处理，即输出结果还是nan</span><br><span class="line"># 文本包含,是否包含Countess字符串，包含返回True，不包含返回False，NaN返回NaN</span><br><span class="line">data[&#x27;Name&#x27;].str.contains(&quot;Countess&quot;)</span><br><span class="line"></span><br><span class="line"># 获取Name长度</span><br><span class="line">data[&#x27;Name&#x27;].str.len()</span><br><span class="line"></span><br><span class="line"># 获取名字最长的那一个Name</span><br><span class="line">data.loc[data[&#x27;Name&#x27;].str.idxmax(),&quot;Name&quot;]</span><br><span class="line"></span><br><span class="line"># 替换，将“male”的值替换为“M”，将“female”的值替换为“F”。</span><br><span class="line">data[&#x27;Name&#x27;].replace(&#123;&quot;male&quot;: &quot;M&quot;, &quot;female&quot;: &quot;F&quot;&#125;)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>配置</category>
+        <category>python</category>
       </categories>
       <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-        <tag>配置</tag>
-        <tag>config</tag>
-        <tag>yum</tag>
+        <tag>python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -675,7 +751,7 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def CalAvg(self, df: &#x27;pd.DataFrame&#x27;) -&gt; list:</span><br><span class="line">        df[&#x27;avg&#x27;] = round(df.apply(lambda row: row.mean(), axis=1), 2)</span><br><span class="line">        return list(df[&#x27;avg&#x27;])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def CalAvg(self, df: &#x27;pd.DataFrame&#x27;) -&gt; list:</span><br><span class="line">        df[&#x27;avg&#x27;] = round(df.mean(axis=1), 2)</span><br><span class="line">        return list(df[&#x27;avg&#x27;])</span><br></pre></td></tr></table></figure>
 <h3 id="乐高商店收入计算">乐高商店收入计算</h3>
 <h4 id="题目描述">题目描述</h4>
 <p>我们需要完成乐高商店的分析，请你根据指引完成以下任务：<br>
@@ -1062,82 +1138,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>Pandas</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>pandas 库的使用</title>
-    <url>/2024/08/24/202408240914/</url>
-    <content><![CDATA[<p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
-<a href="https://pandas.ac.cn/docs/">https://pandas.ac.cn/docs/</a></p>
-<h3 id="安装-pandas">安装 pandas</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install pandas</span><br></pre></td></tr></table></figure>
-<h3 id="导入-pandas">导入 pandas</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br></pre></td></tr></table></figure>
-<h3 id="读取表格或数据库">读取表格或数据库</h3>
-<p>数据库以MySQL为例</p>
-<p>支持相对路径，绝对路径，网络路径</p>
-<p>读取操作返回DataFrame</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import pymysql</span><br><span class="line"></span><br><span class="line"># 在读取的时候添加parse_dates=[&quot;列名&quot;]，可使这个列变为Timestamp类型</span><br><span class="line"></span><br><span class="line"># 读取csv表格文件</span><br><span class="line">pd.read_csv(&quot;data.csv&quot;)</span><br><span class="line"></span><br><span class="line"># 读取xlsx或者xls表格文件</span><br><span class="line">pd.read_excel(&quot;data.xlsx&quot;)</span><br><span class="line"></span><br><span class="line"># 读取MySQL</span><br><span class="line"># 首先创建数据库连接对象</span><br><span class="line">conn = pymysql.connect(</span><br><span class="line">    host=&quot;localhost&quot;, # 数据库地址</span><br><span class="line">    port=3306, # 数据库端口</span><br><span class="line">    user=&quot;root&quot;, # 登录用户名</span><br><span class="line">    password=&quot;123456&quot;, # 登录密码</span><br><span class="line">    database=&quot;example&quot;, # 数据库名称</span><br><span class="line">    charset=&quot;utf8&quot; # 编码格式</span><br><span class="line">)</span><br><span class="line">#执行sql操作</span><br><span class="line"># %s 是占位符, index_col 是索引字段,可以是字符串也可以是列表</span><br><span class="line">sql = &quot;select * from user limit %s,%s&quot;</span><br><span class="line">pd.read_sql(sql,con=conn,params=[10,20],index_col=[&quot;id&quot;,&quot;type&quot;])</span><br></pre></td></tr></table></figure>
-<h3 id="写入表格">写入表格</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 写 csv 文件</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line"># 读取read.csv表格</span><br><span class="line">data_read = pd.read_csv(&quot;read.csv&quot;)</span><br><span class="line"># 将read.csv表格写入到write.csv表格,并去除索引,在写入时不能打开write.csv</span><br><span class="line">data_read.to_csv(&quot;write.csv&quot;,index=False) </span><br><span class="line"></span><br><span class="line"># 将read.csv表格写入到write.txt文件里，并设置分割方式，去除索引,在写入时不能打开write.txt</span><br><span class="line">data_read.to_csv(&quot;write.txt&quot;,sep=&quot;\t&quot;,index=False)</span><br><span class="line"></span><br><span class="line"># 将read.csv表格写入到write.xlsx表格,并去除索引,在写入时不能打开write.xlsx</span><br><span class="line">data_read.to_excel(&quot;write.xlsx&quot;,index=False)</span><br></pre></td></tr></table></figure>
-<h3 id="选择-DataFrame-的子集">选择 DataFrame 的子集</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br></pre></td></tr></table></figure>
-<h4 id="选择数值列">选择数值列</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.describe()</span><br></pre></td></tr></table></figure>
-<h4 id="选择特定列">选择特定列</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 选择Age列</span><br><span class="line">ages = data[&quot;Age&quot;]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"># 选择Name列和Age列</span><br><span class="line">name_age = data[[&quot;Name&quot;,&quot;Age&quot;]]</span><br><span class="line">name_age.head()</span><br></pre></td></tr></table></figure>
-<h4 id="选择特定行">选择特定行</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 筛选年龄超过35岁的乘客</span><br><span class="line"># data[&quot;Age&quot;] &gt; 35 将判断每一条数据的Age字段是否大于35</span><br><span class="line">ages = data[data[&quot;Age&quot;] &gt; 35]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"># 筛选泰坦尼克号 2 等舱和 3 等舱的乘客</span><br><span class="line"># 第一种写法</span><br><span class="line">class_23 = data[data[&quot;class&quot;].isin([2,3])]</span><br><span class="line"># 第二种写法</span><br><span class="line"># 注: 不能用 or/and,需要用or运算符 | 和and运算符 &amp;</span><br><span class="line">class_23 = data[(data[&quot;class&quot;] == 2) | (data[&quot;class&quot;] == 3)]</span><br><span class="line">class_23.head()</span><br><span class="line"></span><br><span class="line"># 获取已知年龄的乘客数据</span><br><span class="line">ages_no_na = data[data[&quot;Age&quot;].notna()]</span><br><span class="line">ages_no_na.head() </span><br></pre></td></tr></table></figure>
-<h4 id="选择特定的行和列">选择特定的行和列</h4>
-<p>需要在选择括号 [] 前面使用 loc/iloc 运算符。使用 loc/iloc 时，逗号前面的部分是要选择的行，逗号后面的部分是要选择的列</p>
-<p>loc是基于行标签和列标签进行索引的，基本用法为 DataFrame.loc[行标签,列标签]<br>
-iloc是基于行和列的位置进行索引的，索引从0开始，基本用法为 DataFrame.iloc[行位置,列位置]</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 年龄大于35岁的乘客的姓名</span><br><span class="line">names = data.loc[data[&quot;Age&quot;] &gt; 35,&quot;Name&quot;]</span><br><span class="line">names.head()</span><br><span class="line"></span><br><span class="line"># 获取第十行到30行的数据</span><br><span class="line">datas = data.iloc[9,30]</span><br><span class="line">datas.head()</span><br></pre></td></tr></table></figure>
-<h3 id="从现有列创建新列">从现有列创建新列</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br><span class="line"></span><br><span class="line"># 创建Age2列，值为Age列的2倍</span><br><span class="line">data[&#x27;Age2&#x27;] = data[&#x27;Age&#x27;] * 2</span><br></pre></td></tr></table></figure>
-<h3 id="修改列名称">修改列名称</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br><span class="line"></span><br><span class="line">data.rename(</span><br><span class="line">    columns=&#123;</span><br><span class="line">        &quot;现有列名称&quot;:&quot;新名称&quot;,</span><br><span class="line">        &quot;Age&quot;:&quot;年龄&quot;,</span><br><span class="line">        &quot;name&quot;:&quot;姓名&quot;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 也可以映射</span><br><span class="line">data.rename(columns=str.lower)</span><br></pre></td></tr></table></figure>
-<h3 id="计算汇总统计量">计算汇总统计量</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(&quot;data.csv&quot;)</span><br></pre></td></tr></table></figure>
-<h4 id="平均值">平均值</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data[&quot;Age&quot;].mean()</span><br></pre></td></tr></table></figure>
-<h4 id="中位数">中位数</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data[&quot;Price&quot;].median()</span><br></pre></td></tr></table></figure>
-<h4 id="特定组合">特定组合</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.agg(</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Age&quot;: [&quot;min&quot;,&quot;max&quot;,&quot;median&quot;,&quot;skew&quot;],</span><br><span class="line">        &quot;Fare&quot;: [&quot;min&quot;,&quot;max&quot;,&quot;median&quot;,&quot;mean&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h4 id="按类别分组的汇总统计量">按类别分组的汇总统计量</h4>
-<p>1、男性和女性泰坦尼克号乘客的平均年龄是多少？</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 先查询出Sex字段和Age字段的数据，然后将数据根据Sex分组，最后求年龄的平均值</span><br><span class="line">data[[&#x27;Sex&#x27;,&#x27;Age&#x27;]].groupby(&quot;Sex&quot;).mean()</span><br><span class="line"></span><br><span class="line"># 如果没有显式的选择Sex和Age两列，那么就需要使用numeric_only=True应用包含数值列的每一项</span><br><span class="line">data.groupby(&quot;Sex&quot;).mean(numeric_only=True)</span><br><span class="line"></span><br><span class="line"># 也可以对分组数据的列选择</span><br><span class="line">data.groupby(&quot;Sex&quot;)[&#x27;Age&#x27;].mean()</span><br></pre></td></tr></table></figure>
-<p>2、每个性别和客舱等级组合的平均票价是多少？</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.groupby([&quot;Sex&quot;,&quot;Pclass&quot;])[&#x27;Fare&#x27;].mean()</span><br></pre></td></tr></table></figure>
-<h4 id="按类别统计记录数">按类别统计记录数</h4>
-<p>1、每个客舱等级有多少乘客？</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># value_counts是一个快捷方式，它实际上是分组操作与每个组内记录数的计数相结合</span><br><span class="line"># 两个相同</span><br><span class="line">data[&#x27;Pclass&#x27;].value_counts()</span><br><span class="line">data.groupby(&quot;Pclass&quot;)[&#x27;Pclass&#x27;].count()</span><br><span class="line"></span><br><span class="line"># size 和 count 都可以与 groupby 结合使用。而 size 包含 NaN 值，只提供行数（表格的大小），count 排除缺失值。在 value_counts 方法中，使用 dropna 参数来包含或排除 NaN 值。</span><br><span class="line">data.groupby(&quot;Pclass&quot;)[&#x27;Pclass&#x27;].size()</span><br></pre></td></tr></table></figure>
-<h3 id="排序">排序</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 根据Age进行排序</span><br><span class="line"># 基本用法: sort_values(by,axis,ascending,inplace,kind,na_position)</span><br><span class="line"># by: 根据哪一列排序,可以为一个列表</span><br><span class="line"># axis: 轴来指导排序</span><br><span class="line"># ascending: 如果为真，按升序排序，否则按降序排序</span><br><span class="line"># inplace: 如果为真，就地执行操作</span><br><span class="line"># kind: 选择排序算法</span><br><span class="line"># na_position: 参数&#x27;first&#x27;将NaNs放在开头，&#x27;last&#x27;将NaNs放在结尾</span><br><span class="line">titanic.sort_values(by=&quot;Age&quot;).head()</span><br><span class="line"># sort_index和sort_value基本相似,只是一个按索引排序，一个按字段排序</span><br></pre></td></tr></table></figure>
-<h3 id="数据重塑">数据重塑</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># pivot(data,columns,index,values)</span><br><span class="line"># data: 数据帧</span><br><span class="line"># columns: str | object | str列表，用于创建新框架的列的列</span><br><span class="line"># index: str | object | str列表，可选，用于创建新帧索引的Column，如果未给出，则使用现有索引</span><br><span class="line"># values: str、对象或上一个列表，可选，用于填充新帧值的列，如果不指定，则将使用所有剩余列，结果将具有分层索引列</span><br><span class="line"># 返回重塑的DataFrame</span><br><span class="line">data.pivot()</span><br></pre></td></tr></table></figure>
-<h3 id="透视表">透视表</h3>
-<p>在 pivot() 的情况下，数据只是重新排列。当需要聚合多个值时，可以使用 pivot_table()，它提供一个聚合函数（例如平均值）来组合这些值。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.pivot_table(values=&quot;value&quot;, index=&quot;location&quot;, columns=&quot;parameter&quot;, aggfunc=&quot;mean&quot;)</span><br></pre></td></tr></table></figure>
-<h3 id="创建新索引">创建新索引</h3>
-<p>reset_index()</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.pivot(columns=&quot;location&quot;, values=&quot;value&quot;).reset_index()</span><br></pre></td></tr></table></figure>
-<h3 id="合并">合并</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data1 = pd.read_csv(&quot;data1.csv&quot;)</span><br><span class="line">data2 = pd.read_csv(&quot;data2.csv&quot;)</span><br><span class="line">pd.concat([data1,data2],axis=0)</span><br></pre></td></tr></table></figure>
-<h3 id="merge">merge</h3>
-<p>基本用法: merge(left,right,how,on,left_on,right_on,left_index,right_index,sort,suffixes,copy,indicator,validate)</p>
-<p>详细解释见: <a href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge">https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge</a></p>
-<h3 id="时间序列数据">时间序列数据</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pd.to_datetime(data[&quot;datetime&quot;])</span><br></pre></td></tr></table></figure>
-<h3 id="操作文本">操作文本</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 将Name字段的所有内容全部转为小写</span><br><span class="line">data[&#x27;Name&#x27;].str.lower</span><br><span class="line"></span><br><span class="line"># 分割Name字段的所有内容</span><br><span class="line">data[&#x27;Name&#x27;].str.split(&quot;,&quot;)</span><br><span class="line"></span><br><span class="line"># 基本用法: contains(pat,case,flags,na,regex)</span><br><span class="line"># pat: 字符串或正则</span><br><span class="line"># case: 是否区分大小写，默认True</span><br><span class="line"># flags: 默认0，传递给 re 模块的标志，例如 re.IGNORECASE 的 CASE。</span><br><span class="line"># na: 可选,默认对空值不处理，即输出结果还是nan</span><br><span class="line"># 文本包含,是否包含Countess字符串，包含返回True，不包含返回False，NaN返回NaN</span><br><span class="line">data[&#x27;Name&#x27;].str.contains(&quot;Countess&quot;)</span><br><span class="line"></span><br><span class="line"># 获取Name长度</span><br><span class="line">data[&#x27;Name&#x27;].str.len()</span><br><span class="line"></span><br><span class="line"># 获取名字最长的那一个Name</span><br><span class="line">data.loc[data[&#x27;Name&#x27;].str.idxmax(),&quot;Name&quot;]</span><br><span class="line"></span><br><span class="line"># 替换，将“male”的值替换为“M”，将“female”的值替换为“F”。</span><br><span class="line">data[&#x27;Name&#x27;].replace(&#123;&quot;male&quot;: &quot;M&quot;, &quot;female&quot;: &quot;F&quot;&#125;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pandas</tag>
       </tags>
   </entry>
 </search>

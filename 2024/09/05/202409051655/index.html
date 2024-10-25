@@ -394,7 +394,7 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def CalAvg(self, df: &#x27;pd.DataFrame&#x27;) -&gt; list:</span><br><span class="line">        df[&#x27;avg&#x27;] = round(df.apply(lambda row: row.mean(), axis=1), 2)</span><br><span class="line">        return list(df[&#x27;avg&#x27;])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def CalAvg(self, df: &#x27;pd.DataFrame&#x27;) -&gt; list:</span><br><span class="line">        df[&#x27;avg&#x27;] = round(df.mean(axis=1), 2)</span><br><span class="line">        return list(df[&#x27;avg&#x27;])</span><br></pre></td></tr></table></figure>
 <h3 id="乐高商店收入计算">乐高商店收入计算</h3>
 <h4 id="题目描述">题目描述</h4>
 <p>我们需要完成乐高商店的分析，请你根据指引完成以下任务：<br>
