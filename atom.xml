@@ -6,7 +6,7 @@
   <link href="https://bestflyteng.github.io/atom.xml" rel="self"/>
   
   <link href="https://bestflyteng.github.io/"/>
-  <updated>2024-10-25T00:33:48.651Z</updated>
+  <updated>2024-10-30T08:53:53.754Z</updated>
   <id>https://bestflyteng.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS 7 配置 IP 地址</title>
+    <link href="https://bestflyteng.github.io/2024/10/30/202410301643/"/>
+    <id>https://bestflyteng.github.io/2024/10/30/202410301643/</id>
+    <published>2024-10-30T08:43:24.000Z</published>
+    <updated>2024-10-30T08:53:53.754Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure><h4 id="查看网卡信息">查看网卡信息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure><h4 id="修改网卡配置文件">修改网卡配置文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=&quot;dhcp&quot;       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=yes               //修改为yes, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h4 id=&quot;切换至特权模式，并输入密码&quot;&gt;切换至特权模式，并输入密码&lt;/h4&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://bestflyteng.github.io/categories/Linux/"/>
+    
+    <category term="CentOS" scheme="https://bestflyteng.github.io/categories/Linux/CentOS/"/>
+    
+    
+    <category term="Linux" scheme="https://bestflyteng.github.io/tags/Linux/"/>
+    
+    <category term="CentOS" scheme="https://bestflyteng.github.io/tags/CentOS/"/>
+    
+    <category term="IP" scheme="https://bestflyteng.github.io/tags/IP/"/>
+    
+  </entry>
   
   <entry>
     <title>Pandas 例题 - 1</title>
