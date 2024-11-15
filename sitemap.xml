@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bestflyteng.github.io/2024/08/19/202408191114/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/2024/08/24/202408240914/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/2024/09/05/202409051655/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bestflyteng.github.io/2024/11/15/202411151154/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -13,25 +40,7 @@
   <url>
     <loc>https://bestflyteng.github.io/2024/10/30/202410301643/</loc>
     
-    <lastmod>2024-10-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/2024/09/05/202409051655/</loc>
-    
-    <lastmod>2024-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/2024/08/24/202408240914/</loc>
-    
-    <lastmod>2024-08-24</lastmod>
+    <lastmod>2024-11-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,15 +59,6 @@
     <loc>https://bestflyteng.github.io/2024/08/18/202408181131/</loc>
     
     <lastmod>2024-08-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/2024/08/19/202408191114/</loc>
-    
-    <lastmod>2024-08-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -334,20 +334,6 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/categories/%E5%AE%89%E8%A3%85/%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2024-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/categories/%E5%AE%89%E8%A3%85/%E4%BD%BF%E7%94%A8/%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2024-11-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestflyteng.github.io/categories/Python/</loc>
     <lastmod>2024-11-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -362,7 +348,21 @@
   </url>
   
   <url>
+    <loc>https://bestflyteng.github.io/categories/%E5%AE%89%E8%A3%85/%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bestflyteng.github.io/categories/Linux/CentOS/</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/categories/%E5%AE%89%E8%A3%85/%E4%BD%BF%E7%94%A8/%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2024-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

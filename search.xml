@@ -399,7 +399,7 @@
       </tags>
   </entry>
   <entry>
-    <title>pandas 库的使用</title>
+    <title>Pandas 库的使用</title>
     <url>/2024/08/24/202408240914/</url>
     <content><![CDATA[<p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
 <a href="https://pandas.ac.cn/docs/">https://pandas.ac.cn/docs/</a></p>
