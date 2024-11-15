@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>我的第一篇博客</title>
+    <url>/2024/08/16/202408162041/</url>
+    <content><![CDATA[<p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
+<p>同时我也会吸取一些建议或意见，进行修正。</p>
+]]></content>
+      <categories>
+        <category>分享</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL的备份与恢复 (mysqldump)</title>
     <url>/2024/08/17/202408170839/</url>
     <content><![CDATA[<h2 id="mysqldump-语法">mysqldump 语法</h2>
@@ -109,19 +122,6 @@
         <tag>SQL</tag>
         <tag>MySQL</tag>
         <tag>备份</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇博客</title>
-    <url>/2024/08/16/202408162041/</url>
-    <content><![CDATA[<p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
-<p>同时我也会吸取一些建议或意见，进行修正。</p>
-]]></content>
-      <categories>
-        <category>分享</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -1158,5 +1158,57 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
         <tag>CentOS</tag>
         <tag>IP</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>docker 映射端口外部设备访问不到</title>
+    <url>/2024/11/15/202411151154/</url>
+    <content><![CDATA[<h3 id="容器内部">容器内部</h3>
+<p>查看服务是否开启，以nginx为例</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep nginx</span><br></pre></td></tr></table></figure>
+<p>返回类似于以下图片，说明服务已经启动<br>
+<img src="ps.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<p>如果容器有防火墙，可以先关闭防火墙试一下<br>
+先查一下防火墙的状态，如果为下图就是关着呢<br>
+<img src="firewalld.png" alt=""></p>
+<h3 id="宿主机">宿主机</h3>
+<p>先看容器是否正确映射端口<br>
+下图画红框的地方就是将容器内部的nginx服务映射到宿主机的32770端口，如果这里没有映射，那么外部设备肯定访问不到。<br>
+<img src="a.png" alt=""></p>
+<p>查看宿主机端口是否开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ss -tlnp | grep 32770</span><br></pre></td></tr></table></figure>
+<p>类似于以下输出，说明端口没问题<br>
+<img src="b.png" alt=""><br>
+如果还是访问不了，那么就是防火墙的问题了，可以尝试关闭防火墙。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<p>类似于下图就是关着呢<br>
+<img src="c.png" alt=""><br>
+配置iptables使得所有流量都允许，可以通过以下命令清除当前的规则并设置允许所有的流量。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -F   <span class="comment"># 清除所有链中的规则</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -X   <span class="comment"># 删除所有自定义链</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -Z   <span class="comment"># 清空规则链中的计数器</span></span><br></pre></td></tr></table></figure>
+<p>设置默认链为 ACCEPT，表示允许所有的传入、传出流量。执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -P INPUT ACCEPT    <span class="comment"># 允许所有进入流量</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -P FORWARD ACCEPT  <span class="comment"># 允许所有转发流量</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -P OUTPUT ACCEPT   <span class="comment"># 允许所有输出流量</span></span><br></pre></td></tr></table></figure>
+<p>无需重启，立刻生效</p>
+<p>默认情况下，iptables 规则在系统重启后会丢失。</p>
+<p>根据系统版本不同，可以上网搜索对应的方法，将iptables规则保存下来，防止重启后失效。</p>
+<h3 id="容器内部-2">容器内部</h3>
+<p>外部设备访问 <a href="http://xn--tiq524a71i">http://宿主机</a>:映射的端口 如果是以下页面，说明连接没问题，大概率是内部服务或代理的问题</p>
+<p><img src="d.png" alt=""></p>
+<p>我这里是后端的jar包端口映射错了，需要改运行的端口为8080</p>
+<p>直接用命令复制jar包到宿主机再复制到本地windows电脑下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> b634d0b5d430:/root/question-1.0.jar ./</span><br></pre></td></tr></table></figure>
+<p>然后用解压工具打开question-1.0.jar，修改 BOOT-INF\classes\目录下的application.yml文件<br>
+<img src="f.png" alt=""><br>
+<img src="e.png" alt=""></p>
+<p>再复制回docker中，重新运行jar包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> ./question-1.0.jar b634d0b5d430:/root/question-1.0.jar</span><br></pre></td></tr></table></figure>
+<p>先查看之前运行的任务，然后结束他<br>
+<img src="g.png" alt=""><br>
+<img src="i.png" alt=""></p>
+<p>结束之后重新运行，因为之前已经复制jar包到容器中，所以直接运行就OK<br>
+这里的  nohup command &amp;  是让jar包在后台运行<br>
+<img src="j.png" alt=""></p>
+<p>运行后可以看一下 nohup 的日志文件看看运行成功没有，这样是运行成功了。<br>
+<img src="h.png" alt=""></p>
+]]></content>
   </entry>
 </search>
