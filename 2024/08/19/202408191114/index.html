@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>换 yum 源 - Best</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="这是我个人搭建的一个博客,备份原有源配置文件
+1sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+下载国内源,"> 
+    <meta name="author" content="王飞腾"> 
+    <link rel="alternative" href="atom.xml" title="Best" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="换 yum 源 - Best"/>
+    <meta name="twitter:description" content="这是我个人搭建的一个博客,备份原有源配置文件
+1sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+下载国内源,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Best"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="换 yum 源 - Best"/>
+    <meta property="og:description" content="这是我个人搭建的一个博客,备份原有源配置文件
+1sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+下载国内源,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <!-- 添加 -->
+    <meta name="msvalidate.01" content="32C3D050636B6D8AADF10F581358114C" />
+    <script>
+        // 百度统计
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?442ae94fe4ec95c1ddf19e7f4f6ac291";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+        })();
+
+        // 评论
+        function showComments(){
+            let comments = document.querySelector("#show-comments")
+            if(!comments){
+                return
+            }
+            let script = document.createElement("script");
+            script.id = "giscus-script";
+            script.src = "https://giscus.app/client.js";
+            script.setAttribute("data-repo", "BestFlyTeng/BestFlyTeng.github.io");
+            script.setAttribute("data-repo-id", "R_kgDOMjtzGQ");
+            script.setAttribute("data-category", "Announcements");
+            script.setAttribute("data-category-id", "DIC_kwDOMjtzGc4ChqnD");
+            script.setAttribute("data-mapping", "title");
+            script.setAttribute("data-strict", "0");
+            script.setAttribute("data-reactions-enabled", "1");
+            script.setAttribute("data-emit-metadata", "0");
+            script.setAttribute("data-input-position", "top");
+            script.setAttribute("data-theme", "preferred_color_scheme");
+            script.setAttribute("data-lang", "zh-CN");
+            script.setAttribute("data-loading", "lazy");
+            script.setAttribute("crossorigin", "anonymous");
+            script.async = true;
+            comments.replaceChildren()
+            comments.id = ""
+            comments.append(script)
+        }
+    </script>
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"> -->
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Best</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://bestflyteng.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">换 yum 源</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">换 yum 源</h1>
+        <div class="stuff">
+            <span>八月 19, 2024</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/config/" rel="tag">config</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/yum/" rel="tag">yum</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E9%85%8D%E7%BD%AE/" rel="tag">配置</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>备份原有源配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">sudo mv Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<p>刷新yum缓存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum clean all</span><br><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure>
+<p>检查是否更换成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum repolist</span><br></pre></td></tr></table></figure>
+<p>更新软件包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<p>至此，换源完成~</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+        <div class="reward">
+            <svg t="1723819540252" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1574"><path d="M395.086755 431.098435l232.463446 0 0 42.464137L395.086755 473.562573 395.086755 431.098435 395.086755 431.098435zM395.086755 431.098435" fill="#f4ea2a" p-id="1575"></path><path d="M511.999488 65.285912c-246.720148 0-446.708971 199.998033-446.708971 446.709995 0 246.709915 199.989847 446.718181 446.708971 446.718181S958.70846 758.705821 958.70846 511.995907C958.70846 265.283945 758.718613 65.285912 511.999488 65.285912L511.999488 65.285912zM258.752694 317.101101l107.280352 0c-8.933463-8.933463-23.854291-22.353101-44.706201-40.229237-7.468089-5.942339-12.668531-10.409071-15.634072-13.409404l53.639664-13.418614c35.753295 28.329209 61.805648 49.949622 78.225619 64.825424l-4.484128 2.233877 46.939055 0 0-73.758887 62.591547 0 0 73.758887 44.706201 0-4.466732-2.233877c25.319665-17.886369 52.139497-39.461757 80.46052-64.825424l53.639664 13.418614c-17.86795 17.877159-38.755676 35.762505-62.574151 53.639664L763.901659 317.102125l0 100.587929-60.35767 0 0-58.124815L316.861136 359.565239l0 58.124815-58.107419 0L258.753717 317.101101 258.752694 317.101101zM361.566314 587.559906l0 93.880157-60.35767 0L301.208645 545.088606l422.454568 0 0 131.884726-58.124815 0 0-89.413426L361.566314 587.559906 361.566314 587.559906zM334.728062 513.801019l0-120.698966 350.929558 0 0 120.698966L334.728062 513.801019 334.728062 513.801019zM739.297284 775.318174c-99.846032-38.774095-175.839821-64.826448-227.978295-78.226642-32.806173 40.22105-113.998357 67.040882-243.630786 80.459496-5.967922-17.886369-13.418614-35.771715-22.353101-53.639664 165.404144-7.484462 245.096161-45.438888 239.164055-113.998357l60.340273 0c-1.50119 16.420995-5.234211 31.28861-11.167341 44.707225 26.819832 7.467065 66.273403 20.100804 118.465089 37.986149 50.638307 14.919804 88.626503 26.052353 113.998357 33.538861L739.297284 775.318174 739.297284 775.318174zM739.297284 775.318174" fill="#f4ea2a" p-id="1576"></path></svg>
+            <div class="img">
+                <img src="/img/wx.jpg" alt="">
+                <img src="/img/zfb.jpg" alt="">
+            </div>    
+        </div>
+        
+
+        <!-- 
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="Ov23liIEsikfpJhua39L"
+        data-cs="4db32bcc836c4e0ee96035d748c807fcacd9c996"
+        data-r="FlyTeng3049735932.github.io"
+        data-o="FlyTeng3049735932"
+        data-a="FlyTeng3049735932"
+        data-d="false"
+    >查看评论</div>
+ -->
+
+
+    <div id="show-comments" data-ae="true" onclick="showComments()">
+        查看评论
+    </div>
+    <style>
+        #show-comments{
+            cursor: pointer;
+            letter-spacing: 5px;
+            border: 1px solid #dadada;
+            width: 170px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            padding: 10px 0;
+            margin: auto;
+        }
+    </style>
+    
+    <!-- <script src="https://giscus.app/client.js"
+            data-repo="FlyTeng3049735932/FlyTeng3049735932.github.io"
+            data-repo-id="R_kgDOMjtzGQ"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOMjtzGc4ChqnD"
+            data-mapping="title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+        </script> -->
+
+    </div>
+    
+        <div class="side">
+            
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

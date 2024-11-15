@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>安装并使用 docker-ce - Best</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="这是我个人搭建的一个博客,下载
+从阿里云下载 docker-ce 仓库，并将仓库文件移动到 /etc/yum.repos.d/ 目录下
+12sudo curl -O https://mirrors.aliyun.com/do,"> 
+    <meta name="author" content="王飞腾"> 
+    <link rel="alternative" href="atom.xml" title="Best" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="安装并使用 docker-ce - Best"/>
+    <meta name="twitter:description" content="这是我个人搭建的一个博客,下载
+从阿里云下载 docker-ce 仓库，并将仓库文件移动到 /etc/yum.repos.d/ 目录下
+12sudo curl -O https://mirrors.aliyun.com/do,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Best"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="安装并使用 docker-ce - Best"/>
+    <meta property="og:description" content="这是我个人搭建的一个博客,下载
+从阿里云下载 docker-ce 仓库，并将仓库文件移动到 /etc/yum.repos.d/ 目录下
+12sudo curl -O https://mirrors.aliyun.com/do,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <!-- 添加 -->
+    <meta name="msvalidate.01" content="32C3D050636B6D8AADF10F581358114C" />
+    <script>
+        // 百度统计
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?442ae94fe4ec95c1ddf19e7f4f6ac291";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+        })();
+
+        // 评论
+        function showComments(){
+            let comments = document.querySelector("#show-comments")
+            if(!comments){
+                return
+            }
+            let script = document.createElement("script");
+            script.id = "giscus-script";
+            script.src = "https://giscus.app/client.js";
+            script.setAttribute("data-repo", "BestFlyTeng/BestFlyTeng.github.io");
+            script.setAttribute("data-repo-id", "R_kgDOMjtzGQ");
+            script.setAttribute("data-category", "Announcements");
+            script.setAttribute("data-category-id", "DIC_kwDOMjtzGc4ChqnD");
+            script.setAttribute("data-mapping", "title");
+            script.setAttribute("data-strict", "0");
+            script.setAttribute("data-reactions-enabled", "1");
+            script.setAttribute("data-emit-metadata", "0");
+            script.setAttribute("data-input-position", "top");
+            script.setAttribute("data-theme", "preferred_color_scheme");
+            script.setAttribute("data-lang", "zh-CN");
+            script.setAttribute("data-loading", "lazy");
+            script.setAttribute("crossorigin", "anonymous");
+            script.async = true;
+            comments.replaceChildren()
+            comments.id = ""
+            comments.append(script)
+        }
+    </script>
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"> -->
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Best</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://bestflyteng.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">安装并使用 docker-ce</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">安装并使用 docker-ce</h1>
+        <div class="stuff">
+            <span>八月 19, 2024</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Centos7/" rel="tag">Centos7</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="下载">下载</h3>
+<p>从阿里云下载 docker-ce 仓库，并将仓库文件移动到 /etc/yum.repos.d/ 目录下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -O https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">sudo mv docker-ce.repo /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
+<p>刷新yum缓存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum clean all</span><br><span class="line">sudo yum makecache fast</span><br></pre></td></tr></table></figure>
+<p>查看 docker-ce 源是否添加成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list docker-ce</span><br></pre></td></tr></table></figure>
+<h3 id="安装">安装</h3>
+<p>安装 docker-ce</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install docker-ce -y</span><br></pre></td></tr></table></figure>
+<p>执行命令查看是否安装成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+<p>如果出现这种错误，说明没有运行</p>
+<p><img src="1.png" alt=""></p>
+<h3 id="docker-的启动与停止">docker 的启动与停止</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 启动 docker</span><br><span class="line">service docker start</span><br><span class="line"></span><br><span class="line"># 守护进程重启</span><br><span class="line">systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"># 重启 docker 服务(二选其一即可)</span><br><span class="line">systemctl restart docker</span><br><span class="line">service docker restart</span><br><span class="line"></span><br><span class="line"># 关闭 docker (二选其一即可)</span><br><span class="line">systemctl stop docker</span><br><span class="line">service docker stop</span><br></pre></td></tr></table></figure>
+<h3 id="常用docker命令">常用docker命令</h3>
+<h4 id="查看镜像">查看镜像</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images </span><br></pre></td></tr></table></figure>
+<h4 id="搜索镜像">搜索镜像</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search 镜像名称</span><br></pre></td></tr></table></figure>
+<h4 id="拉取镜像">拉取镜像</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull 镜像名称</span><br></pre></td></tr></table></figure>
+<h4 id="按镜像id删除镜像">按镜像id删除镜像</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi 镜像id</span><br></pre></td></tr></table></figure>
+<h4 id="删除所有镜像">删除所有镜像</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi $(docker images -q)</span><br></pre></td></tr></table></figure>
+<h4 id="查看正在运行的容器">查看正在运行的容器</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<h4 id="查看所有容器">查看所有容器</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a </span><br></pre></td></tr></table></figure>
+<h4 id="查看最后一次运行的容器">查看最后一次运行的容器</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -l</span><br></pre></td></tr></table></figure>
+<h4 id="查看停止的容器">查看停止的容器</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -f status=exited</span><br></pre></td></tr></table></figure>
+<h4 id="创建容器">创建容器</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run</span><br><span class="line"></span><br><span class="line">    -i：表示运行容器</span><br><span class="line"></span><br><span class="line">    -t：表示容器启动后会进入其命令行。加入这两个参数后，容器创建就能登录进去。即分配一个伪终端。交互式</span><br><span class="line"></span><br><span class="line">    --name :为创建的容器命名。</span><br><span class="line"></span><br><span class="line">    -v：表示目录映射关系（前者是宿主机目录，后者是映射到宿主机上的目录），可以使用多个－v做多个目录或文件映射。注意：最好做目录映射，在宿主机上做修改，然后共享到容器上。</span><br><span class="line"></span><br><span class="line">    -d：在run后面加上-d参数,则会创建一个守护式容器在后台运行（这样创建容器后不会自动登录容器，如果只加-i -t两个参数，创建后就会自动进去容器）。</span><br><span class="line"></span><br><span class="line">    -p：表示端口映射，前者是宿主机端口，后者是容器内的映射端口。可以使用多个-p做多个端口映射</span><br></pre></td></tr></table></figure>
+<h4 id="创建并进入容器，退出停止-交互式">创建并进入容器，退出停止(交互式)</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --name=容器名称 镜像名称:标签 /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="退出当前容器">退出当前容器</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h4 id="守护式创建容器">守护式创建容器</h4>
+<p>创建但不登陆</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -di --name=容器名称 镜像名称:标签</span><br></pre></td></tr></table></figure>
+<p>创建并登陆</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 容器名称(或者容器id) /bin/bash</span><br></pre></td></tr></table></figure>
+<h4 id="停止与启动容器">停止与启动容器</h4>
+<p>停止容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop 容器名称(或者容器id)</span><br></pre></td></tr></table></figure>
+<p>启动容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start 容器名称(或者容器id)</span><br></pre></td></tr></table></figure>
+<h4 id="文件拷贝">文件拷贝</h4>
+<p>将文件拷贝到容器内</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp 需要拷贝的文件或目录 容器名称:容器目录</span><br></pre></td></tr></table></figure>
+<p>将文件从容器内拷贝出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker cp 容器名称:容器目录 需要拷贝的文件或目录</span><br></pre></td></tr></table></figure>
+<h4 id="目录挂载">目录挂载</h4>
+<p>在创建容器的时候，将宿主机的目录与容器内的目录进行映射，这样就可以通过修改宿主机某个目录的文件从而去影响容器。创建容器添加-v参数 后边为 宿主机目录:容器目录，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -di -v /usr/local/myhtml:/usr/local/myhtml --name=mycentos centos:7</span><br></pre></td></tr></table></figure>
+<h4 id="迁移与备份">迁移与备份</h4>
+<p>将容器保存为镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器名称 镜像名称</span><br></pre></td></tr></table></figure>
+<p>将镜像保存为 tar 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o image.tar 镜像名称</span><br></pre></td></tr></table></figure>
+<p>恢复镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 恢复之前先删除原有的镜像</span><br><span class="line">docker load -i image.tar</span><br></pre></td></tr></table></figure>
+<h4 id="私有仓库搭建与配置">私有仓库搭建与配置</h4>
+<p>拉取私有仓库镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry</span><br></pre></td></tr></table></figure>
+<p>启动私有仓库容器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -di --name=registry -p 5000:5000 registry</span><br></pre></td></tr></table></figure>
+<p>打开浏览器，访问 <code>http://宿主机ip:5000/v2/_catalog</code>，返回{“repositories”:[]}表明私有仓库搭建成功，并且内容为空</p>
+<p>修改daemon.json</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+<p>添加或修改以下内容，而后保存退出，此步用于让 docker 信任私有仓库地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;insecure-registries&quot;:[&quot;宿主机ip:5000&quot;]&#125; </span><br></pre></td></tr></table></figure>
+<p>重启docker服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+<h4 id="镜像上传至私有仓库">镜像上传至私有仓库</h4>
+<p>标记此镜像为私有仓库的镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag redis 宿主机ip:5000/redis</span><br></pre></td></tr></table></figure>
+<p>再次启动私有仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start registry</span><br></pre></td></tr></table></figure>
+<p>上传标记的镜像到私有仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push 宿主机ip:5000/redis</span><br></pre></td></tr></table></figure>
+<h3 id="可能会出现的错误或警告">可能会出现的错误或警告</h3>
+<h4 id="Warning-Stopping-docker-service-but-it-can-still-be-activated-by-docker-socket">Warning: Stopping docker.service, but it can still be activated by: docker.socket</h4>
+<p>一般出现在停止docker运行的时候，原因是 Docker 在关闭状态下被访问自动唤醒机制，意味如果试图连接到 docker socket，而 docker 服务没有运行，系统将自动启动docker。</p>
+<h5 id="解决办法">解决办法</h5>
+<h6 id="方法1、-推荐">方法1、(推荐)</h6>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop docker.socket</span><br></pre></td></tr></table></figure>
+<h6 id="方法2、">方法2、</h6>
+<p>删除docker.socket</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f /lib/systemd/system/docker.socket</span><br></pre></td></tr></table></figure>
+<h4 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-request-canceled-while-waiting-for-connection-Client-Timeout-exceeded-while-awaiting-headers">Error response from daemon: Get <code>&quot;https://registry-1.docker.io/v2/&quot;</code>: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)</h4>
+<p>这种错误是因为国内把docker的官方源墙了，所以访问不了。</p>
+<p>开始换源</p>
+<p>而后进入/etc/docker修改daemon.json，如果没有这个json文件就新建一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/docker</span><br><span class="line"># 查看有没有daemon.json文件</span><br><span class="line">ls</span><br><span class="line"># 如果没有就新建</span><br><span class="line">touch daemon.json</span><br></pre></td></tr></table></figure>
+<p>编辑daemon.json</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">vi daemon.json</span><br><span class="line"># 添加以下配置</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;:[</span><br><span class="line">        &quot;https://docker.1panel.live&quot;,</span><br><span class="line">        &quot;https://hub.rat.dev&quot;,</span><br><span class="line">        &quot;https://docker.registry.cyou&quot;,</span><br><span class="line">        &quot;https://docker-cf.registry.cyou&quot;,</span><br><span class="line">        &quot;https://dockercf.jsdelivr.fyi&quot;,</span><br><span class="line">        &quot;https://docker.jsdelivr.fyi&quot;,</span><br><span class="line">        &quot;https://dockertest.jsdelivr.fyi&quot;,</span><br><span class="line">        &quot;https://docker.nju.edu.cn&quot;,</span><br><span class="line">        &quot;https://docker.mirrors.sjtug.sjtu.edu.cn&quot;,</span><br><span class="line">        &quot;https://mirror.iscas.ac.cn&quot;,</span><br><span class="line">        &quot;https://docker.rainbond.cc&quot;,</span><br><span class="line">        &quot;https://dockerhub.icu&quot;,</span><br><span class="line">        &quot;https://hub.uuuadc.top&quot;,</span><br><span class="line">        &quot;https://docker.anyhub.us.kg&quot;,</span><br><span class="line">        &quot;https://docker.awsl9527.cn&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后重启docker即可，上面的那些源有可能某些失效了，视情况绝对是否删除。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+<h4 id="Job-for-docker-service-failed-because-start-of-the-service-was-attempted-too-often-See-“systemctl-status-docker-service”-and-“journalctl-xe”-for-details-To-force-a-start-use-“systemctl-reset-failed-docker-service”-followed-by-“systemctl-start-docker-service”-again">Job for docker.service failed because start of the service was attempted too often. See “systemctl status docker.service” and “journalctl -xe” for details. To force a start use “systemctl reset-failed docker.service” followed by “systemctl start docker.service” again.</h4>
+<p>这个错误有可能是daemon.json文件里面可能有语法错误导致启动不了，检查这个文件哪里写错了。</p>
+<h4 id="Cannot-connect-to-the-Docker-daemon-at-unix-var-run-docker-sock-Is-the-docker-daemon-running">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</h4>
+<p>这个错误是没有启动docker，启动一下就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<h4 id="Warning-docker-service-changed-on-disk-Run-‘systemctl-daemon-reload’-to-reload-units">Warning: docker.service changed on disk. Run ‘systemctl daemon-reload’ to reload units.</h4>
+<p>根据提示执行命令即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+        <div class="reward">
+            <svg t="1723819540252" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1574"><path d="M395.086755 431.098435l232.463446 0 0 42.464137L395.086755 473.562573 395.086755 431.098435 395.086755 431.098435zM395.086755 431.098435" fill="#f4ea2a" p-id="1575"></path><path d="M511.999488 65.285912c-246.720148 0-446.708971 199.998033-446.708971 446.709995 0 246.709915 199.989847 446.718181 446.708971 446.718181S958.70846 758.705821 958.70846 511.995907C958.70846 265.283945 758.718613 65.285912 511.999488 65.285912L511.999488 65.285912zM258.752694 317.101101l107.280352 0c-8.933463-8.933463-23.854291-22.353101-44.706201-40.229237-7.468089-5.942339-12.668531-10.409071-15.634072-13.409404l53.639664-13.418614c35.753295 28.329209 61.805648 49.949622 78.225619 64.825424l-4.484128 2.233877 46.939055 0 0-73.758887 62.591547 0 0 73.758887 44.706201 0-4.466732-2.233877c25.319665-17.886369 52.139497-39.461757 80.46052-64.825424l53.639664 13.418614c-17.86795 17.877159-38.755676 35.762505-62.574151 53.639664L763.901659 317.102125l0 100.587929-60.35767 0 0-58.124815L316.861136 359.565239l0 58.124815-58.107419 0L258.753717 317.101101 258.752694 317.101101zM361.566314 587.559906l0 93.880157-60.35767 0L301.208645 545.088606l422.454568 0 0 131.884726-58.124815 0 0-89.413426L361.566314 587.559906 361.566314 587.559906zM334.728062 513.801019l0-120.698966 350.929558 0 0 120.698966L334.728062 513.801019 334.728062 513.801019zM739.297284 775.318174c-99.846032-38.774095-175.839821-64.826448-227.978295-78.226642-32.806173 40.22105-113.998357 67.040882-243.630786 80.459496-5.967922-17.886369-13.418614-35.771715-22.353101-53.639664 165.404144-7.484462 245.096161-45.438888 239.164055-113.998357l60.340273 0c-1.50119 16.420995-5.234211 31.28861-11.167341 44.707225 26.819832 7.467065 66.273403 20.100804 118.465089 37.986149 50.638307 14.919804 88.626503 26.052353 113.998357 33.538861L739.297284 775.318174 739.297284 775.318174zM739.297284 775.318174" fill="#f4ea2a" p-id="1576"></path></svg>
+            <div class="img">
+                <img src="/img/wx.jpg" alt="">
+                <img src="/img/zfb.jpg" alt="">
+            </div>    
+        </div>
+        
+
+        <!-- 
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="true"
+        data-ci="Ov23liIEsikfpJhua39L"
+        data-cs="4db32bcc836c4e0ee96035d748c807fcacd9c996"
+        data-r="FlyTeng3049735932.github.io"
+        data-o="FlyTeng3049735932"
+        data-a="FlyTeng3049735932"
+        data-d="false"
+    >查看评论</div>
+ -->
+
+
+    <div id="show-comments" data-ae="true" onclick="showComments()">
+        查看评论
+    </div>
+    <style>
+        #show-comments{
+            cursor: pointer;
+            letter-spacing: 5px;
+            border: 1px solid #dadada;
+            width: 170px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            padding: 10px 0;
+            margin: auto;
+        }
+    </style>
+    
+    <!-- <script src="https://giscus.app/client.js"
+            data-repo="FlyTeng3049735932/FlyTeng3049735932.github.io"
+            data-repo-id="R_kgDOMjtzGQ"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOMjtzGc4ChqnD"
+            data-mapping="title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+        </script> -->
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-%E7%9A%84%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%81%9C%E6%AD%A2"><span class="toc-number">3.</span> <span class="toc-text">docker 的启动与停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8docker%E5%91%BD%E4%BB%A4"><span class="toc-number">4.</span> <span class="toc-text">常用docker命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F"><span class="toc-number">4.1.</span> <span class="toc-text">查看镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E9%95%9C%E5%83%8F"><span class="toc-number">4.2.</span> <span class="toc-text">搜索镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-number">4.3.</span> <span class="toc-text">拉取镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E9%95%9C%E5%83%8Fid%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F"><span class="toc-number">4.4.</span> <span class="toc-text">按镜像id删除镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E9%95%9C%E5%83%8F"><span class="toc-number">4.5.</span> <span class="toc-text">删除所有镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">4.6.</span> <span class="toc-text">查看正在运行的容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8"><span class="toc-number">4.7.</span> <span class="toc-text">查看所有容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E8%BF%90%E8%A1%8C%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">4.8.</span> <span class="toc-text">查看最后一次运行的容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%81%9C%E6%AD%A2%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">4.9.</span> <span class="toc-text">查看停止的容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="toc-number">4.10.</span> <span class="toc-text">创建容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%EF%BC%8C%E9%80%80%E5%87%BA%E5%81%9C%E6%AD%A2-%E4%BA%A4%E4%BA%92%E5%BC%8F"><span class="toc-number">4.11.</span> <span class="toc-text">创建并进入容器，退出停止(交互式)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E5%BD%93%E5%89%8D%E5%AE%B9%E5%99%A8"><span class="toc-number">4.12.</span> <span class="toc-text">退出当前容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%88%E6%8A%A4%E5%BC%8F%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="toc-number">4.13.</span> <span class="toc-text">守护式创建容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E4%B8%8E%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">4.14.</span> <span class="toc-text">停止与启动容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D"><span class="toc-number">4.15.</span> <span class="toc-text">文件拷贝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%8C%82%E8%BD%BD"><span class="toc-number">4.16.</span> <span class="toc-text">目录挂载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%81%E7%A7%BB%E4%B8%8E%E5%A4%87%E4%BB%BD"><span class="toc-number">4.17.</span> <span class="toc-text">迁移与备份</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">4.18.</span> <span class="toc-text">私有仓库搭建与配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E4%B8%8A%E4%BC%A0%E8%87%B3%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93"><span class="toc-number">4.19.</span> <span class="toc-text">镜像上传至私有仓库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF%E6%88%96%E8%AD%A6%E5%91%8A"><span class="toc-number">5.</span> <span class="toc-text">可能会出现的错误或警告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Warning-Stopping-docker-service-but-it-can-still-be-activated-by-docker-socket"><span class="toc-number">5.1.</span> <span class="toc-text">Warning: Stopping docker.service, but it can still be activated by: docker.socket</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">5.1.1.</span> <span class="toc-text">解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%96%B9%E6%B3%951%E3%80%81-%E6%8E%A8%E8%8D%90"><span class="toc-number">5.1.1.1.</span> <span class="toc-text">方法1、(推荐)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%96%B9%E6%B3%952%E3%80%81"><span class="toc-number">5.1.1.2.</span> <span class="toc-text">方法2、</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-request-canceled-while-waiting-for-connection-Client-Timeout-exceeded-while-awaiting-headers"><span class="toc-number">5.2.</span> <span class="toc-text">Error response from daemon: Get &quot;https:&#x2F;&#x2F;registry-1.docker.io&#x2F;v2&#x2F;&quot;: net&#x2F;http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Job-for-docker-service-failed-because-start-of-the-service-was-attempted-too-often-See-%E2%80%9Csystemctl-status-docker-service%E2%80%9D-and-%E2%80%9Cjournalctl-xe%E2%80%9D-for-details-To-force-a-start-use-%E2%80%9Csystemctl-reset-failed-docker-service%E2%80%9D-followed-by-%E2%80%9Csystemctl-start-docker-service%E2%80%9D-again"><span class="toc-number">5.3.</span> <span class="toc-text">Job for docker.service failed because start of the service was attempted too often. See “systemctl status docker.service” and “journalctl -xe” for details. To force a start use “systemctl reset-failed docker.service” followed by “systemctl start docker.service” again.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cannot-connect-to-the-Docker-daemon-at-unix-var-run-docker-sock-Is-the-docker-daemon-running"><span class="toc-number">5.4.</span> <span class="toc-text">Cannot connect to the Docker daemon at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock. Is the docker daemon running?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Warning-docker-service-changed-on-disk-Run-%E2%80%98systemctl-daemon-reload%E2%80%99-to-reload-units"><span class="toc-number">5.5.</span> <span class="toc-text">Warning: docker.service changed on disk. Run ‘systemctl daemon-reload’ to reload units.</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
