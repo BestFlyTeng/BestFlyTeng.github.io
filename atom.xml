@@ -48,7 +48,7 @@
     <link href="https://bestflyteng.github.io/2024/11/23/202411232112/"/>
     <id>https://bestflyteng.github.io/2024/11/23/202411232112/</id>
     <published>2024-11-23T13:13:14.000Z</published>
-    <updated>2024-11-25T09:24:56.987Z</updated>
+    <updated>2024-11-26T03:45:51.334Z</updated>
     
     <content type="html"><![CDATA[<h3 id="题目">题目</h3><p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p><h3 id="第一题">第一题</h3><p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p><h4 id="代码">代码</h4><p><img src="code.png" alt=""><br><img src="a.png" alt=""></p><h3 id="第二题">第二题</h3><p>2、抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p><h4 id="代码-2">代码</h4><p><img src="b.png" alt=""><br><img src="c.png" alt=""></p>]]></content>
     
