@@ -1,57 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Centos7 的安装与配置 - 1</title>
-    <url>/2024/08/18/202408181002/</url>
-    <content><![CDATA[<h3 id="下载镜像">下载镜像</h3>
-<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
-<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
-<p><img src="1.png" alt=""></p>
-<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
-<p><img src="2.png" alt=""></p>
-<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
-<p><img src="3.png" alt=""></p>
-<h3 id="安装">安装</h3>
-<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
-<p><img src="4.png" alt=""></p>
-<p>选择自定义(高级)，然后下一步</p>
-<p><img src="5.png" alt=""></p>
-<p><img src="6.png" alt=""></p>
-<p>这里选择稍后安装操作系统，然后下一步</p>
-<p><img src="7.png" alt=""></p>
-<p>这里选择Centos7 64位</p>
-<p><img src="8.png" alt=""></p>
-<p>这里可以给虚拟机起名字。</p>
-<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
-<p><img src="9.png" alt=""></p>
-<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
-<p><img src="10.png" alt=""></p>
-<p>这里设置内存(不懂别瞎选，默认的就行)</p>
-<p><img src="11.png" alt=""></p>
-<p>这里建议选默认的 使用网络地址转换(NAT)</p>
-<p><img src="12.png" alt=""></p>
-<p>后面的默认推荐就可以</p>
-<p><img src="13.png" alt=""><br>
-<img src="14.png" alt=""></p>
-<p>创建新虚拟磁盘，而后下一步</p>
-<p><img src="15.png" alt=""></p>
-<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
-<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
-<p><img src="16.png" alt=""><br>
-<img src="17.png" alt=""></p>
-<p>完成！</p>
-<p><img src="18.png" alt=""><br>
-<img src="19.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的第一篇博客</title>
     <url>/2024/08/16/202408162041/</url>
     <content><![CDATA[<p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
@@ -176,6 +125,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Centos7 的安装与配置 - 1</title>
+    <url>/2024/08/18/202408181002/</url>
+    <content><![CDATA[<h3 id="下载镜像">下载镜像</h3>
+<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
+<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
+<p><img src="1.png" alt=""></p>
+<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
+<p><img src="2.png" alt=""></p>
+<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
+<p><img src="3.png" alt=""></p>
+<h3 id="安装">安装</h3>
+<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
+<p><img src="4.png" alt=""></p>
+<p>选择自定义(高级)，然后下一步</p>
+<p><img src="5.png" alt=""></p>
+<p><img src="6.png" alt=""></p>
+<p>这里选择稍后安装操作系统，然后下一步</p>
+<p><img src="7.png" alt=""></p>
+<p>这里选择Centos7 64位</p>
+<p><img src="8.png" alt=""></p>
+<p>这里可以给虚拟机起名字。</p>
+<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
+<p><img src="9.png" alt=""></p>
+<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
+<p><img src="10.png" alt=""></p>
+<p>这里设置内存(不懂别瞎选，默认的就行)</p>
+<p><img src="11.png" alt=""></p>
+<p>这里建议选默认的 使用网络地址转换(NAT)</p>
+<p><img src="12.png" alt=""></p>
+<p>后面的默认推荐就可以</p>
+<p><img src="13.png" alt=""><br>
+<img src="14.png" alt=""></p>
+<p>创建新虚拟磁盘，而后下一步</p>
+<p><img src="15.png" alt=""></p>
+<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
+<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
+<p><img src="16.png" alt=""><br>
+<img src="17.png" alt=""></p>
+<p>完成！</p>
+<p><img src="18.png" alt=""><br>
+<img src="19.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo 图片资源显示</title>
     <url>/2024/08/18/202408181131/</url>
     <content><![CDATA[<h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
@@ -191,32 +191,6 @@
       </categories>
       <tags>
         <tag>bug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换 yum 源</title>
-    <url>/2024/08/19/202408191114/</url>
-    <content><![CDATA[<p>备份原有源配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
-<p>刷新yum缓存</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
-<p>检查是否更换成功</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
-<p>更新软件包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
-<p>至此，换源完成~</p>
-]]></content>
-      <categories>
-        <category>配置</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-        <tag>配置</tag>
-        <tag>config</tag>
-        <tag>yum</tag>
       </tags>
   </entry>
   <entry>
@@ -270,6 +244,32 @@
       <tags>
         <tag>Centos7</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换 yum 源</title>
+    <url>/2024/08/19/202408191114/</url>
+    <content><![CDATA[<p>备份原有源配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<p>刷新yum缓存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
+<p>检查是否更换成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
+<p>更新软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<p>至此，换源完成~</p>
+]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+        <tag>配置</tag>
+        <tag>config</tag>
+        <tag>yum</tag>
       </tags>
   </entry>
   <entry>
@@ -473,25 +473,6 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
       <tags>
         <tag>python</tag>
         <tag>pandas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CentOS 7 配置 IP 地址</title>
-    <url>/2024/10/30/202410301643/</url>
-    <content><![CDATA[<h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-<h4 id="查看网卡信息">查看网卡信息</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
-<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>IP</tag>
       </tags>
   </entry>
   <entry>
@@ -1161,6 +1142,25 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 配置 IP 地址</title>
+    <url>/2024/10/30/202410301643/</url>
+    <content><![CDATA[<h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<h4 id="查看网卡信息">查看网卡信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>IP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 映射端口外部设备访问不到</title>
     <url>/2024/11/15/202411151154/</url>
     <content><![CDATA[<h3 id="容器内部">容器内部</h3>
@@ -1235,7 +1235,7 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>Spark 常用函数 (Scala 语言)</title>
+    <title>Spark Sql 常用函数 (Scala 语言)</title>
     <url>/2024/11/25/202411251836/</url>
     <content><![CDATA[<p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
 <h3 id="col">col</h3>
@@ -1267,7 +1267,15 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 <figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">when(condition: <span class="type">Column</span>, value: <span class="type">Any</span>): <span class="type">Column</span></span><br><span class="line">    .otherwise(value: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
 <h3 id="max">max</h3>
 <p>它通常用于对数值型数据进行分组聚合，或者在没有分组时返回整个列的最大值。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">max(e: <span class="type">Column</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">max(e: <span class="type">Column</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="to-timestamp">to_timestamp</h3>
+<p>将一个字符串或者日期列转换为 timestamp 类型。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">to_timestamp(s: <span class="type">Column</span>): <span class="type">Column</span></span><br><span class="line">to_timestamp(s: <span class="type">Column</span>, fmt: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="row-number">row_number</h3>
+<p>用于为每个分组中的行分配一个唯一的递增整数值。它通常与窗口函数一起使用，以实现更复杂的分组和排序操作。<br>
+以下示例是基于 id 列进行分组，并按照 time 列进行降序排序，为每个分组中的行分配一个唯一的行号。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">row_number()</span><br><span class="line">    .over(</span><br><span class="line">        <span class="type">Window</span></span><br><span class="line">            .partitionBy(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">            .orderBy(desc(<span class="string">&quot;time&quot;</span>))</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+]]></content>
       <tags>
         <tag>Spark</tag>
         <tag>Scala</tag>
