@@ -3,7 +3,7 @@
   <entry>
     <title>我的第一篇博客</title>
     <url>/2024/08/16/202408162041/</url>
-    <content><![CDATA[<p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
 <p>同时我也会吸取一些建议或意见，进行修正。</p>
 ]]></content>
       <categories>
@@ -14,60 +14,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Centos7 的安装与配置 - 1</title>
-    <url>/2024/08/18/202408181002/</url>
-    <content><![CDATA[<h3 id="下载镜像">下载镜像</h3>
-<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
-<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
-<p><img src="1.png" alt=""></p>
-<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
-<p><img src="2.png" alt=""></p>
-<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
-<p><img src="3.png" alt=""></p>
-<h3 id="安装">安装</h3>
-<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
-<p><img src="4.png" alt=""></p>
-<p>选择自定义(高级)，然后下一步</p>
-<p><img src="5.png" alt=""></p>
-<p><img src="6.png" alt=""></p>
-<p>这里选择稍后安装操作系统，然后下一步</p>
-<p><img src="7.png" alt=""></p>
-<p>这里选择Centos7 64位</p>
-<p><img src="8.png" alt=""></p>
-<p>这里可以给虚拟机起名字。</p>
-<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
-<p><img src="9.png" alt=""></p>
-<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
-<p><img src="10.png" alt=""></p>
-<p>这里设置内存(不懂别瞎选，默认的就行)</p>
-<p><img src="11.png" alt=""></p>
-<p>这里建议选默认的 使用网络地址转换(NAT)</p>
-<p><img src="12.png" alt=""></p>
-<p>后面的默认推荐就可以</p>
-<p><img src="13.png" alt=""><br>
-<img src="14.png" alt=""></p>
-<p>创建新虚拟磁盘，而后下一步</p>
-<p><img src="15.png" alt=""></p>
-<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
-<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
-<p><img src="16.png" alt=""><br>
-<img src="17.png" alt=""></p>
-<p>完成！</p>
-<p><img src="18.png" alt=""><br>
-<img src="19.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL的备份与恢复 (mysqldump)</title>
     <url>/2024/08/17/202408170839/</url>
-    <content><![CDATA[<h2 id="mysqldump-语法">mysqldump 语法</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="mysqldump-语法">mysqldump 语法</h2>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump [选项] 数据库名 [表名] <span class="operator">&gt;</span> 脚本.<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
 <h3 id="选项">选项</h3>
 <table>
@@ -176,9 +125,60 @@
       </tags>
   </entry>
   <entry>
+    <title>Centos7 的安装与配置 - 1</title>
+    <url>/2024/08/18/202408181002/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载镜像">下载镜像</h3>
+<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
+<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
+<p><img src="1.png" alt=""></p>
+<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
+<p><img src="2.png" alt=""></p>
+<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
+<p><img src="3.png" alt=""></p>
+<h3 id="安装">安装</h3>
+<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
+<p><img src="4.png" alt=""></p>
+<p>选择自定义(高级)，然后下一步</p>
+<p><img src="5.png" alt=""></p>
+<p><img src="6.png" alt=""></p>
+<p>这里选择稍后安装操作系统，然后下一步</p>
+<p><img src="7.png" alt=""></p>
+<p>这里选择Centos7 64位</p>
+<p><img src="8.png" alt=""></p>
+<p>这里可以给虚拟机起名字。</p>
+<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
+<p><img src="9.png" alt=""></p>
+<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
+<p><img src="10.png" alt=""></p>
+<p>这里设置内存(不懂别瞎选，默认的就行)</p>
+<p><img src="11.png" alt=""></p>
+<p>这里建议选默认的 使用网络地址转换(NAT)</p>
+<p><img src="12.png" alt=""></p>
+<p>后面的默认推荐就可以</p>
+<p><img src="13.png" alt=""><br>
+<img src="14.png" alt=""></p>
+<p>创建新虚拟磁盘，而后下一步</p>
+<p><img src="15.png" alt=""></p>
+<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
+<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
+<p><img src="16.png" alt=""><br>
+<img src="17.png" alt=""></p>
+<p>完成！</p>
+<p><img src="18.png" alt=""><br>
+<img src="19.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo 图片资源显示</title>
     <url>/2024/08/18/202408181131/</url>
-    <content><![CDATA[<h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
 <p><a href="https://github.com/hexojs/hexo-renderer-markdown-it/">hexo-renderer-markdown-it官网</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果安装过 hexo-renderer-marked，就卸载</span></span><br><span class="line"></span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
 <h3 id="修改-config-yml">修改_config.yml</h3>
@@ -196,7 +196,7 @@
   <entry>
     <title>Centos7 的安装与配置 - 2</title>
     <url>/2024/08/18/202408181522/</url>
-    <content><![CDATA[<p>右键标签栏，点击设置</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>右键标签栏，点击设置</p>
 <p><img src="1.png" alt=""></p>
 <p>选择 CD/DVD，选择下载好的ISO镜像，点击确定</p>
 <p><img src="2.png" alt=""></p>
@@ -247,9 +247,35 @@
       </tags>
   </entry>
   <entry>
+    <title>换 yum 源</title>
+    <url>/2024/08/19/202408191114/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>备份原有源配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<p>刷新yum缓存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
+<p>检查是否更换成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
+<p>更新软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<p>至此，换源完成~</p>
+]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+        <tag>配置</tag>
+        <tag>config</tag>
+        <tag>yum</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装并使用 docker-ce</title>
     <url>/2024/08/19/202408191233/</url>
-    <content><![CDATA[<h3 id="下载">下载</h3>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载">下载</h3>
 <p>从阿里云下载 docker-ce 仓库，并将仓库文件移动到 /etc/yum.repos.d/ 目录下</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> docker-ce.repo /etc/yum.repos.d/</span><br></pre></td></tr></table></figure>
 <p>刷新yum缓存</p>
@@ -374,35 +400,9 @@
       </tags>
   </entry>
   <entry>
-    <title>换 yum 源</title>
-    <url>/2024/08/19/202408191114/</url>
-    <content><![CDATA[<p>备份原有源配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
-<p>刷新yum缓存</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
-<p>检查是否更换成功</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
-<p>更新软件包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
-<p>至此，换源完成~</p>
-]]></content>
-      <categories>
-        <category>配置</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-        <tag>配置</tag>
-        <tag>config</tag>
-        <tag>yum</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pandas 库的使用</title>
     <url>/2024/08/24/202408240914/</url>
-    <content><![CDATA[<p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
 <a href="https://pandas.ac.cn/docs/">https://pandas.ac.cn/docs/</a></p>
 <h3 id="安装-pandas">安装 pandas</h3>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install pandas</span><br></pre></td></tr></table></figure>
@@ -476,28 +476,9 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
       </tags>
   </entry>
   <entry>
-    <title>CentOS 7 配置 IP 地址</title>
-    <url>/2024/10/30/202410301643/</url>
-    <content><![CDATA[<h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-<h4 id="查看网卡信息">查看网卡信息</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
-<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>IP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pandas 例题 - 1</title>
     <url>/2024/09/05/202409051655/</url>
-    <content><![CDATA[<h3 id="电商订单数据清洗">电商订单数据清洗</h3>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="电商订单数据清洗">电商订单数据清洗</h3>
 <h4 id="任务详情">任务详情</h4>
 <p>请根据系统提供的订单数据表，按要求完成以下任务：<br>
 统计订单表格中，商品描述(choice_description)中为“NaN”的数量，并将其批量替换为“banana”，<br>
@@ -1161,9 +1142,28 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 配置 IP 地址</title>
+    <url>/2024/10/30/202410301643/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<h4 id="查看网卡信息">查看网卡信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>IP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 映射端口外部设备访问不到</title>
     <url>/2024/11/15/202411151154/</url>
-    <content><![CDATA[<h3 id="容器内部">容器内部</h3>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="容器内部">容器内部</h3>
 <p>查看服务是否开启，以nginx为例</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep nginx</span><br></pre></td></tr></table></figure>
 <p>返回类似于以下图片，说明服务已经启动<br>
@@ -1213,9 +1213,31 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 ]]></content>
   </entry>
   <entry>
+    <title>Spark 增量抽取 (Scala 实现)</title>
+    <url>/2024/11/23/202411232112/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="题目">题目</h3>
+<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
+<h3 id="第一题">第一题</h3>
+<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
+<h4 id="代码">代码</h4>
+<p><img src="code.png" alt=""><br>
+<img src="a.png" alt=""></p>
+<h3 id="第二题">第二题</h3>
+<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
+<h4 id="代码-2">代码</h4>
+<p><img src="b.png" alt=""><br>
+<img src="c.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Scala</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spark Sql 常用函数 (Scala 语言)</title>
     <url>/2024/11/25/202411251836/</url>
-    <content><![CDATA[<p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
 <h3 id="col">col</h3>
 <p>用于在DataFrame或Dataset中引用列，通常与Spark的SQL查询或者DataFrame操作一起使用。<br>
 语法：</p>
@@ -1257,28 +1279,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>Spark</tag>
         <tag>Scala</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spark 增量抽取 (Scala 实现)</title>
-    <url>/2024/11/23/202411232112/</url>
-    <content><![CDATA[<h3 id="题目">题目</h3>
-<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
-<h3 id="第一题">第一题</h3>
-<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
-<h4 id="代码">代码</h4>
-<p><img src="code.png" alt=""><br>
-<img src="a.png" alt=""></p>
-<h3 id="第二题">第二题</h3>
-<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
-<h4 id="代码-2">代码</h4>
-<p><img src="b.png" alt=""><br>
-<img src="c.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Scala</tag>
-        <tag>大数据</tag>
       </tags>
   </entry>
 </search>
