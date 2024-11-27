@@ -8,16 +8,24 @@ set BATCH_SIZE=10
 set REPO_DIR=.\public
 
 :: 设置 GitHub 远程仓库名（默认是 origin）
-set REMOTE_NAME=https://github.com/BestFlyTeng/BestFlyTeng.github.io.git
+set REMOTE_NAME=origin
 
 :: 设置 GitHub 远程仓库分支名
 set BRANCH_NAME=main
 
 :: 切换到 Git 仓库目录
 cd /d %REPO_DIR%
-git init
+
+:: 如果没有初始化仓库，执行初始化
+git rev-parse --is-inside-work-tree > nul 2>&1
+if errorlevel 1 (
+    git init
+    echo Initialized empty Git repository.
+)
 
 :: 获取当前状态，获取所有修改过的文件列表
+set count=0
+set FILES=
 for /f "delims=" %%F in ('git status -s ^| findstr "^ M"') do (
     set /a count+=1
     set FILES=!FILES! %%F
@@ -27,6 +35,13 @@ for /f "delims=" %%F in ('git status -s ^| findstr "^ M"') do (
 if %count%==0 (
     echo No files to commit.
     exit /b
+)
+
+:: 如果远程仓库没有设置，设置远程仓库 URL
+git remote get-url %REMOTE_NAME% > nul 2>&1
+if errorlevel 1 (
+    echo Setting remote repository URL...
+    git remote add %REMOTE_NAME% %REMOTE_NAME%
 )
 
 :: 按批次上传文件
