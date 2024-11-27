@@ -336,7 +336,7 @@ document.body.addEventListener('input', POWERMODE);
   const pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
 
   window.pjax = new Pjax({
-    elements: 'a:not([target="_blank"])',
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
     selectors: pjaxSelectors,
     cacheBust: false,
     analytics: false,
