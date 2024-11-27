@@ -9,10 +9,11 @@ set REPO_DIR=.\public
 
 :: 切换到 Git 仓库目录
 cd /d %REPO_DIR%
-git remote add origin https://github.com/BestFlyTeng/BestFlyTeng.github.io.git
 :: 设置 GitHub 远程仓库名（默认是 origin）
 set REMOTE_NAME=origin
 
+git remote add %REMOTE_NAME% https://github.com/BestFlyTeng/BestFlyTeng.github.io.git
+git remote set-url %REMOTE_NAME% https://github.com/BestFlyTeng/BestFlyTeng.github.io.git
 :: 设置 GitHub 远程仓库分支名
 set BRANCH_NAME=main
 git checkout -b %BRANCH_NAME%
