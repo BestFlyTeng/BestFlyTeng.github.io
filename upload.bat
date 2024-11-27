@@ -7,14 +7,15 @@ set BATCH_SIZE=10
 :: 设置 Git 仓库路径
 set REPO_DIR=.\public
 
+:: 切换到 Git 仓库目录
+cd /d %REPO_DIR%
+git remote add origin https://github.com/BestFlyTeng/BestFlyTeng.github.io.git
 :: 设置 GitHub 远程仓库名（默认是 origin）
 set REMOTE_NAME=origin
 
 :: 设置 GitHub 远程仓库分支名
 set BRANCH_NAME=main
-
-:: 切换到 Git 仓库目录
-cd /d %REPO_DIR%
+git checkout -b %BRANCH_NAME%
 
 :: 如果没有初始化仓库，执行初始化
 git rev-parse --is-inside-work-tree > nul 2>&1
@@ -56,7 +57,7 @@ for %%F in (%FILES%) do (
         echo Committing batch...
         git commit -m "Batch commit"
         echo Pushing to GitHub...
-        git push %REMOTE_NAME% %BRANCH_NAME%
+        git push %REMOTE_NAME% %BRANCH_NAME% --force
         set i=0
     )
 )
@@ -66,7 +67,7 @@ if !i! geq 1 (
     echo Committing last batch...
     git commit -m "Final batch commit"
     echo Pushing to GitHub...
-    git push %REMOTE_NAME% %BRANCH_NAME%
+    git push %REMOTE_NAME% %BRANCH_NAME% --force
 )
 
 echo All files uploaded successfully to GitHub!
