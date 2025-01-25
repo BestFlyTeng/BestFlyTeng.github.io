@@ -176,24 +176,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo 图片资源显示</title>
-    <url>/2024/08/18/202408181131/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
-<p><a href="https://github.com/hexojs/hexo-renderer-markdown-it/">hexo-renderer-markdown-it官网</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果安装过 hexo-renderer-marked，就卸载</span></span><br><span class="line"></span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
-<h3 id="修改-config-yml">修改_config.yml</h3>
-<p>将 post_asset_folder 改为true</p>
-<p><img src="1.png" alt=""></p>
-<h3 id="重新生成静态文件，并运行">重新生成静态文件，并运行</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo server</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>bug</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Centos7 的安装与配置 - 2</title>
     <url>/2024/08/18/202408181522/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>右键标签栏，点击设置</p>
@@ -244,6 +226,24 @@
       <tags>
         <tag>Centos7</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 图片资源显示</title>
+    <url>/2024/08/18/202408181131/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
+<p><a href="https://github.com/hexojs/hexo-renderer-markdown-it/">hexo-renderer-markdown-it官网</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果安装过 hexo-renderer-marked，就卸载</span></span><br><span class="line"></span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
+<h3 id="修改-config-yml">修改_config.yml</h3>
+<p>将 post_asset_folder 改为true</p>
+<p><img src="1.png" alt=""></p>
+<h3 id="重新生成静态文件，并运行">重新生成静态文件，并运行</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo server</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>bug</tag>
       </tags>
   </entry>
   <entry>
@@ -1161,6 +1161,28 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>Spark 增量抽取 (Scala 实现)</title>
+    <url>/2024/11/23/202411232112/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="题目">题目</h3>
+<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
+<h3 id="第一题">第一题</h3>
+<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
+<h4 id="代码">代码</h4>
+<p><img src="code.png" alt=""><br>
+<img src="a.png" alt=""></p>
+<h3 id="第二题">第二题</h3>
+<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
+<h4 id="代码-2">代码</h4>
+<p><img src="b.png" alt=""><br>
+<img src="c.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Scala</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 映射端口外部设备访问不到</title>
     <url>/2024/11/15/202411151154/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="容器内部">容器内部</h3>
@@ -1211,28 +1233,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 <p>运行后可以看一下 nohup 的日志文件看看运行成功没有，这样是运行成功了。<br>
 <img src="h.png" alt=""></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Spark 增量抽取 (Scala 实现)</title>
-    <url>/2024/11/23/202411232112/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="题目">题目</h3>
-<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
-<h3 id="第一题">第一题</h3>
-<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
-<h4 id="代码">代码</h4>
-<p><img src="code.png" alt=""><br>
-<img src="a.png" alt=""></p>
-<h3 id="第二题">第二题</h3>
-<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
-<h4 id="代码-2">代码</h4>
-<p><img src="b.png" alt=""><br>
-<img src="c.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Scala</tag>
-        <tag>大数据</tag>
-      </tags>
   </entry>
   <entry>
     <title>Spark Sql 常用函数 (Scala 语言)</title>
