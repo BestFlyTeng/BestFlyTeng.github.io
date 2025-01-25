@@ -1235,37 +1235,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>安装并使用 GitStack</title>
-    <url>/2024/12/15/202412151508/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载-GitStack">下载 GitStack</h3>
-<p><a href="https://gitstack.com/download/">下载地址</a></p>
-<h3 id="安装-GitStack">安装 GitStack</h3>
-<ol>
-<li>下载完成后，双击运行 <code>GitStackSetup.exe</code> 文件，点击 <code>Next</code>。<br>
-<img src="a.png" alt=""></li>
-<li>点击 <code>I Agree</code>。<br>
-<img src="b.png" alt=""></li>
-<li>选择安装位置，点击 <code>Next</code>。<br>
-<img src="c.png" alt=""></li>
-<li>画红框的必须全选，不然会出一些意想不到的错误，而后点击 <code>Install</code><br>
-<img src="d.png" alt=""></li>
-<li>如果选择了Launch GitStack选项，那么点击<code>Finish</code>后会自动打开GitStack的管理页面。安装完成后，点击 <code>Finish</code>。<br>
-<img src="e.png" alt=""></li>
-</ol>
-<h3 id="使用-GitStack">使用 GitStack</h3>
-<ol>
-<li>打开浏览器，输入<code>http://localhost/gitstack</code>，跳转到以下页面，默认用户名密码是admin/admin，点击<code>Sign In</code>登录。<br>
-<img src="f.png" alt=""></li>
-<li>登录成功后，可以在这里添加一个新的仓库，输入新仓库的名称(字母和数字组合)，而后点击<code>Create</code>。<br>
-<img src="g.png" alt=""></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>GitStack</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spark Sql 常用函数 (Scala 语言)</title>
     <url>/2024/11/25/202411251836/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
@@ -1310,6 +1279,37 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>Spark</tag>
         <tag>Scala</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装并使用 GitStack</title>
+    <url>/2024/12/15/202412151508/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载-GitStack">下载 GitStack</h3>
+<p><a href="https://gitstack.com/download/">下载地址</a></p>
+<h3 id="安装-GitStack">安装 GitStack</h3>
+<ol>
+<li>下载完成后，双击运行 <code>GitStackSetup.exe</code> 文件，点击 <code>Next</code>。<br>
+<img src="a.png" alt=""></li>
+<li>点击 <code>I Agree</code>。<br>
+<img src="b.png" alt=""></li>
+<li>选择安装位置，点击 <code>Next</code>。<br>
+<img src="c.png" alt=""></li>
+<li>画红框的必须全选，不然会出一些意想不到的错误，而后点击 <code>Install</code><br>
+<img src="d.png" alt=""></li>
+<li>如果选择了Launch GitStack选项，那么点击<code>Finish</code>后会自动打开GitStack的管理页面。安装完成后，点击 <code>Finish</code>。<br>
+<img src="e.png" alt=""></li>
+</ol>
+<h3 id="使用-GitStack">使用 GitStack</h3>
+<ol>
+<li>打开浏览器，输入<code>http://localhost/gitstack</code>，跳转到以下页面，默认用户名密码是admin/admin，点击<code>Sign In</code>登录。<br>
+<img src="f.png" alt=""></li>
+<li>登录成功后，可以在这里添加一个新的仓库，输入新仓库的名称(字母和数字组合)，而后点击<code>Create</code>。<br>
+<img src="g.png" alt=""></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>GitStack</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
