@@ -372,7 +372,8 @@
 <h4 id="Error-response-from-daemon-Get-https-registry-1-docker-io-v2-net-http-request-canceled-while-waiting-for-connection-Client-Timeout-exceeded-while-awaiting-headers">Error response from daemon: Get <code>&quot;https://registry-1.docker.io/v2/&quot;</code>: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)</h4>
 <p>这种错误是因为国内把docker的官方源墙了，所以访问不了。</p>
 <p>开始换源</p>
-<p>而后进入/etc/docker修改daemon.json，如果没有这个json文件就新建一个</p>
+<p>而后进入/etc/docker修改daemon.json，如果没有这个json文件就新建一个<br>
+如果是用snap安装的docker，则进入/var/snap/docker/current/config/目录修改daemon.json</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/docker</span><br><span class="line"><span class="comment"># 查看有没有daemon.json文件</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 如果没有就新建</span></span><br><span class="line"><span class="built_in">touch</span> daemon.json</span><br></pre></td></tr></table></figure>
 <p>编辑daemon.json</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi daemon.json</span><br></pre></td></tr></table></figure>
