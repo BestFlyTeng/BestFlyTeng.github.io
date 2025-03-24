@@ -1162,6 +1162,28 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>Spark 增量抽取 (Scala 实现)</title>
+    <url>/2024/11/23/202411232112/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="题目">题目</h3>
+<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
+<h3 id="第一题">第一题</h3>
+<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
+<h4 id="代码">代码</h4>
+<p><img src="code.png" alt=""><br>
+<img src="a.png" alt=""></p>
+<h3 id="第二题">第二题</h3>
+<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
+<h4 id="代码-2">代码</h4>
+<p><img src="b.png" alt=""><br>
+<img src="c.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Scala</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 映射端口外部设备访问不到</title>
     <url>/2024/11/15/202411151154/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="容器内部">容器内部</h3>
@@ -1212,28 +1234,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 <p>运行后可以看一下 nohup 的日志文件看看运行成功没有，这样是运行成功了。<br>
 <img src="h.png" alt=""></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Spark 增量抽取 (Scala 实现)</title>
-    <url>/2024/11/23/202411232112/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="题目">题目</h3>
-<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
-<h3 id="第一题">第一题</h3>
-<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
-<h4 id="代码">代码</h4>
-<p><img src="code.png" alt=""><br>
-<img src="a.png" alt=""></p>
-<h3 id="第二题">第二题</h3>
-<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
-<h4 id="代码-2">代码</h4>
-<p><img src="b.png" alt=""><br>
-<img src="c.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Scala</tag>
-        <tag>大数据</tag>
-      </tags>
   </entry>
   <entry>
     <title>Spark Sql 常用函数 (Scala 语言)</title>
@@ -1399,11 +1399,13 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>JS 判断数据类型</title>
-    <url>/2025/02/13/202502131053/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typeof 操作符可以返回一个值的类型。对于对象（包括数组和 null），typeof 会返回 &quot;object&quot;，但它不能区分数组和对象，因此需要额外判断。</span></span><br><span class="line"><span class="keyword">typeof</span> value</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回 [object Type]，value可以是任意值</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(value)</span><br><span class="line"></span><br><span class="line"><span class="comment">// instanceof 运算符可以判断一个对象是否是某个构造函数的实例。如果需要判断一个对象是否是 Object 类型的实例，可以使用 instanceof Object。</span></span><br><span class="line"><span class="comment">// 需要注意，instanceof 对数组和对象都会返回 true，因此需要 value !== null 排除 null。</span></span><br><span class="line">value <span class="keyword">instanceof</span> <span class="title class_">Constructor</span></span><br></pre></td></tr></table></figure>]]></content>
+    <title>Vue3 定义和使用 Porps</title>
+    <url>/2025/02/13/202502131026/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; description &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; defineProps &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="comment">// 定义 Props，在 setup 中props是自动解构的，不需要通过 props.title 来访问</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="title function_">defineProps</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">title</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 定义 props 的数据类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: string,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// required 标明这个 prop 是必传的，属性是可选的，默认为 false，</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">required</span>: <span class="literal">true</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">validator</span>(<span class="params">value</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">// 自定义校验函数，返回 true 表示校验通过，返回 false 表示校验失败</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span>, <span class="string">&#x27;warning&#x27;</span>, <span class="string">&#x27;danger&#x27;</span>].<span class="title function_">includes</span>(value)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">description</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: <span class="title class_">String</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 为 prop 提供默认值</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">default</span>: <span class="string">&#x27;Default description&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+]]></content>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>Vue3</tag>
+        <tag>Props</tag>
       </tags>
   </entry>
   <entry>
@@ -1423,13 +1425,11 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>Vue3 定义和使用 Porps</title>
-    <url>/2025/02/13/202502131026/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; description &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; defineProps &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="comment">// 定义 Props，在 setup 中props是自动解构的，不需要通过 props.title 来访问</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="title function_">defineProps</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">title</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 定义 props 的数据类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: string,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// required 标明这个 prop 是必传的，属性是可选的，默认为 false，</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">required</span>: <span class="literal">true</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">validator</span>(<span class="params">value</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">// 自定义校验函数，返回 true 表示校验通过，返回 false 表示校验失败</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span>, <span class="string">&#x27;warning&#x27;</span>, <span class="string">&#x27;danger&#x27;</span>].<span class="title function_">includes</span>(value)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">description</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: <span class="title class_">String</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 为 prop 提供默认值</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">default</span>: <span class="string">&#x27;Default description&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>JS 判断数据类型</title>
+    <url>/2025/02/13/202502131053/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// typeof 操作符可以返回一个值的类型。对于对象（包括数组和 null），typeof 会返回 &quot;object&quot;，但它不能区分数组和对象，因此需要额外判断。</span></span><br><span class="line"><span class="keyword">typeof</span> value</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回 [object Type]，value可以是任意值</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(value)</span><br><span class="line"></span><br><span class="line"><span class="comment">// instanceof 运算符可以判断一个对象是否是某个构造函数的实例。如果需要判断一个对象是否是 Object 类型的实例，可以使用 instanceof Object。</span></span><br><span class="line"><span class="comment">// 需要注意，instanceof 对数组和对象都会返回 true，因此需要 value !== null 排除 null。</span></span><br><span class="line">value <span class="keyword">instanceof</span> <span class="title class_">Constructor</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>Vue3</tag>
-        <tag>Props</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1456,7 +1456,7 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>JS Promise 的使用</title>
+    <title>JavaScript Promise 的使用</title>
     <url>/2025/03/06/202503062032/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Promise-的概念">Promise 的概念</h2>
 <p>一个 <code>Promise</code> 必然处于以下几种状态之一：</p>
@@ -1509,6 +1509,25 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>JavaScript</tag>
         <tag>Promise</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS 媒体查询</title>
+    <url>/2025/03/23/202503231943/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="媒体类型（Media-Type）​">媒体类型（Media Type）​</h3>
+<h4 id="screen（屏幕）">screen（屏幕）</h4>
+<h4 id="print（打印）">print（打印）</h4>
+<h4 id="all（全部设备）">all（全部设备）</h4>
+<h3 id="​媒体特性条件（Media-Feature）">​媒体特性条件（Media Feature）</h3>
+<p>必须用括号包裹，如 (min-width: 900px)</p>
+<h3 id="基本语法">基本语法</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性条件) &#123;</span><br><span class="line">  <span class="comment">/* 样式规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px 时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备、宽度≥900px 且横屏时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">2rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 等效于 @media all and (min-width: 900px) */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 ,（逗号）表示 ​逻辑或（OR） */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px，或打印设备时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>), print &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>CSS</tag>
+        <tag>媒体查询</tag>
+        <tag>media</tag>
       </tags>
   </entry>
 </search>
