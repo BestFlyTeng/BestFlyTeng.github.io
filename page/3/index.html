@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>FlyTeng - 个人博客</title><meta name="author" content="FlyTeng"><meta name="copyright" content="FlyTeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这是我个人搭建的一个博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FlyTeng">
+<meta property="og:url" content="https://bestflyteng.github.io/page/3/index.html">
+<meta property="og:site_name" content="FlyTeng">
+<meta property="og:description" content="这是我个人搭建的一个博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bestflyteng.github.io/assets/images/avatar/avatar.jpg">
+<meta property="article:author" content="FlyTeng">
+<meta property="article:tag" content="个人,博客,开源,前端,后端,全栈,代码,Best,Hexo,HTML,HTML5,JavaScript,JS,Vue,NodeJs,CSS,CSS3,JQuery">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bestflyteng.github.io/assets/images/avatar/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://bestflyteng.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?442ae94fe4ec95c1ddf19e7f4f6ac291";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'FlyTeng',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="FlyTeng" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(img/bg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/assets/images/avatar/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(img/index-bg.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">FlyTeng</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">FlyTeng</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/19/202408191233/" title="安装并使用 docker-ce"><img class="post-bg" src="/assets/images/post/docker.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安装并使用 docker-ce"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/19/202408191233/" title="安装并使用 docker-ce">安装并使用 docker-ce</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-19T04:33:11.000Z" title="发表于 2024-08-19 12:33:11">2024-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E8%A3%85/">安装</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E8%A3%85/%E4%BD%BF%E7%94%A8/">使用</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E8%A3%85/%E4%BD%BF%E7%94%A8/%E9%85%8D%E7%BD%AE/">配置</a></span></div><div class="content">下载 从阿里云下载 docker-ce 仓库，并将仓库文件移动到 /etc/yum.repos.d/ 目录下 12sudo curl -O https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.reposudo mv docker-ce.repo /etc/yum.repos.d/ 刷新yum缓存 12sudo yum clean allsudo yum makecache fast 查看 docker-ce 源是否添加成功 1yum list docker-ce 安装 安装 docker-ce 1sudo yum install docker-ce -y 执行命令查看是否安装成功 1docker info 如果出现这种错误，说明没有运行  docker 的启动与停止 12345678910111213# 启动 dockerservice docker start# 守护进程重启systemctl daemon-reload# 重启 docker 服务(二选其一即可)systemctl restart...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/19/202408191114/" title="换 yum 源"><img class="post-bg" src="/assets/images/post/yum.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="换 yum 源"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/19/202408191114/" title="换 yum 源">换 yum 源</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-19T03:14:54.000Z" title="发表于 2024-08-19 11:14:54">2024-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E9%85%8D%E7%BD%AE/">配置</a></span></div><div class="content">备份原有源配置文件 1sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup 下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里 12sudo curl -O http://mirrors.aliyun.com/repo/Centos-7.reposudo mv Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo 刷新yum缓存 12sudo yum clean allsudo yum makecache fast 检查是否更换成功 1sudo yum repolist 更新软件包 1yum -y update 至此，换源完成~ </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/18/202408181522/" title="Centos7 的安装与配置 - 2"><img class="post-bg" src="/assets/images/post/centos.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Centos7 的安装与配置 - 2"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/18/202408181522/" title="Centos7 的安装与配置 - 2">Centos7 的安装与配置 - 2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-18T07:22:07.000Z" title="发表于 2024-08-18 15:22:07">2024-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="content">右键标签栏，点击设置  选择 CD/DVD，选择下载好的ISO镜像，点击确定  开机！  开机之后，用方向键选择 Install Centos7 选项，按回车确认  选择语言  下滑选择安装位置  不会配置的选下面的自动配置分区，而后点击完成  配置安装源  如果配置是灰色的话，就像这样，就是没有连接网络，需要先连一下网络 点击完成回到刚才的页面  点击网络和主机名   连接到网络后，再次配置安装源，将安装源设置为国内的。 http://mirrors.aliyun.com/centos/7/os/x86_64/  软件选择  这里我选择的是最小安装，方便学习和记录   在安装过程中可以根据需求来判断是否设置root密码或者创建用户 我不需要创建用户，所以我没有创建 漫长的等待……  Centos7！启动！！  输入你的用户名和密码 没有创建用户的话就只有root用户  这样就装好了~  </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/18/202408181131/" title="Hexo 图片资源显示"><img class="post-bg" src="/assets/images/post/hexo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 图片资源显示"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/18/202408181131/" title="Hexo 图片资源显示">Hexo 图片资源显示</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-18T03:31:03.000Z" title="发表于 2024-08-18 11:31:03">2024-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span></div><div class="content">安装 hexo-renderer-markdown-it hexo-renderer-markdown-it官网 12345# 如果安装过 hexo-renderer-marked，就卸载npm un hexo-renderer-markednpm i hexo-renderer-markdown-it 修改_config.yml 将 post_asset_folder 改为true  重新生成静态文件，并运行 1hexo clean &amp; hexo g &amp; hexo server</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/18/202408181002/" title="Centos7 的安装与配置 - 1"><img class="post-bg" src="/assets/images/post/centos.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Centos7 的安装与配置 - 1"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/18/202408181002/" title="Centos7 的安装与配置 - 1">Centos7 的安装与配置 - 1</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-18T02:02:23.000Z" title="发表于 2024-08-18 10:02:23">2024-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="content">下载镜像 以下内容仅按照我的配置写的，如有不足评论一下。 首先下载Centos7的镜像，这里我用的 阿里云的镜像  进入 7.9.2009/isos/x86_64/，下载 CentOS-7-x86_64-NetInstall-2009.iso  如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。  安装 首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)  选择自定义(高级)，然后下一步   这里选择稍后安装操作系统，然后下一步  这里选择Centos7 64位  这里可以给虚拟机起名字。 位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)  这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)  这里设置内存(不懂别瞎选，默认的就行)  这里建议选默认的 使用网络地址转换(NAT)  后面的默认推荐就可以   创建新虚拟磁盘，而后下一步  这里可以设置磁盘大小，也就是虚拟机的硬盘大小 选 将虚拟磁盘存储为单个文件，而后下一步   完成！   </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/08/17/202408170839/" title="MySQL的备份与恢复 (mysqldump)"><img class="post-bg" src="/assets/images/post/mysql.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL的备份与恢复 (mysqldump)"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/17/202408170839/" title="MySQL的备份与恢复 (mysqldump)">MySQL的备份与恢复 (mysqldump)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-17T00:39:19.000Z" title="发表于 2024-08-17 08:39:19">2024-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MySQL/">MySQL</a></span></div><div class="content">mysqldump 语法 1mysqldump [选项] 数据库名 [表名] &gt; 脚本.sql 选项    参数名 缩写 含义     --host -h 服务器IP地址   --port -P (大写) 服务器端口号   --password -p (小写) MySQL密码   --databases  指定要备份的数据库   --all-databases  备份MySQL服务器上的所有数据库   --compact  压缩模式，产生更少的输出   --comments  添加注释信息   --complete-insert  输出完成的插入语句   --lock-tables  备份前，锁定所有数据库表   --no-create-db/–no-create-info  禁止生成创建数据库语句   --force  当出现错误时仍然继续备份操作   --default-character-set  指定默认字符集   --add-locks  备份数据库表时锁定数据库表    示例 如果 -p...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/08/16/202408162041/" title="我的第一篇博客"><img class="post-bg" src="/img/post-bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的第一篇博客"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/08/16/202408162041/" title="我的第一篇博客">我的第一篇博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-08-16T12:41:12.000Z" title="发表于 2024-08-16 20:41:12">2024-08-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%88%86%E4%BA%AB/">分享</a></span></div><div class="content">这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。 同时我也会吸取一些建议或意见，进行修正。 </div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/assets/images/avatar/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FlyTeng</div><div class="author-info-description">这是我个人搭建的一个博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BestFlyTeng/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/09/202505091815/" title="Win10 部署若依微服务版本"><img src="/assets/images/post/nacos.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Win10 部署若依微服务版本"/></a><div class="content"><a class="title" href="/2025/05/09/202505091815/" title="Win10 部署若依微服务版本">Win10 部署若依微服务版本</a><time datetime="2025-05-09T10:16:10.000Z" title="发表于 2025-05-09 18:16:10">2025-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/24/202503241931/" title="Vue3 和 Pinia 的使用"><img src="/assets/images/post/pinia.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 和 Pinia 的使用"/></a><div class="content"><a class="title" href="/2025/03/24/202503241931/" title="Vue3 和 Pinia 的使用">Vue3 和 Pinia 的使用</a><time datetime="2025-03-24T11:31:51.000Z" title="发表于 2025-03-24 19:31:51">2025-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/23/202503231943/" title="CSS 媒体查询"><img src="/assets/images/post/css.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS 媒体查询"/></a><div class="content"><a class="title" href="/2025/03/23/202503231943/" title="CSS 媒体查询">CSS 媒体查询</a><time datetime="2025-03-23T11:44:27.000Z" title="发表于 2025-03-23 19:44:27">2025-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/06/202503062032/" title="JavaScript Promise 的使用"><img src="/assets/images/post/promise.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript Promise 的使用"/></a><div class="content"><a class="title" href="/2025/03/06/202503062032/" title="JavaScript Promise 的使用">JavaScript Promise 的使用</a><time datetime="2025-03-06T12:32:55.000Z" title="发表于 2025-03-06 20:32:55">2025-03-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/202502261832/" title="蓝桥杯 Web 练习"><img src="/assets/images/post/lanqiao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蓝桥杯 Web 练习"/></a><div class="content"><a class="title" href="/2025/02/26/202502261832/" title="蓝桥杯 Web 练习">蓝桥杯 Web 练习</a><time datetime="2025-02-26T10:33:31.000Z" title="发表于 2025-02-26 18:33:31">2025-02-26</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/CentOS/"><span class="card-category-list-name">CentOS</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/python/"><span class="card-category-list-name">python</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">分享</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%89%E8%A3%85/"><span class="card-category-list-name">安装</span><span class="card-category-list-count">1</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Python/" style="font-size: 1.1em; color: #999">Python</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 1.1em; color: #999">蓝桥杯</a> <a href="/tags/GitStack/" style="font-size: 1.1em; color: #999">GitStack</a> <a href="/tags/bug/" style="font-size: 1.1em; color: #999">bug</a> <a href="/tags/Vue3/" style="font-size: 1.26em; color: #999fa8">Vue3</a> <a href="/tags/MySQL/" style="font-size: 1.1em; color: #999">MySQL</a> <a href="/tags/Spring/" style="font-size: 1.1em; color: #999">Spring</a> <a href="/tags/Linux/" style="font-size: 1.42em; color: #99a6b7">Linux</a> <a href="/tags/Pandas/" style="font-size: 1.1em; color: #999">Pandas</a> <a href="/tags/%E9%85%8D%E7%BD%AE/" style="font-size: 1.1em; color: #999">配置</a> <a href="/tags/Props/" style="font-size: 1.1em; color: #999">Props</a> <a href="/tags/Scala/" style="font-size: 1.18em; color: #999ca1">Scala</a> <a href="/tags/media/" style="font-size: 1.1em; color: #999">media</a> <a href="/tags/nacos/" style="font-size: 1.1em; color: #999">nacos</a> <a href="/tags/%E5%A4%87%E4%BB%BD/" style="font-size: 1.1em; color: #999">备份</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 1.1em; color: #999">记录</a> <a href="/tags/Spark/" style="font-size: 1.18em; color: #999ca1">Spark</a> <a href="/tags/pandas/" style="font-size: 1.1em; color: #999">pandas</a> <a href="/tags/Computed/" style="font-size: 1.1em; color: #999">Computed</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 1.1em; color: #999">大数据</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/JavaScript/" style="font-size: 1.5em; color: #99a9bf">JavaScript</a> <a href="/tags/docker/" style="font-size: 1.18em; color: #999ca1">docker</a> <a href="/tags/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2/" style="font-size: 1.1em; color: #999">媒体查询</a> <a href="/tags/Promise/" style="font-size: 1.1em; color: #999">Promise</a> <a href="/tags/Git/" style="font-size: 1.1em; color: #999">Git</a> <a href="/tags/IP/" style="font-size: 1.1em; color: #999">IP</a> <a href="/tags/nginx/" style="font-size: 1.1em; color: #999">nginx</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/yum/" style="font-size: 1.1em; color: #999">yum</a> <a href="/tags/Spring-security/" style="font-size: 1.1em; color: #999">Spring security</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/Pinia/" style="font-size: 1.1em; color: #999">Pinia</a> <a href="/tags/config/" style="font-size: 1.1em; color: #999">config</a> <a href="/tags/Centos7/" style="font-size: 1.34em; color: #99a3b0">Centos7</a> <a href="/tags/SQL/" style="font-size: 1.1em; color: #999">SQL</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      <a class="card-more-btn" href="/archives/" title="查看更多"><i class="fas fa-angle-right"></i></a>
+    </div>
+    <ul class="card-archive-list">
+  
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/05/">
+          <span class="card-archive-list-date">五月 2025</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/03/">
+          <span class="card-archive-list-date">三月 2025</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/02/">
+          <span class="card-archive-list-date">二月 2025</span>
+          <span class="card-archive-list-count">8</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/01/">
+          <span class="card-archive-list-date">一月 2025</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/12/">
+          <span class="card-archive-list-date">十二月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">十一月 2024</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/10/">
+          <span class="card-archive-list-date">十月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/09/">
+          <span class="card-archive-list-date">九月 2024</span>
+          <span class="card-archive-list-count">1</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">27</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">20.6k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-10T13:06:47.698Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FlyTeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-message"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["那是我日夜思念深深爱着的人呐","到底我该如何表达","她会接受我吗","也许永远都不会跟她说出那句话","注定我要浪迹天涯","怎么能有牵挂","梦想总是遥不可及","是不是应该放弃","花开花落又是一季","春天啊你在哪里","青春如同奔流的江河","一去不回来不及道别","只剩下麻木的我没有了当年的热血","看那漫天飘零的花朵","在最美丽的时刻凋谢","有谁会记得这世界她来过","转眼过去多年世间多少离合悲欢","曾经志在四方少年羡慕南飞的雁","各自奔前程的身影匆匆渐行渐远","未来在哪里平凡啊谁给我答案","那时陪伴我的人啊你们如今在何方","我曾经爱过的人啊现在是什么模样","当初的愿望实现了吗","事到如今只好祭奠吗","任岁月风干理想再也找不回真的我","抬头仰望这满天星河","那时候陪伴我的那颗","这里的故事你是否还记得","生活像一把无情刻刀","v改变了我们模样","未曾绽放就要枯萎吗","我有过梦想","青春如同奔流的江河","一去不回来不及道别","只剩下麻木的我没有了当年的热血","看那满天飘零的花朵","在最美丽的时刻凋谢","有谁会记得这世界它曾经来过","当初的愿望实现了吗","事到如今只好祭奠吗","任岁月风干理想再也找不回真的我","抬头仰望这满天星河","那时候陪伴我的那颗","这里的故事你是否还记得","如果有明天祝福你亲爱的"])
+  } else {
+    document.getElementById("subtitle").textContent = "那是我日夜思念深深爱着的人呐"
+  }
+}
+typedJSFn.run(subtitleType)</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = { startHidden: true }
+  
+    window.chatBtnFn = () => {
+      document.getElementById('chatra').classList.contains('chatra--expanded') ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => Chatra('hide'),
+      show: () => Chatra('show')
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = '36GeoKDyTpu2BLGaT'
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

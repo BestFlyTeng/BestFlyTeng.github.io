@@ -1,0 +1,994 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Pandas 例题 - 1 | FlyTeng</title><meta name="author" content="FlyTeng"><meta name="copyright" content="FlyTeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="电商订单数据清洗 任务详情 请根据系统提供的订单数据表，按要求完成以下任务： 统计订单表格中，商品描述(choice_description)中为“NaN”的数量，并将其批量替换为“banana”， 请根据以上要求，将函数 nanCount() 补充完整，函数的返回值为整数值，既为“NaN”的数量。 任务要求  订单数据表为以逗号为分隔符的csv文件，编码方式为 UTF-8； 注意：DataFra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas 例题 - 1">
+<meta property="og:url" content="https://bestflyteng.github.io/2024/09/05/202409051655/index.html">
+<meta property="og:site_name" content="FlyTeng">
+<meta property="og:description" content="电商订单数据清洗 任务详情 请根据系统提供的订单数据表，按要求完成以下任务： 统计订单表格中，商品描述(choice_description)中为“NaN”的数量，并将其批量替换为“banana”， 请根据以上要求，将函数 nanCount() 补充完整，函数的返回值为整数值，既为“NaN”的数量。 任务要求  订单数据表为以逗号为分隔符的csv文件，编码方式为 UTF-8； 注意：DataFra">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bestflyteng.github.io/assets/images/post/pandas.svg">
+<meta property="article:published_time" content="2024-09-05T08:56:03.000Z">
+<meta property="article:modified_time" content="2024-11-27T04:39:50.769Z">
+<meta property="article:author" content="FlyTeng">
+<meta property="article:tag" content="Pandas">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bestflyteng.github.io/assets/images/post/pandas.svg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://bestflyteng.github.io/2024/09/05/202409051655/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?442ae94fe4ec95c1ddf19e7f4f6ac291";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Pandas 例题 - 1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="FlyTeng" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(img/bg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/assets/images/avatar/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/assets/images/post/pandas.svg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">FlyTeng</span></a><a class="nav-page-title" href="/"><span class="site-name">Pandas 例题 - 1</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Pandas 例题 - 1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-05T08:56:03.000Z" title="发表于 2024-09-05 16:56:03">2024-09-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-27T04:39:50.769Z" title="更新于 2024-11-27 12:39:50">2024-11-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Python/">Python</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">6.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>23分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h3 id="电商订单数据清洗">电商订单数据清洗</h3>
+<h4 id="任务详情">任务详情</h4>
+<p>请根据系统提供的订单数据表，按要求完成以下任务：<br>
+统计订单表格中，商品描述(choice_description)中为“NaN”的数量，并将其批量替换为“banana”，<br>
+请根据以上要求，将函数 nanCount() 补充完整，函数的返回值为整数值，既为“NaN”的数量。</p>
+<h4 id="任务要求">任务要求</h4>
+<ol>
+<li>订单数据表为以逗号为分隔符的csv文件，编码方式为 UTF-8；</li>
+<li>注意：DataFrame 由后台生成，作为参数 order_data 传递到 nonCount() 中，不需要生成新的 DataFrame；</li>
+<li>DataFrame 读取为订单数据表；</li>
+<li>返回值为 NaN 的数量，int 数据类型。<br>
+<a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/63/fj_order_data.csv">订单数据表.csv</a></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">nanCount</span>(<span class="params">self</span>)-&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 读取csv文件</span></span><br><span class="line">        order_data = pd.read_csv(<span class="string">&#x27;http://72.itmc.org.cn:80/JS001/data/user/15960/63/fj_order_data.csv&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="comment"># choice_description 为空的记录求和 </span></span><br><span class="line">        nan_count = order_data[<span class="string">&#x27;choice_description&#x27;</span>].isna().<span class="built_in">sum</span>()</span><br><span class="line">        <span class="comment"># 将 choice_description 为空的记录填充为 banana</span></span><br><span class="line">        order_data[<span class="string">&#x27;choice_description&#x27;</span>].fillna(<span class="string">&#x27;banana&#x27;</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">        <span class="comment"># 将修改写入文件</span></span><br><span class="line">        order_data.to_csv(<span class="string">&quot;http://72.itmc.org.cn:80/JS001/data/user/15960/63/fj_order_data.csv&quot;</span>, index=<span class="literal">False</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="comment"># 返回 choice_description 列为空的记录数</span></span><br><span class="line">        <span class="keyword">return</span> nan_count</span><br></pre></td></tr></table></figure>
+<h3 id="电商订单数据计算">电商订单数据计算</h3>
+<h4 id="任务详情-2">任务详情</h4>
+<p>请根据系统提供的订单数据表，按要求完成以下三个任务：<br>
+传入一个字符串，返回订单总金额 (quantity * item_price) 最大或最小的商品，并返回商品的名称(item_name)。<br>
+请根据以上要求，将函数 salesStr() 补充完整，函数的返回值为字符(str)，比如：“Steak Burrito”<br>
+订单数据访问地址请见下方：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>中文含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>order_id</td>
+<td>商品编号</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>数量</td>
+</tr>
+<tr>
+<td>item_name</td>
+<td>商品名称</td>
+</tr>
+<tr>
+<td>choice_description</td>
+<td>描述</td>
+</tr>
+<tr>
+<td>item_price</td>
+<td>单价</td>
+</tr>
+</tbody>
+</table>
+<h4 id="任务要求-2">任务要求</h4>
+<ol>
+<li>传入一个字符串(‘max’ 或 ‘min’)，返回订单总金额最大或最小的商品的名称(item_name) ；</li>
+<li>传入的字符串不区分大小写，即传入值可能是&quot;Max&quot;，也可能是&quot;max&quot;；</li>
+<li>传入&quot;max&quot;，返回订单总金额 (quantity * item_price) 最大的商品名称；传入“min”，返回订单总金额 (quantity * item_price) 最小的商品名称；</li>
+<li>返回字符串区分大小写，且保留字符串中间空格。<br>
+<a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/80/fj_order_data.csv">订单数据表.csv</a></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">salesStr</span>(<span class="params">self, condition: <span class="built_in">str</span></span>)-&gt; <span class="built_in">str</span>:</span><br><span class="line">        condition = condition.lower()</span><br><span class="line">        url = <span class="string">&#x27;http://72.itmc.org.cn:80/JS001/data/user/15960/80/fj_order_data.csv&#x27;</span></span><br><span class="line">        chipo = pd.read_csv(url, sep=<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">        chipo[<span class="string">&quot;item_price&quot;</span>] = chipo[<span class="string">&quot;item_price&quot;</span>].<span class="built_in">str</span>.replace(<span class="string">&quot;$&quot;</span>, <span class="string">&#x27;&#x27;</span>, regex=<span class="literal">False</span>).astype(<span class="built_in">float</span>)</span><br><span class="line">        chipo[<span class="string">&quot;total_price&quot;</span>] = chipo[<span class="string">&quot;quantity&quot;</span>] * chipo[<span class="string">&quot;item_price&quot;</span>]</span><br><span class="line">        chipo_sum = chipo.groupby(<span class="string">&quot;item_name&quot;</span>)[[<span class="string">&#x27;quantity&#x27;</span>, <span class="string">&quot;item_price&quot;</span>]].<span class="built_in">sum</span>().reset_index()</span><br><span class="line">        chipo_sum[<span class="string">&quot;total_price&quot;</span>] = chipo_sum[<span class="string">&quot;quantity&quot;</span>] * chipo_sum[<span class="string">&quot;item_price&quot;</span>]</span><br><span class="line">        result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> condition == <span class="string">&quot;max&quot;</span>:</span><br><span class="line">            result = chipo_sum[chipo_sum[<span class="string">&quot;total_price&quot;</span>] == chipo_sum[<span class="string">&quot;total_price&quot;</span>].<span class="built_in">max</span>()][<span class="string">&quot;item_name&quot;</span>].tolist()[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">elif</span> condition == <span class="string">&quot;min&quot;</span>:</span><br><span class="line">            result = chipo_sum[chipo_sum[<span class="string">&quot;total_price&quot;</span>] == chipo_sum[<span class="string">&quot;total_price&quot;</span>].<span class="built_in">min</span>()][<span class="string">&quot;item_name&quot;</span>].tolist()[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<h3 id="DataFrame计算平均值">DataFrame计算平均值</h3>
+<h4 id="任务详情-3">任务详情</h4>
+<p>给定一个DataFrame对象 df，要求返回各行的平均值。<br>
+具体操作如下：<br>
+1.添加新列 ‘avg’ 用于计算各行的平均值；<br>
+2.使用数组返回新列 ‘avg’。</p>
+<h4 id="任务要求-3">任务要求</h4>
+<p>1.程序接收 DataFrame 对象 df，返回结果是 list 数据类型；<br>
+2.注意：平均值需要四舍五入保留两位小数。</p>
+<h4 id="测试用例">测试用例</h4>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>24</td>
+<td>27</td>
+<td>7</td>
+<td>23</td>
+<td>25</td>
+<td>7</td>
+<td>21</td>
+</tr>
+<tr>
+<td>1</td>
+<td>16</td>
+<td>30</td>
+<td>8</td>
+<td>4</td>
+<td>26</td>
+<td>30</td>
+<td>8</td>
+</tr>
+<tr>
+<td>2</td>
+<td>18</td>
+<td>28</td>
+<td>7</td>
+<td>17</td>
+<td>17</td>
+<td>16</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<p>输出：<br>
+[19.14, 17.43, 18.29]<br>
+解释：首先生成新列’avg’，需要注意平均数需要四舍五入保留小数点后两位</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>24</td>
+<td>27</td>
+<td>7</td>
+<td>23</td>
+<td>25</td>
+<td>7</td>
+<td>21</td>
+<td>19.14</td>
+</tr>
+<tr>
+<td>1</td>
+<td>16</td>
+<td>30</td>
+<td>8</td>
+<td>4</td>
+<td>26</td>
+<td>30</td>
+<td>8</td>
+<td>17.43</td>
+</tr>
+<tr>
+<td>2</td>
+<td>18</td>
+<td>28</td>
+<td>7</td>
+<td>17</td>
+<td>17</td>
+<td>16</td>
+<td>25</td>
+<td>18.29</td>
+</tr>
+</tbody>
+</table>
+<p>输入：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>10</td>
+<td>19</td>
+<td>4</td>
+<td>7</td>
+</tr>
+<tr>
+<td>1</td>
+<td>9</td>
+<td>5</td>
+<td>28</td>
+<td>14</td>
+</tr>
+<tr>
+<td>2</td>
+<td>30</td>
+<td>27</td>
+<td>1</td>
+<td>13</td>
+</tr>
+<tr>
+<td>3</td>
+<td>21</td>
+<td>14</td>
+<td>19</td>
+<td>9</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>25</td>
+<td>30</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>输出：[10.0, 14.0, 17.75, 15.75, 18.0]<br>
+解释：首先生成新列’avg’，其次返回’avg’列</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>10</td>
+<td>19</td>
+<td>4</td>
+<td>7</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>1</td>
+<td>9</td>
+<td>5</td>
+<td>28</td>
+<td>14</td>
+<td>14.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>30</td>
+<td>27</td>
+<td>1</td>
+<td>13</td>
+<td>17.75</td>
+</tr>
+<tr>
+<td>3</td>
+<td>21</td>
+<td>14</td>
+<td>19</td>
+<td>9</td>
+<td>15.75</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>25</td>
+<td>30</td>
+<td>16</td>
+<td>18.00</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">CalAvg</span>(<span class="params">self, df: <span class="string">&#x27;pd.DataFrame&#x27;</span></span>) -&gt; <span class="built_in">list</span>:</span><br><span class="line">        df[<span class="string">&#x27;avg&#x27;</span>] = <span class="built_in">round</span>(df.mean(axis=<span class="number">1</span>), <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">list</span>(df[<span class="string">&#x27;avg&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="乐高商店收入计算">乐高商店收入计算</h3>
+<h4 id="题目描述">题目描述</h4>
+<p>我们需要完成乐高商店的分析，请你根据指引完成以下任务：<br>
+1.使用 Pandas 读取数据；<br>
+2.去掉没有价格的数据，将销量为空的数据填充为0；<br>
+3.计算所有产品总收入；<br>
+4.计算该数据中产品价格的平均值;<br>
+5.程序后台传入产品标题title，要求计算该产品的收入（收入总计）；<br>
+6.将总收入、平均价格、产品收入保存到列表里，返回给后台。</p>
+<h4 id="题目要求">题目要求</h4>
+<p>1.程序传入标题title数据类型是str；<br>
+2.程序传出数据类型是列表类型，列表中所有元素的数据类型均是 float；<br>
+3.如果产品标题title存在多个，则计算相同title商品的总收入；<br>
+4.平均价格需要四舍五入保留小数点后2位。</p>
+<h4 id="测试用例-2">测试用例</h4>
+<p>输入：’乐高旗舰店官网大电影系列70837Shimmer&amp;Shine闪亮水疗馆玩具积木’<br>
+输出；[xxx, xxx, 1598.0]<br>
+解释：总收入和平均价格隐藏，当前产品收入总计是1598.0</p>
+<p>输入：’乐高旗舰店幻影忍者系列70668雷电忍者杰的暴风战机’<br>
+输出：[xxx, xxx, 259073.0]<br>
+解释：总收入和平均价格隐藏，当前产品收入总计是259073.0</p>
+<p>输入：’乐高旗舰店官网创意百变高手系列10261大型过山车积木成人送礼’<br>
+输出：[xxx, xxx, 41986.0]</p>
+<h4 id="数据说明">数据说明</h4>
+<p>文本数据是excel文件，字段含义如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>商品名</td>
+<td>乐高旗舰店官网 LEGO积木 儿童玩具男孩 积木拼装玩具益智</td>
+</tr>
+<tr>
+<td>age_range</td>
+<td>商品对应的年龄等级</td>
+<td>适用年纪6+岁</td>
+</tr>
+<tr>
+<td>price</td>
+<td>商品价格</td>
+<td>899.0</td>
+</tr>
+<tr>
+<td>sales_num</td>
+<td>售卖数量</td>
+<td>217.0</td>
+</tr>
+</tbody>
+</table>
+<p><a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/241/fj_lego_tmallshop_sales_data.xlsx">乐高天猫店销售数据</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">task</span>(<span class="params">self, title</span>):</span><br><span class="line">        df = pd.read_excel(<span class="string">&quot;http://72.itmc.org.cn:80/JS001/data/user/15960/241/fj_lego_tmallshop_sales_data.xlsx&quot;</span>)</span><br><span class="line">        df[<span class="string">&quot;price&quot;</span>] = df[<span class="string">&quot;price&quot;</span>].dropna()</span><br><span class="line">        df[<span class="string">&quot;sales_num&quot;</span>] = df[<span class="string">&quot;sales_num&quot;</span>].fillna(<span class="number">0</span>)</span><br><span class="line">        df[<span class="string">&quot;amount&quot;</span>] = df[<span class="string">&quot;price&quot;</span>] * df[<span class="string">&quot;sales_num&quot;</span>]</span><br><span class="line">        <span class="built_in">all</span> = df[<span class="string">&quot;amount&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">        avg = df[<span class="string">&quot;price&quot;</span>].mean()</span><br><span class="line">        p = df[df[<span class="string">&quot;title&quot;</span>] == title][<span class="string">&quot;amount&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">round</span>(<span class="built_in">all</span>, <span class="number">2</span>), <span class="built_in">round</span>(avg, <span class="number">2</span>), <span class="built_in">round</span>(p, <span class="number">2</span>)]</span><br></pre></td></tr></table></figure>
+<h3 id="部门平均薪资汇总计算">部门平均薪资汇总计算</h3>
+<h4 id="任务说明">任务说明</h4>
+<p>读取给定的职工薪酬考勤簿，职工薪酬考勤簿由两个表格组成，分别是 基本薪资 工作表和 上班通勤 工作表。要求计算每一个部门内部的平均薪资，并把结果 降序 排列，返回给判定程序。<br>
+员工个人薪酬计算过程如下：<br>
+1.薪资由两部分组成， 月基本薪资 和 通勤工资，另外需要扣除需要缴纳的 社保费及公积金；<br>
+2.月基本薪资 = 基本薪资 + 岗位工资 + 绩效工资；<br>
+3.通勤工资中计算如下：<br>
+日薪 = (基本薪资 + 岗位工资 + 绩效工资) / 应出勤天数<br>
+时薪 = 日薪 / 8<br>
+4.通勤工资中，法定节假日加班薪资是工作日加班的 2 倍，周末加班工资是工作日加班的 1.5 倍，工作日加班工资与时薪 相同；<br>
+5.通勤工资需要扣除因请假导致的缺勤，请假/小时需要扣除的工资按照时薪计算。<br>
+6.社保费及公积金个人缴费按照社会保险缴费基数计算：<br>
+a.养老保险个人缴费比例是 8%<br>
+b.医疗保险个人缴费比例是 2%<br>
+c.失业保险个人缴费比例是 1%<br>
+d.公积金缴费比例是 10%</p>
+<p>示例：<br>
+小王基本薪资 2000，岗位工资 2000，社会保险缴费基数是 2000。绩效工资 0，应出勤天数 20 天，请假 1 天，工作日加班 8 小时，法定节假日加班 4 小时，周末加班 4 小时。<br>
+小王基本薪资+岗位工资+绩效工资是：2000 + 2000 = 4000；<br>
+小王时薪：4000 / 20 / 8 = 25；<br>
+小王加班工资：25 * 8 + 25 * 4 * 1.5 + 25 * 4 * 2 = 550；<br>
+小王请假扣除：25 * 8 = 200；<br>
+小王五险一金扣除：2000 * 0.08 + 2000 * 0.02 + 2000 * 0.01 + 2000 * 0.1 = 420；<br>
+小王本月实发工资：4000 + 550 - 200 - 420 = 3930。<br>
+假设小王所在部门有 5 个人，5 个人工资分别是 4050，4010，4120，4000，4500。小王所在部门的平均工资是：(3930+ 4010 + 4120 + 4000 + 4500) /5 = 4112。同理可算出其他部门的平均工资。</p>
+<p>注意：返回结果需四舍五入保留小数点后两位！<br>
+返回结果参数类型是 pd.Series。Series 的索引应为部门名，Series 的数据应为部门平均工资，Series 的 Name 属性应修改为 “平均薪资”。</p>
+<h4 id="任务要求-4">任务要求</h4>
+<p>1.程序无需接收参数输入，需要返回结果参数的格式是 pd.Series；<br>
+2.返回结果时需要四舍五入保留小数点后两位，计算过程内保留小数点后两位可能导致最后结果不正确；<br>
+3.部门平均工资需要降序排列；<br>
+4.本题所需的基本薪资表和上班通勤表均在职工薪酬工作簿中，按需读取。<br>
+5.Series 数据的类型应为 float 64，Name 属性应为 “平均薪资”。<br>
+6.index 的属性名应为部门。</p>
+<h4 id="测试用例-3">测试用例</h4>
+<p>部分返回数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">部门  </span><br><span class="line">销售部       15767.86</span><br><span class="line">运营部       ****</span><br><span class="line">工程部       ****  </span><br><span class="line">财务部       ****  </span><br><span class="line">研发部       ****  </span><br><span class="line">市场部       ****  </span><br><span class="line">人力资源部    4233.27  </span><br><span class="line">Name: 平均薪资, dtype: float64</span><br></pre></td></tr></table></figure>
+<h4 id="附件信息">附件信息</h4>
+<p>职工薪酬簿.xlsx，职工薪酬工作簿由 基本薪资 工作表和 上班通勤 工作表组成。</p>
+<p>1.基本薪资工作表。基本薪资工作表包含个人所属部门，各部分薪资状况和社会保险缴纳基数。共 7 个部门共 50 条数据，其中只有销售部有绩效工资。</p>
+<p>2.上班通勤工作表。上班通勤工作表包含本月应出勤天数，实际出勤天数。请假加班天数等。工作表中的名字与基本薪资工作表中的名字一一对应。共 50 条数据。<br>
+<a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/242/fj_employee_salary_work_books.xlsx">职工薪酬工作簿</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">department_salary_summary</span>(<span class="params">self</span>) -&gt; pd.Series:</span><br><span class="line">        basic_df = pd.read_excel(<span class="string">&quot;http://72.itmc.org.cn:80/JS001/data/user/15960/242/fj_employee_salary_work_books.xlsx&quot;</span>, sheet_name=<span class="string">&quot;基本薪资&quot;</span>)</span><br><span class="line">        commute_df = pd.read_excel(<span class="string">&quot;http://72.itmc.org.cn:80/JS001/data/user/15960/242/fj_employee_salary_work_books.xlsx&quot;</span>, sheet_name=<span class="string">&quot;上班通勤&quot;</span>)</span><br><span class="line">        basic_df[<span class="string">&quot;月基本薪资&quot;</span>] = basic_df[<span class="string">&quot;基本薪资&quot;</span>] + basic_df[<span class="string">&quot;岗位工资&quot;</span>] + basic_df[<span class="string">&quot;绩效工资&quot;</span>]</span><br><span class="line">        basic_df[<span class="string">&quot;日薪&quot;</span>] = (basic_df[<span class="string">&quot;月基本薪资&quot;</span>] /</span><br><span class="line">                            commute_df[<span class="string">&quot;应出勤天数（天）&quot;</span>])</span><br><span class="line">        basic_df[<span class="string">&quot;时薪&quot;</span>] = basic_df[<span class="string">&quot;日薪&quot;</span>] / <span class="number">8</span></span><br><span class="line">        commute_df[<span class="string">&quot;法定假日加班（小时）&quot;</span>] = commute_df[<span class="string">&quot;法定假日加班（小时）&quot;</span>].fillna(<span class="number">0</span>)</span><br><span class="line">        commute_df[<span class="string">&quot;周末加班（小时）&quot;</span>] = commute_df[<span class="string">&quot;周末加班（小时）&quot;</span>].fillna(<span class="number">0</span>)</span><br><span class="line">        commute_df[<span class="string">&quot;工作日加班（小时）&quot;</span>] = commute_df[<span class="string">&quot;工作日加班（小时）&quot;</span>].fillna(<span class="number">0</span>)</span><br><span class="line">        basic_df[<span class="string">&quot;加班工资&quot;</span>] = (basic_df[<span class="string">&quot;时薪&quot;</span>] * commute_df[<span class="string">&quot;法定假日加班（小时）&quot;</span>] * <span class="number">2</span> +</span><br><span class="line">                                basic_df[<span class="string">&quot;时薪&quot;</span>] * commute_df[<span class="string">&quot;周末加班（小时）&quot;</span>] * <span class="number">1.5</span></span><br><span class="line">                                + basic_df[<span class="string">&quot;时薪&quot;</span>] * commute_df[<span class="string">&quot;工作日加班（小时）&quot;</span>])</span><br><span class="line">        commute_df[<span class="string">&quot;请假（小时）&quot;</span>] = commute_df[<span class="string">&quot;请假（小时）&quot;</span>].fillna(<span class="number">0</span>)</span><br><span class="line">        basic_df[<span class="string">&quot;请假扣除&quot;</span>] = basic_df[<span class="string">&quot;时薪&quot;</span>] * commute_df[<span class="string">&quot;请假（小时）&quot;</span>]</span><br><span class="line">        basic_df[<span class="string">&quot;五险一金扣除&quot;</span>] = (basic_df[<span class="string">&quot;社会保险缴费基数&quot;</span>] * <span class="number">0.08</span> + basic_df[<span class="string">&quot;社会保险缴费基数&quot;</span>] * <span class="number">0.02</span> +</span><br><span class="line">                                    basic_df[<span class="string">&quot;社会保险缴费基数&quot;</span>] * <span class="number">0.01</span> + basic_df[<span class="string">&quot;社会保险缴费基数&quot;</span>] * <span class="number">0.1</span>)</span><br><span class="line">        basic_df[<span class="string">&quot;薪资&quot;</span>] = (basic_df[<span class="string">&quot;月基本薪资&quot;</span>] + basic_df[<span class="string">&quot;加班工资&quot;</span>] - basic_df[<span class="string">&quot;请假扣除&quot;</span>]</span><br><span class="line">                            - basic_df[<span class="string">&quot;五险一金扣除&quot;</span>])</span><br><span class="line">        df_1 = (basic_df.groupby(<span class="string">&quot;部门&quot;</span>)[<span class="string">&quot;薪资&quot;</span>]</span><br><span class="line">                .mean()</span><br><span class="line">                .<span class="built_in">round</span>(<span class="number">2</span>)</span><br><span class="line">                .reset_index()</span><br><span class="line">                .sort_values(by=<span class="string">&quot;薪资&quot;</span>, ascending=<span class="literal">False</span>))</span><br><span class="line">        series = pd.Series(df_1[<span class="string">&#x27;薪资&#x27;</span>].values, index=df_1[<span class="string">&#x27;部门&#x27;</span>], name=<span class="string">&quot;平均薪资&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> series</span><br></pre></td></tr></table></figure>
+<h3 id="编制比较资产负债表">编制比较资产负债表</h3>
+<h4 id="任务描述">任务描述</h4>
+<p>“A企业资产负债表.xlsx”文件的“比较资产负债表”包含 A 企业 2020 年和 2021 年的资产负债数据，请完成以下指定任务。<br>
+1.使用 0 填充表格中的空值；<br>
+2.计算 2021 年各项目变动额和变动率并添加相关数据列；<br>
+3.程序接受某项目的项目名称 name，要求输出该项目对应的变动额和变动率。</p>
+<h4 id="任务要求-5">任务要求</h4>
+<p>1.代码要编辑在 balance_sheet 函数下；<br>
+2.变动额需要四舍五入保留小数点后 2 位，变动率需要四舍五入保留小数点后 4 位；<br>
+3.变动额和变动率的数据类型都是浮点数数据类型；<br>
+4.程序只判定 return后的结果值，输出（print）后的结果值不作为判断依据；<br>
+5.程序返回结果的数据类型为列表。</p>
+<h4 id="测试用例-4">测试用例</h4>
+<p>输入：name=“负债总计”<br>
+输出：[26928392.51, 0.2567]<br>
+解释：负债总计变动额是 26928392.51，变动率是 0.2567</p>
+<p>输入：name=“无形资产”<br>
+输出：[-600000.0, -0.0667]<br>
+解释：无形资产变动额是 -600000.0，变动率是 -0.0667</p>
+<p>输入：name=“负债合计”<br>
+输出：[26928392.51, 0.2567]</p>
+<h4 id="代码提示">代码提示</h4>
+<p>我们通过将 Series 转换为列表的形式，将其中的数字提取出来。</p>
+<p>通过如下案例，我们取出 DataFrame 中的 1。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">In [1]: import pandas as pd</span><br><span class="line"></span><br><span class="line"># 定义一个 DataFrame</span><br><span class="line">In [2]: df = pd.DataFrame([[1, 2], [3, 4]], columns=[&#x27;A&#x27;, &#x27;B&#x27;])</span><br><span class="line"></span><br><span class="line"># 预览下 df</span><br><span class="line">In [3]: df</span><br><span class="line">Out[3]:</span><br><span class="line">   A  B</span><br><span class="line">0  1  2</span><br><span class="line">1  3  4</span><br><span class="line"></span><br><span class="line"># 通过列名取出 A 列</span><br><span class="line">In [4]: df[&#x27;A&#x27;]</span><br><span class="line">Out[4]:</span><br><span class="line">0    1</span><br><span class="line">1    3</span><br><span class="line">Name: A, dtype: int64</span><br><span class="line"></span><br><span class="line"># 取出 A 列再将 A 列转换为列表</span><br><span class="line">In [5]: df[&#x27;A&#x27;].tolist()</span><br><span class="line">Out[5]: [1, 3]</span><br><span class="line"></span><br><span class="line"># 取出列表中的第一个元素，就是我们想要的 1</span><br><span class="line">In [6]: df[&#x27;A&#x27;].tolist()[0]</span><br><span class="line">Out[6]: 1</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/243/fj_Interprice_balance_data.xlsx">A企业资产负债表</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">balance_sheet</span>(<span class="params">self, name</span>):</span><br><span class="line">        compare = pd.read_excel(<span class="string">&quot;http://72.itmc.org.cn:80/JS001/data/user/15960/243/fj_Interprice_balance_data.xlsx&quot;</span>, sheet_name=<span class="string">&quot;比较资产负债表&quot;</span>)</span><br><span class="line">        compare = compare.fillna(<span class="number">0</span>)</span><br><span class="line">        compare[<span class="string">&quot;price&quot;</span>] = compare[<span class="string">&quot;2021.12.31&quot;</span>] - compare[<span class="string">&quot;2020.12.31&quot;</span>]</span><br><span class="line">        compare[<span class="string">&quot;lv&quot;</span>] = compare[<span class="string">&quot;price&quot;</span>] / compare[<span class="string">&quot;2020.12.31&quot;</span>]</span><br><span class="line">        data = compare[compare[<span class="string">&quot;项目&quot;</span>] == name]</span><br><span class="line">        <span class="keyword">return</span> [data[<span class="string">&quot;price&quot;</span>].values.<span class="built_in">round</span>(<span class="number">2</span>)[<span class="number">0</span>], data[<span class="string">&quot;lv&quot;</span>].values.<span class="built_in">round</span>(<span class="number">4</span>)[<span class="number">0</span>]]</span><br></pre></td></tr></table></figure>
+<h3 id="某店铺不同地区销售情况分析">某店铺不同地区销售情况分析</h3>
+<h4 id="题目描述-2">题目描述</h4>
+<p>下方是某店铺在 2 月份的订单数据，共 28010 行、7 列。 在该数据中，每一行代表一笔订单，每一笔订单可以 看做是一位顾客（买家），价格相同的产品可视为同一产品；</p>
+<p>请编写程序，完成以下任务：<br>
+程序传入参数 area（收货地址），要求计算该地区订单的’订单的付款转化率’、’买家全额支付的转化率’、’买家实际支付总金额’、’客单价’、’销量（订单量）最多的产品的价格’、’买家实际支付总金额在所有地区实际支付总金额中的占比’，并将结果以列表形式返回。</p>
+<h4 id="题目要求-2">题目要求</h4>
+<p>1.程序接收 str 类型的 area，返回的结果为 list 数据类型；</p>
+<p>2.返回的结果中，列表中各个数据的数据类型为 str，其中转化率数据及占比数据需以百分比的形式输出，并且需要保留小数点后2位，如’13.14%’，其余结果不需要以百分比形式输出，但需要保留小数点后2位；</p>
+<p>3.如果某地区所有买家的买家实际支付金额为 0，即该地区没有付费行为。则该地区的’客单价’、’销量（订单量）最多的产品的价格’需返回字符串’本地区无销量’，其他结果则正常计算；</p>
+<p>4.如果该产品（订单）被全额退款，那么该产品不计入销量。</p>
+<h4 id="参考公式">参考公式</h4>
+<p>1.付款转化率 = 付款订单数 / 总订单数；</p>
+<p>2.买家全额支付的转化率 = 买家全额支付的订单数 / 总订单数；</p>
+<p>3.客单价 = 实际支付金额 / 支付买家数；</p>
+<h4 id="测试用例-5">测试用例</h4>
+<p>输入：area = ‘河南省’<br>
+输出：[‘81.99%’, ‘61.18%’, ‘56354.03’, ‘92.84’, ‘37.00’, ‘2.96%’]<br>
+解释：河南省’订单的付款转化率’为’81.99%’，’买家全额支付的转化率’为’61.18%’，’买家实际支付总金额’为’56354.03’，’客单价’为’92.84’，’销量（订单量）最多的产品的价格’为’37.00’，’买家实际支付总金额在所有地区实际支付总金额中的占比’为’2.96%’</p>
+<p>输入：area = ‘江苏省’<br>
+输出：[‘86.78%’, ‘66.75%’, ‘159359.18’, ‘109.22’, ‘37.00’, ‘8.38%’]</p>
+<p><a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/240/fj_7568_tmall_order_report.csv">二月销售数据</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">task</span>(<span class="params">self, area: <span class="built_in">str</span></span>) -&gt; <span class="built_in">list</span>:</span><br><span class="line">        source = pd.read_csv(<span class="string">&quot;data/二月销售数据-1.csv&quot;</span>)</span><br><span class="line">        <span class="comment"># 订单的付款转化率</span></span><br><span class="line">        <span class="comment"># 付款订单数</span></span><br><span class="line">        fkdds = source[(source[<span class="string">&quot;收货地址&quot;</span>] == area) &amp; (source[<span class="string">&quot;订单付款时间&quot;</span>].notna())].shape[<span class="number">0</span>]</span><br><span class="line">        <span class="comment"># 总订单数</span></span><br><span class="line">        zdds = source[(source[<span class="string">&quot;收货地址&quot;</span>] == area)].shape[<span class="number">0</span>]</span><br><span class="line">        fkzhl = fkdds / zdds * <span class="number">100</span></span><br><span class="line">        <span class="comment"># 买家全额支付的转化率</span></span><br><span class="line">        <span class="comment"># 买家全额支付的订单数</span></span><br><span class="line">        qedds = source[(source[<span class="string">&quot;收货地址&quot;</span>] == area) &amp; (source[<span class="string">&quot;总金额&quot;</span>] == source[<span class="string">&quot;买家实际支付金额&quot;</span>])].shape[<span class="number">0</span>]</span><br><span class="line">        qezhl = qedds / zdds * <span class="number">100</span></span><br><span class="line">        <span class="comment"># 买家实际支付总金额</span></span><br><span class="line">        sjzfzje = source[(source[<span class="string">&quot;收货地址&quot;</span>] == area)][<span class="string">&quot;买家实际支付金额&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> sjzfzje == <span class="number">0</span>:</span><br><span class="line">            kdj = <span class="string">&quot;本地区无销量&quot;</span></span><br><span class="line">            zdcpjg = <span class="string">&quot;本地区无销量&quot;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 客单价</span></span><br><span class="line">            <span class="comment"># 支付买家数</span></span><br><span class="line">            zfmjs = source[(source[<span class="string">&quot;收货地址&quot;</span>] == area) &amp; (source[<span class="string">&quot;买家实际支付金额&quot;</span>] != <span class="number">0</span>)].shape[<span class="number">0</span>]</span><br><span class="line">            kdj = sjzfzje / zfmjs</span><br><span class="line">            <span class="comment"># 销量（订单量）最多的产品的价格</span></span><br><span class="line">            zdcpjg = source[(source[<span class="string">&quot;收货地址&quot;</span>] == area)][<span class="string">&quot;总金额&quot;</span>].mode().iloc[<span class="number">0</span>]</span><br><span class="line">        <span class="comment"># 买家实际支付总金额在所有地区实际支付总金额中的占比</span></span><br><span class="line">        sydqzjezb = sjzfzje / source[<span class="string">&quot;买家实际支付金额&quot;</span>].<span class="built_in">sum</span>() * <span class="number">100</span></span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">                <span class="built_in">str</span>(<span class="built_in">round</span>(fkzhl,<span class="number">2</span>)) + <span class="string">&quot;%&quot;</span> <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(<span class="built_in">round</span>(fkzhl,<span class="number">2</span>)).split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">else</span> <span class="built_in">str</span>(<span class="built_in">round</span>(fkzhl,<span class="number">2</span>)) + <span class="string">&quot;0%&quot;</span>,</span><br><span class="line">                <span class="built_in">str</span>(<span class="built_in">round</span>(qezhl,<span class="number">2</span>)) + <span class="string">&quot;%&quot;</span> <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(<span class="built_in">round</span>(qezhl,<span class="number">2</span>)).split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">else</span> <span class="built_in">str</span>(<span class="built_in">round</span>(qezhl,<span class="number">2</span>)) + <span class="string">&quot;0%&quot;</span>,</span><br><span class="line">                <span class="built_in">str</span>(<span class="built_in">round</span>(sjzfzje,<span class="number">2</span>)) <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(<span class="built_in">round</span>(sjzfzje,<span class="number">2</span>)).split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">else</span> <span class="built_in">str</span>(<span class="built_in">round</span>(sjzfzje,<span class="number">2</span>)) + <span class="string">&quot;0&quot;</span>,</span><br><span class="line">                <span class="built_in">str</span>(<span class="built_in">round</span>(kdj,<span class="number">2</span>)) <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(<span class="built_in">round</span>(kdj,<span class="number">2</span>)).split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">else</span> <span class="built_in">str</span>(<span class="built_in">round</span>(kdj,<span class="number">2</span>)) + <span class="string">&quot;0&quot;</span>,                </span><br><span class="line">                <span class="built_in">str</span>(<span class="built_in">round</span>(zdcpjg,<span class="number">2</span>)) <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(<span class="built_in">round</span>(zdcpjg,<span class="number">2</span>)).split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">else</span> <span class="built_in">str</span>(<span class="built_in">round</span>(zdcpjg,<span class="number">2</span>)) + <span class="string">&quot;0&quot;</span>,</span><br><span class="line">                <span class="built_in">str</span>(<span class="built_in">round</span>(sydqzjezb,<span class="number">2</span>)) + <span class="string">&quot;%&quot;</span> <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(<span class="built_in">round</span>(sydqzjezb,<span class="number">2</span>)).split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]) == <span class="number">2</span> <span class="keyword">else</span> <span class="built_in">str</span>(<span class="built_in">round</span>(sydqzjezb,<span class="number">2</span>)) + <span class="string">&quot;0%&quot;</span>      </span><br><span class="line">            ]</span><br></pre></td></tr></table></figure>
+<h3 id="用户职位信息统计">用户职位信息统计</h3>
+<h4 id="任务详情-4">任务详情</h4>
+<p>请根据任务下方提供的用户职位统计信息表，完成以下任务：<br>
+职位表中每个字段含义如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>用户序号</td>
+</tr>
+<tr>
+<td>age</td>
+<td>用户年龄</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>用户性别</td>
+</tr>
+<tr>
+<td>occupation</td>
+<td>用户职位</td>
+</tr>
+<tr>
+<td>zip_code</td>
+<td>用户邮编</td>
+</tr>
+<tr>
+<td>编写一个职位统计函数 jobStatistics()，给定表格里的任一职位，统计其以下信息</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>任务一：统计该职位女性用户的百分占比（结果保留两位小数），输出数据类型为 str；</li>
+<li>任务二：统计该职位女性用户百分占比在所有职位女性用户百分占比中的排名（降序），输出数据类型为 int。<br>
+将以上2个结果保存在 数组(list) 中，按顺序返回。</li>
+</ol>
+<h4 id="任务要求-6">任务要求</h4>
+<ol>
+<li>程序接收一个 str 类型的变量 op，返回一个 list 类型的变量；</li>
+<li>“gender” 列中，“F” 代表女性，“M” 代表男性；</li>
+<li>返回结果格式如下：[任务一: str, 任务二: int]。</li>
+</ol>
+<h4 id="测试用例-6">测试用例</h4>
+<p>输入：‘artist’<br>
+输出：[ ‘46.43%’, 4]<br>
+解释：该职位中女性用户占据该职位所有用户的46.43%，该职位女性占比排名在所有职位女性占比排名中位列第 4</p>
+<p>输入：‘student’<br>
+输出：[‘30.61%’, 10]<br>
+解释：该职位中女性用户占据该职位所有用户的30.61%，该职位女性占比排名在所有职位女性占比排名中位列第 10</p>
+<p><a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/67/fj_jobstatics.xlsx">用户职位信息统计表.xlsx</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">jobStatistics</span>(<span class="params">self, occupation: <span class="built_in">str</span></span>) -&gt; <span class="built_in">list</span>:</span><br><span class="line">        url = <span class="string">&#x27;http://72.itmc.org.cn:80/JS001/data/user/15960/67/fj_jobstatics.xlsx&#x27;</span></span><br><span class="line">        data = pd.read_excel(url)</span><br><span class="line">        r1 = <span class="built_in">str</span>(<span class="built_in">round</span>(<span class="built_in">len</span>(data[(data[<span class="string">&#x27;gender&#x27;</span>] == <span class="string">&#x27;F&#x27;</span>) &amp; (data[<span class="string">&#x27;occupation&#x27;</span>] == occupation)]) / <span class="built_in">len</span>(</span><br><span class="line">            data[(data[<span class="string">&#x27;occupation&#x27;</span>] == occupation)]) * <span class="number">100</span>, <span class="number">2</span>)) + <span class="string">&#x27;%&#x27;</span></span><br><span class="line">        qbnx = data.groupby(<span class="string">&#x27;occupation&#x27;</span>)[<span class="string">&#x27;user_id&#x27;</span>].size()</span><br><span class="line">        <span class="comment"># 每个部门的女性</span></span><br><span class="line">        bmnx = data[data[<span class="string">&#x27;gender&#x27;</span>] == <span class="string">&#x27;F&#x27;</span>].groupby(<span class="string">&#x27;occupation&#x27;</span>)[<span class="string">&#x27;user_id&#x27;</span>].size()</span><br><span class="line">        bl = <span class="built_in">round</span>((bmnx / qbnx) * <span class="number">100</span>, <span class="number">2</span>)</span><br><span class="line">        px = bl.sort_values(ascending=<span class="literal">False</span>)</span><br><span class="line">        pm = <span class="built_in">int</span>(px.index.get_loc(occupation)) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(r1.split(<span class="string">&#x27;%&#x27;</span>)[<span class="number">0</span>].split(<span class="string">&quot;.&quot;</span>)[<span class="number">1</span>]) &lt; <span class="number">2</span>:</span><br><span class="line">            r1 = r1.split(<span class="string">&quot;%&quot;</span>)[<span class="number">0</span>] + <span class="string">&quot;0%&quot;</span></span><br><span class="line">        <span class="keyword">return</span> [r1, pm]</span><br></pre></td></tr></table></figure>
+<h3 id="某知名网站高质量视频主挖掘">某知名网站高质量视频主挖掘</h3>
+<h4 id="任务详情-5">任务详情</h4>
+<p>根据下方提供的某知名网站视频信息数据，构造一个打分模型，并根据分值挖掘高质量视频主，要求输入视频主的名字author，返回对应的UP主分层。</p>
+<p>IFL模型<br>
+针对视频主的视频信息构建了IFL模型，以评估视频的质量。</p>
+<p>I (Interaction_rate)<br>
+I 值反映的是平均每个视频的互动率，互动率越高，表明其视频更能产生用户的共鸣，使其有话题感。<br>
+I = (总弹幕数 + 总评论数) / (总播放量 * 统计范围内视频数量) * 100。</p>
+<p>F (Frequence)<br>
+F 值表示的是每个视频的平均发布周期，每个视频之间的发布周期越短，说明内容生产者创作视频的时间也就越短，创作时间太长，不是忠实粉丝的用户可能将其遗忘。<br>
+F = (统计范围内最晚发布视频时间 - 最早发布视频时间) / 发布视频的数量。<br>
+如果 F 的值为 0，表示该视频主仅发布一条视频。那么将 F 的值重新赋值为 F 的最大值 + 1，如原有数据中，F 的最大值是 100，那么就将 F 的最大值设置为 100 + 1 = 101。</p>
+<p>L (Like_rate)<br>
+L值表示的是统计时间内发布视频的平均点赞率，越大表示视频质量越稳定，用户对up主的认可度也就越高。<br>
+L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量 * 发布视频数) * 100。</p>
+<p>维度打分<br>
+维度确认的核心是分值确定，按照设定的标准，我们给每个视频主的 I/F/L 值打分，分值的大小取决于我们的偏好，<br>
+即我们越喜欢的行为，打的分数就越高 ：<br>
+- I 值。表示 up 主视频的平均评论率，这个值越大，就说明其视频越能使用户有话题，当I值越大时，分值越大。<br>
+- F 值。表示视频的平均发布周期，我们当然想要经常看到，所以这个值越大时，分值越小。<br>
+- L 值。表示发布视频的平均点赞率，S 值越大时，质量越稳定，分值也就越大。</p>
+<p>视频主主分层 我们根据每一项指标是否高于平均值，把UP主划分为8类，我们根据案例中的情况进行划分，具体如下表</p>
+<table>
+<thead>
+<tr>
+<th>视频主分类</th>
+<th>I值是否大于平均值</th>
+<th>F值是否小于平均值</th>
+<th>L值是否大于平均值</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高质量视频主</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>用户活跃高，更新周期短，视频质量高</td>
+</tr>
+<tr>
+<td>高质量拖更视频主</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>用户活跃高，更新周期长，视频质量高</td>
+</tr>
+<tr>
+<td>高质量内容高深视频主</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>用户活跃低，更新周期短，视频质量高</td>
+</tr>
+<tr>
+<td>高质量内容高深拖更视频主</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>用户活跃低，更新周期长，视频质量高</td>
+</tr>
+<tr>
+<td>接地气活跃视频主</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>用户活跃高，更新周期短，视频质量低</td>
+</tr>
+<tr>
+<td>活跃视频主</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>用户活跃低，更新周期短，视频质量低</td>
+</tr>
+<tr>
+<td>接地气视频主</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>用户活跃高，更新周期长，视频质量低</td>
+</tr>
+<tr>
+<td>还在成长的视频主</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>用户活跃低，更新周期长，视频质量低</td>
+</tr>
+</tbody>
+</table>
+<p>数据链接已经在下方给出： 各字段表示含义如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pubdate</td>
+<td>发布时间</td>
+</tr>
+<tr>
+<td>bv</td>
+<td>BV号</td>
+</tr>
+<tr>
+<td>url</td>
+<td>视频链接</td>
+</tr>
+<tr>
+<td>title</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>author</td>
+<td>作者</td>
+</tr>
+<tr>
+<td>description</td>
+<td>视频简介</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>标签</td>
+</tr>
+<tr>
+<td>favorites</td>
+<td>收藏</td>
+</tr>
+<tr>
+<td>coins</td>
+<td>投币</td>
+</tr>
+<tr>
+<td>danmu</td>
+<td>弹幕</td>
+</tr>
+<tr>
+<td>likes</td>
+<td>点赞</td>
+</tr>
+<tr>
+<td>reply</td>
+<td>评论</td>
+</tr>
+<tr>
+<td>views</td>
+<td>播放量</td>
+</tr>
+<tr>
+<td>share</td>
+<td>分享</td>
+</tr>
+</tbody>
+</table>
+<h4 id="任务要求-7">任务要求</h4>
+<ol>
+<li>程序接收 str 类型的变量 author，返回结果的数据类型是str类型；</li>
+<li>便于数据美观，IFL 的值需要保留小数点后两位（四舍五入）；</li>
+<li>数据中可能存在重复数据；</li>
+<li>某知名视频网站视频数据为逗号分割的 csv 文件，utf-8 编码。</li>
+</ol>
+<h4 id="测试用例-7">测试用例</h4>
+<p>输入：‘龙爪洪荒’<br>
+输出：‘高质量拖更视频主’</p>
+<p>输入：‘AO摆渡人’<br>
+输出：‘活跃视频主’</p>
+<p><a target="_blank" rel="noopener" href="http://72.itmc.org.cn:80/JS001/data/user/15960/94/fj_B_video_web_data.csv">某知名视频网站视频数据.csv</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码暂无</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://bestflyteng.github.io">FlyTeng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://bestflyteng.github.io/2024/09/05/202409051655/">https://bestflyteng.github.io/2024/09/05/202409051655/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://bestflyteng.github.io" target="_blank">FlyTeng</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Pandas/">Pandas</a><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post-share"><div class="social-share" data-image="/assets/images/post/pandas.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/10/30/202410301643/" title="CentOS 7 配置 IP 地址"><img class="cover" src="/assets/images/post/ip.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CentOS 7 配置 IP 地址</div></div><div class="info-2"><div class="info-item-1">切换至特权模式，并输入密码 1su root 查看网卡信息 1ip a 修改网卡配置文件 123456789vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面i        //输i进入文件编辑模式(i=insert)BOOTPROTO=&quot;dhcp&quot;       //修改：将dhcp修改为static，修改后为BOOTPROTO=staticONBOOT=yes               //修改为yes, 网卡开机自启动Esc或Ctrl+c   //退出文件编辑模式:wq           //保存文件修改并退出service network restart     //重启网卡ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</div></div></div></a><a class="pagination-related" href="/2024/08/24/202408240914/" title="Pandas 库的使用"><img class="cover" src="/assets/images/post/pandas.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Pandas 库的使用</div></div><div class="info-2"><div class="info-item-1">本文按照pandas文档来总结的，如果有错误的地方，欢迎指正 https://pandas.ac.cn/docs/ 安装 pandas 1pip install pandas 导入 pandas 1import pandas as pd 读取表格或数据库 数据库以MySQL为例 支持相对路径，绝对路径，网络路径 读取操作返回DataFrame 12345678910111213141516171819202122232425import pandas as pdimport pymysql# 在读取的时候添加parse_dates=[&quot;列名&quot;]，可使这个列变为Timestamp类型# 读取csv表格文件pd.read_csv(&quot;data.csv&quot;)# 读取xlsx或者xls表格文件pd.read_excel(&quot;data.xlsx&quot;)# 读取MySQL# 首先创建数据库连接对象conn = pymysql.connect(    host=&quot;localhost&quot;, # 数据库地址   ...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/assets/images/avatar/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FlyTeng</div><div class="author-info-description">这是我个人搭建的一个博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BestFlyTeng/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%95%86%E8%AE%A2%E5%8D%95%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="toc-number">1.</span> <span class="toc-text">电商订单数据清洗</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%AF%A6%E6%83%85"><span class="toc-number">1.1.</span> <span class="toc-text">任务详情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">任务要求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%95%86%E8%AE%A2%E5%8D%95%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">电商订单数据计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%AF%A6%E6%83%85-2"><span class="toc-number">2.1.</span> <span class="toc-text">任务详情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82-2"><span class="toc-number">2.2.</span> <span class="toc-text">任务要求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataFrame%E8%AE%A1%E7%AE%97%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text">DataFrame计算平均值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%AF%A6%E6%83%85-3"><span class="toc-number">3.1.</span> <span class="toc-text">任务详情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82-3"><span class="toc-number">3.2.</span> <span class="toc-text">任务要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-number">3.3.</span> <span class="toc-text">测试用例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%90%E9%AB%98%E5%95%86%E5%BA%97%E6%94%B6%E5%85%A5%E8%AE%A1%E7%AE%97"><span class="toc-number">4.</span> <span class="toc-text">乐高商店收入计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">4.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82"><span class="toc-number">4.2.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B-2"><span class="toc-number">4.3.</span> <span class="toc-text">测试用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%AF%B4%E6%98%8E"><span class="toc-number">4.4.</span> <span class="toc-text">数据说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E9%97%A8%E5%B9%B3%E5%9D%87%E8%96%AA%E8%B5%84%E6%B1%87%E6%80%BB%E8%AE%A1%E7%AE%97"><span class="toc-number">5.</span> <span class="toc-text">部门平均薪资汇总计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%AF%B4%E6%98%8E"><span class="toc-number">5.1.</span> <span class="toc-text">任务说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82-4"><span class="toc-number">5.2.</span> <span class="toc-text">任务要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B-3"><span class="toc-number">5.3.</span> <span class="toc-text">测试用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%84%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-number">5.4.</span> <span class="toc-text">附件信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%88%B6%E6%AF%94%E8%BE%83%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8"><span class="toc-number">6.</span> <span class="toc-text">编制比较资产负债表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%8F%8F%E8%BF%B0"><span class="toc-number">6.1.</span> <span class="toc-text">任务描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82-5"><span class="toc-number">6.2.</span> <span class="toc-text">任务要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B-4"><span class="toc-number">6.3.</span> <span class="toc-text">测试用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA"><span class="toc-number">6.4.</span> <span class="toc-text">代码提示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%90%E5%BA%97%E9%93%BA%E4%B8%8D%E5%90%8C%E5%9C%B0%E5%8C%BA%E9%94%80%E5%94%AE%E6%83%85%E5%86%B5%E5%88%86%E6%9E%90"><span class="toc-number">7.</span> <span class="toc-text">某店铺不同地区销售情况分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="toc-number">7.1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A6%81%E6%B1%82-2"><span class="toc-number">7.2.</span> <span class="toc-text">题目要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E5%85%AC%E5%BC%8F"><span class="toc-number">7.3.</span> <span class="toc-text">参考公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B-5"><span class="toc-number">7.4.</span> <span class="toc-text">测试用例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E8%81%8C%E4%BD%8D%E4%BF%A1%E6%81%AF%E7%BB%9F%E8%AE%A1"><span class="toc-number">8.</span> <span class="toc-text">用户职位信息统计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%AF%A6%E6%83%85-4"><span class="toc-number">8.1.</span> <span class="toc-text">任务详情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82-6"><span class="toc-number">8.2.</span> <span class="toc-text">任务要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B-6"><span class="toc-number">8.3.</span> <span class="toc-text">测试用例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%90%E7%9F%A5%E5%90%8D%E7%BD%91%E7%AB%99%E9%AB%98%E8%B4%A8%E9%87%8F%E8%A7%86%E9%A2%91%E4%B8%BB%E6%8C%96%E6%8E%98"><span class="toc-number">9.</span> <span class="toc-text">某知名网站高质量视频主挖掘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%AF%A6%E6%83%85-5"><span class="toc-number">9.1.</span> <span class="toc-text">任务详情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%A6%81%E6%B1%82-7"><span class="toc-number">9.2.</span> <span class="toc-text">任务要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B-7"><span class="toc-number">9.3.</span> <span class="toc-text">测试用例</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/09/202505091815/" title="Win10 部署若依微服务版本"><img src="/assets/images/post/nacos.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Win10 部署若依微服务版本"/></a><div class="content"><a class="title" href="/2025/05/09/202505091815/" title="Win10 部署若依微服务版本">Win10 部署若依微服务版本</a><time datetime="2025-05-09T10:16:10.000Z" title="发表于 2025-05-09 18:16:10">2025-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/24/202503241931/" title="Vue3 和 Pinia 的使用"><img src="/assets/images/post/pinia.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 和 Pinia 的使用"/></a><div class="content"><a class="title" href="/2025/03/24/202503241931/" title="Vue3 和 Pinia 的使用">Vue3 和 Pinia 的使用</a><time datetime="2025-03-24T11:31:51.000Z" title="发表于 2025-03-24 19:31:51">2025-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/23/202503231943/" title="CSS 媒体查询"><img src="/assets/images/post/css.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS 媒体查询"/></a><div class="content"><a class="title" href="/2025/03/23/202503231943/" title="CSS 媒体查询">CSS 媒体查询</a><time datetime="2025-03-23T11:44:27.000Z" title="发表于 2025-03-23 19:44:27">2025-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/06/202503062032/" title="JavaScript Promise 的使用"><img src="/assets/images/post/promise.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript Promise 的使用"/></a><div class="content"><a class="title" href="/2025/03/06/202503062032/" title="JavaScript Promise 的使用">JavaScript Promise 的使用</a><time datetime="2025-03-06T12:32:55.000Z" title="发表于 2025-03-06 20:32:55">2025-03-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/202502261832/" title="蓝桥杯 Web 练习"><img src="/assets/images/post/lanqiao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蓝桥杯 Web 练习"/></a><div class="content"><a class="title" href="/2025/02/26/202502261832/" title="蓝桥杯 Web 练习">蓝桥杯 Web 练习</a><time datetime="2025-02-26T10:33:31.000Z" title="发表于 2025-02-26 18:33:31">2025-02-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FlyTeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-message"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'BestFlyTeng/BestFlyTeng.github.io',
+      'data-repo-id': 'R_kgDOMjtzGQ',
+      'data-category-id': 'DIC_kwDOMjtzGc4ChqnD',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = { startHidden: true }
+  
+    window.chatBtnFn = () => {
+      document.getElementById('chatra').classList.contains('chatra--expanded') ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => Chatra('hide'),
+      show: () => Chatra('show')
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = '36GeoKDyTpu2BLGaT'
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

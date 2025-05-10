@@ -1,0 +1,483 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Win10 部署若依微服务版本 | FlyTeng</title><meta name="author" content="FlyTeng"><meta name="copyright" content="FlyTeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="下载  下载的任何文件都建议放在不包含中文的目录下  下载项目 项目链接: https:&#x2F;&#x2F;gitee.com&#x2F;y_project&#x2F;RuoYi-Cloud 或使用git拉取 1git clone https:&#x2F;&#x2F;gitee.com&#x2F;y_project&#x2F;RuoYi-Cloud.git 下载 nacos 官方下载: https:&#x2F;&#x2F;nacos.io&#x2F;download&#x2F;nacos-server&#x2F; 下载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win10 部署若依微服务版本">
+<meta property="og:url" content="https://bestflyteng.github.io/2025/05/09/202505091815/index.html">
+<meta property="og:site_name" content="FlyTeng">
+<meta property="og:description" content="下载  下载的任何文件都建议放在不包含中文的目录下  下载项目 项目链接: https:&#x2F;&#x2F;gitee.com&#x2F;y_project&#x2F;RuoYi-Cloud 或使用git拉取 1git clone https:&#x2F;&#x2F;gitee.com&#x2F;y_project&#x2F;RuoYi-Cloud.git 下载 nacos 官方下载: https:&#x2F;&#x2F;nacos.io&#x2F;download&#x2F;nacos-server&#x2F; 下载">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bestflyteng.github.io/assets/images/post/nacos.png">
+<meta property="article:published_time" content="2025-05-09T10:16:10.000Z">
+<meta property="article:modified_time" content="2025-05-10T12:58:33.500Z">
+<meta property="article:author" content="FlyTeng">
+<meta property="article:tag" content="nacos">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bestflyteng.github.io/assets/images/post/nacos.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://bestflyteng.github.io/2025/05/09/202505091815/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?442ae94fe4ec95c1ddf19e7f4f6ac291";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Win10 部署若依微服务版本',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="FlyTeng" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(img/bg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/assets/images/avatar/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/assets/images/post/nacos.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">FlyTeng</span></a><a class="nav-page-title" href="/"><span class="site-name">Win10 部署若依微服务版本</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Win10 部署若依微服务版本</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-05-09T10:16:10.000Z" title="发表于 2025-05-09 18:16:10">2025-05-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-05-10T12:58:33.500Z" title="更新于 2025-05-10 20:58:33">2025-05-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1>下载</h1>
+<blockquote>
+<p>下载的任何文件都建议放在不包含中文的目录下</p>
+</blockquote>
+<h2 id="下载项目">下载项目</h2>
+<p>项目链接: <a target="_blank" rel="noopener" href="https://gitee.com/y_project/RuoYi-Cloud">https://gitee.com/y_project/RuoYi-Cloud</a><br>
+或使用git拉取</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/y_project/RuoYi-Cloud.git</span><br></pre></td></tr></table></figure>
+<h2 id="下载-nacos">下载 nacos</h2>
+<p>官方下载: <a target="_blank" rel="noopener" href="https://nacos.io/download/nacos-server/">https://nacos.io/download/nacos-server/</a></p>
+<h2 id="下载-seata-server">下载 seata-server</h2>
+<p>官方下载: <a target="_blank" rel="noopener" href="https://nacos.io/download/nacos-server/">https://nacos.io/download/nacos-server/</a></p>
+<h2 id="下载-redis">下载 redis</h2>
+<p>这里用的是7.4.2版本<br>
+官方下载: <a target="_blank" rel="noopener" href="https://redis.io/downloads/">https://redis.io/downloads/</a></p>
+<h2 id="下载-MySQL-Nginx">下载 MySQL,Nginx</h2>
+<p>这里用的是小皮面板，可以集成 Nginx,MySQL,FTP等服务,这里只用到了MySQL和Nginx<br>
+官方下载: <a target="_blank" rel="noopener" href="https://www.xp.cn/php-study">https://www.xp.cn/php-study</a></p>
+<h2 id="下载-Java">下载 Java</h2>
+<p>这里用的是jdk21<br>
+<a target="_blank" rel="noopener" href="https://bell-sw.com/pages/downloads/">https://bell-sw.com/pages/downloads/</a></p>
+<h2 id="下载-sentinel">下载 sentinel</h2>
+<p>下载后放到Ruoyi-Cloud的jars文件夹(自建)内,此处用的是1.8.8版本<br>
+<a target="_blank" rel="noopener" href="https://github.com/alibaba/Sentinel/releases">https://github.com/alibaba/Sentinel/releases</a></p>
+<h1>开发环境部署</h1>
+<p>个人习惯将后端和前端分开，解压项目后将Ruoyi-Cloud文件夹重命名为ruoyi-master，将ruoyi-master内的ruoyi-ui跟ruoyi-master放到同级目录。<br>
+建议使用默认端口，放行8848,9848,7848,9849</p>
+<h2 id="配置-Java-环境">配置 Java 环境</h2>
+<p>解压 jdk-21_windows-x64_bin.zip 到不包含中文的目录下<br>
+打开环境变量<br>
+<img src="a-a-e.png" alt=""><br>
+<img src="a-a-f.png" alt=""><br>
+添加JAVA_HOME变量<br>
+<img src="a-a-g.png" alt=""><br>
+点开Path变量<br>
+<img src="a-a-h.png" alt=""><br>
+配置到bin目录<br>
+<img src="a-a-i.png" alt=""><br>
+验证环境是否配置成功<br>
+<img src="a-a-j.png" alt=""></p>
+<h2 id="部署-nacos">部署 nacos</h2>
+<p>解压 nacos-server-2.5.1.tar.gz 到不包含中文的目录下</p>
+<h3 id="配置">配置</h3>
+<p>编辑 nacos/bin/startup.cmd，修改 cluster 为 standalone<br>
+standalone 是单机部署 ， cluster 是集群部署<br>
+<img src="a-a-a.png" alt=""></p>
+<p>将ruoyi-master/docker/nacos/conf/application.properties文件复制到nacos/conf/application.properties，并打开nacos/conf/application.properties修改</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.datasource.platform</span>=<span class="string">mysql</span></span><br><span class="line"><span class="attr">db.num</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">db.url.0</span>=<span class="string">jdbc:mysql://mysql-host:3306/ry-config?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC</span></span><br><span class="line"><span class="attr">db.user</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">db.password</span>=<span class="string">password</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nacos.naming.empty-service.auto-clean</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">nacos.naming.empty-service.clean.initial-delay-ms</span>=<span class="string">50000</span></span><br><span class="line"><span class="attr">nacos.naming.empty-service.clean.period-time-ms</span>=<span class="string">30000</span></span><br><span class="line"></span><br><span class="line"><span class="attr">management.endpoints.web.exposure.include</span>=<span class="string">*</span></span><br><span class="line"></span><br><span class="line"><span class="attr">management.metrics.export.elastic.enabled</span>=<span class="string">false</span></span><br><span class="line"><span class="attr">management.metrics.export.influx.enabled</span>=<span class="string">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.tomcat.accesslog.enabled</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">server.tomcat.accesslog.pattern</span>=<span class="string">%h %l %u %t &quot;%r&quot; %s %b %D %&#123;User-Agent&#125;i %&#123;Request-Source&#125;i</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.tomcat.basedir</span>=<span class="string">D://home/ruoyi/nacos/tomcat/logs</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nacos.security.ignore.urls</span>=<span class="string">/,/error,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.ico,/console-ui/public/**,/v1/auth/**,/v1/console/health/**,/actuator/**,/v1/console/server/**</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nacos.core.auth.system.type</span>=<span class="string">nacos</span></span><br><span class="line"><span class="comment"># 开启认证</span></span><br><span class="line"><span class="attr">nacos.core.auth.enabled</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">nacos.core.auth.default.token.expire.seconds</span>=<span class="string">18000</span></span><br><span class="line"><span class="comment"># 此字段将 nacos.core.auth.default.token.secret.key 做替换，值为base64编码后字符串长度&gt;=32的字符串</span></span><br><span class="line"><span class="attr">nacos.core.auth.plugin.nacos.token.secret.key</span>=<span class="string">6L+Z5piv5L2g55qE6ZW/5bqmPj0zMueahGJhc2U2NOe8lueggQ==</span></span><br><span class="line"><span class="attr">nacos.core.auth.caching.enabled</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">nacos.core.auth.enable.userAgentAuthWhite</span>=<span class="string">false</span></span><br><span class="line"><span class="attr">nacos.core.auth.server.identity.key</span>=<span class="string">serverIdentity</span></span><br><span class="line"><span class="attr">nacos.core.auth.server.identity.value</span>=<span class="string">security</span></span><br><span class="line"></span><br><span class="line"><span class="attr">nacos.istio.mcp.server.enabled</span>=<span class="string">false</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="启动-nacos">启动 nacos</h3>
+<p>双击或命令行运行 nacos/bin/startup.cmd<br>
+如果出现类似于这样的错误，删除startup.cmd内所有的rem行即可。<br>
+<img src="a-a-b.png" alt=""><br>
+运行成功类似于下图<br>
+<img src="a-a-c.png" alt=""></p>
+<h2 id="部署-seata-server">部署 seata-server</h2>
+<p>解压 apache-seata-2.3.0-incubating-bin.tar.gz 到不包含中文的目录下</p>
+<h3 id="配置seata-server">配置seata-server</h3>
+<p>编辑 seata-server/conf/application.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">7091</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">seata-server</span></span><br><span class="line"></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">config:</span> <span class="string">classpath:logback-spring.xml</span></span><br><span class="line">  <span class="attr">file:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">$&#123;log.home:$&#123;user.home&#125;/logs/seata&#125;</span></span><br><span class="line">  <span class="attr">extend:</span></span><br><span class="line">    <span class="attr">logstash-appender:</span></span><br><span class="line">      <span class="attr">destination:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:4560</span></span><br><span class="line">    <span class="attr">kafka-appender:</span></span><br><span class="line">      <span class="attr">bootstrap-servers:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9092</span></span><br><span class="line">      <span class="attr">topic:</span> <span class="string">logback_to_logstash</span></span><br><span class="line"></span><br><span class="line"><span class="attr">console:</span></span><br><span class="line">  <span class="attr">user:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">seata</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">seata</span></span><br><span class="line"><span class="attr">seata:</span></span><br><span class="line">  <span class="attr">config:</span></span><br><span class="line">    <span class="comment"># support: nacos, consul, apollo, zk, etcd3</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">nacos</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span>  <span class="comment"># nacos地址</span></span><br><span class="line">      <span class="attr">group:</span> <span class="string">SEATA_GROUP</span>  <span class="comment"># 配置文件的分组</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">nacos</span>  <span class="comment"># nacos用户名</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">nacos</span>  <span class="comment"># nacos密码</span></span><br><span class="line">      <span class="comment"># 这是默认值</span></span><br><span class="line">      <span class="attr">data-id:</span> <span class="string">seata.properties</span>  <span class="comment"># 配置文件的data id也就是配置文件名加后缀</span></span><br><span class="line">  <span class="attr">registry:</span></span><br><span class="line">    <span class="comment"># support: nacos, eureka, redis, zk, consul, etcd3, sofa</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">nacos</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">application:</span> <span class="string">seata-server</span>   <span class="comment">#seata启动后在nacos的服务名</span></span><br><span class="line">      <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span>  <span class="comment"># nacos地址</span></span><br><span class="line">      <span class="attr">group:</span> <span class="string">SEATA_GROUP</span>  <span class="comment"># 配置文件的分组</span></span><br><span class="line">      <span class="attr">cluster:</span> <span class="string">default</span>  <span class="comment"># 这个歌参数在每个微服务seata时会用到</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">nacos</span>  <span class="comment"># nacos用户名</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">nacos</span>  <span class="comment"># nacos密码</span></span><br><span class="line">  <span class="attr">store:</span></span><br><span class="line">    <span class="comment"># support: file 、 db 、 redis</span></span><br><span class="line">    <span class="attr">mode:</span> <span class="string">db</span></span><br><span class="line">  <span class="comment">#  server:</span></span><br><span class="line">  <span class="comment">#    service-port: 8091 #If not configured, the default is &#x27;$&#123;server.port&#125; + 1000&#x27;</span></span><br><span class="line">  <span class="attr">security:</span></span><br><span class="line">  <span class="comment"># 此处的secretKey是nacos的 nacos.core.auth.plugin.nacos.token.secret.key</span></span><br><span class="line">    <span class="attr">secretKey:</span> <span class="string">6L+Z5piv5L2g55qE6ZW/5bqmPj0zMueahGJhc2U2NOe8lueggQ==</span></span><br><span class="line">    <span class="attr">tokenValidityInMilliseconds:</span> <span class="number">1800000</span></span><br><span class="line">    <span class="attr">csrf-ignore-urls:</span> <span class="string">/metadata/v1/**</span></span><br><span class="line">    <span class="attr">ignore:</span></span><br><span class="line">      <span class="attr">urls:</span> <span class="string">/,/**/*.css,/**/*.js,/**/*.html,/**/*.map,/**/*.svg,/**/*.png,/**/*.jpeg,/**/*.ico,/api/v1/auth/login,/version.json,/health,/error,/vgroup/v1/**</span></span><br></pre></td></tr></table></figure>
+<h3 id="运行-seata-server">运行 seata-server</h3>
+<p>seata-server/bin/seata-server.bat<br>
+运行成功类似于下图<br>
+<img src="a-a-d.png" alt=""></p>
+<h2 id="部署-redis">部署 redis</h2>
+<p>解压 redis-7.4.2.zip 到不包含中文的目录下</p>
+<h3 id="配置-redis">配置 redis</h3>
+<p>如果不设置密码可以忽略配置<br>
+编辑 redis.conf<br>
+找到或添加配置 requirepass</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass 密码</span><br></pre></td></tr></table></figure>
+<h3 id="运行-redis">运行 redis</h3>
+<p>运行成功类似于下图<br>
+<img src="a-a-q.png" alt=""></p>
+<h2 id="部署-mysql">部署 mysql</h2>
+<p>打开小皮面板，安装成功后如下图<br>
+<img src="a-a-w.png" alt=""><br>
+修改数据库密码<br>
+<img src="a-a-r.png" alt=""><br>
+启动mysql<br>
+<img src="a-a-t.png" alt=""></p>
+<h3 id="配置-若依数据库">配置 若依数据库</h3>
+<p>用可视化工具或命令行创建ry-cloud,ry-config,ry-seata三个库，数据库编码用utf8_general_ci<br>
+ry-cloud 导入 ruoyi-master/sql/ry_2025xxxx.sql (必须),ruoyi-master/sql/quartz.sql(可选)<br>
+ry-config 导入 ruoyi-master/sql/ry_config_2025xxxx.sql（必须）<br>
+ry-seata 导入 ruoyi-master/sql/ry_seata_2025xxxx.sql</p>
+<h2 id="运行-sentinel">运行 sentinel</h2>
+<p>cmd进入ruoyi-master/jars目录，运行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Dserver.port=8718 -Dcsp.sentinel.dashboard.server=localhost:8718 -Dproject.name=sentinel-dashboard -Dcsp.sentinel.api.port=8719 -jar sentinel-dashboard-1.8.8.jar</span><br></pre></td></tr></table></figure>
+<h2 id="后端运行">后端运行</h2>
+<h3 id="配置-2">配置</h3>
+<p>根据图片修改模块的配置<br>
+<img src="a-a-y.png" alt=""></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tomcat</span></span><br><span class="line"><span class="attr">server:</span> </span><br><span class="line">  <span class="attr">port:</span> <span class="number">9200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Spring</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 应用名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-auth</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="comment"># 环境配置</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 服务注册地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="comment"># 配置中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="comment"># 配置文件格式</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br><span class="line">        <span class="comment"># 共享配置</span></span><br><span class="line">        <span class="attr">shared-configs:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">application-$&#123;spring.profiles.active&#125;.$&#123;spring.cloud.nacos.config.file-extension&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>网关端口就是前端所请求的端口<br>
+<img src="a-a-u.png" alt=""></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tomcat</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Spring</span></span><br><span class="line"><span class="attr">spring:</span> </span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 应用名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-gateway</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="comment"># 环境配置</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 服务注册地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="comment"># 配置中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="comment"># 配置文件格式</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br><span class="line">        <span class="comment"># 共享配置</span></span><br><span class="line">        <span class="attr">shared-configs:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">application-$&#123;spring.profiles.active&#125;.$&#123;spring.cloud.nacos.config.file-extension&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">    <span class="attr">sentinel:</span></span><br><span class="line">      <span class="comment"># 取消控制台懒加载</span></span><br><span class="line">      <span class="attr">eager:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">transport:</span></span><br><span class="line">        <span class="comment"># 控制台地址</span></span><br><span class="line">        <span class="attr">dashboard:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8718</span></span><br><span class="line">      <span class="comment"># nacos配置持久化</span></span><br><span class="line">      <span class="attr">datasource:</span></span><br><span class="line">        <span class="attr">ds1:</span></span><br><span class="line">          <span class="attr">nacos:</span></span><br><span class="line">            <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">            <span class="attr">dataId:</span> <span class="string">sentinel-ruoyi-gateway</span></span><br><span class="line">            <span class="attr">groupId:</span> <span class="string">DEFAULT_GROUP</span></span><br><span class="line">            <span class="attr">data-type:</span> <span class="string">json</span></span><br><span class="line">            <span class="attr">rule-type:</span> <span class="string">gw-flow</span></span><br></pre></td></tr></table></figure>
+<p><img src="a-a-o.png" alt=""></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tomcat</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Spring</span></span><br><span class="line"><span class="attr">spring:</span> </span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 应用名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-file</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="comment"># 环境配置</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 服务注册地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="comment"># 配置中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="comment"># 配置文件格式</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br><span class="line">        <span class="comment"># 共享配置</span></span><br><span class="line">        <span class="attr">shared-configs:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">application-$&#123;spring.profiles.active&#125;.$&#123;spring.cloud.nacos.config.file-extension&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="a-a-p.png" alt=""></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tomcat</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9202</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Spring</span></span><br><span class="line"><span class="attr">spring:</span> </span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 应用名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-gen</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="comment"># 环境配置</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 服务注册地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="comment"># 配置中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="comment"># 配置文件格式</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br><span class="line">        <span class="comment"># 共享配置</span></span><br><span class="line">        <span class="attr">shared-configs:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">application-$&#123;spring.profiles.active&#125;.$&#123;spring.cloud.nacos.config.file-extension&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br></pre></td></tr></table></figure>
+<p><img src="a-a-s.png" alt=""></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tomcat</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9203</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Spring</span></span><br><span class="line"><span class="attr">spring:</span> </span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 应用名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-job</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="comment"># 环境配置</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 服务注册地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="comment"># 配置中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="comment"># 配置文件格式</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br><span class="line">        <span class="comment"># 共享配置</span></span><br><span class="line">        <span class="attr">shared-configs:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">application-$&#123;spring.profiles.active&#125;.$&#123;spring.cloud.nacos.config.file-extension&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br></pre></td></tr></table></figure>
+<p><img src="a-a-k.png" alt=""></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tomcat</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9201</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Spring</span></span><br><span class="line"><span class="attr">spring:</span> </span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 应用名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-system</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="comment"># 环境配置</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 服务注册地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="comment"># 配置中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="comment"># 配置文件格式</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br><span class="line">        <span class="comment"># 共享配置</span></span><br><span class="line">        <span class="attr">shared-configs:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">application-$&#123;spring.profiles.active&#125;.$&#123;spring.cloud.nacos.config.file-extension&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br></pre></td></tr></table></figure>
+<p><img src="a-a-l.png" alt=""></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Tomcat</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9100</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Spring</span></span><br><span class="line"><span class="attr">spring:</span> </span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="comment"># 应用名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-monitor</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="comment"># 环境配置</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="comment"># 服务注册地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="comment"># 配置中心地址</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="comment"># 配置文件格式</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br><span class="line">        <span class="comment"># 共享配置</span></span><br><span class="line">        <span class="attr">shared-configs:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">application-$&#123;spring.profiles.active&#125;.$&#123;spring.cloud.nacos.config.file-extension&#125;</span></span><br><span class="line">        <span class="attr">username:</span> <span class="string">nacos</span></span><br><span class="line">        <span class="attr">password:</span> <span class="string">nacos</span> <span class="comment"># nacos 密码</span></span><br></pre></td></tr></table></figure>
+<h3 id="运行">运行</h3>
+<p>打开 ruoyi-master 下的bin目录,先执行clean.bat清理,再执行package.bat打包。<br>
+打包完成后执行run-xxx.bat<br>
+run-gateway.bat,run-auth.bat,run-modules-system.bat这三个必须运行，其余可选。</p>
+<h2 id="前端运行">前端运行</h2>
+<h3 id="配置-3">配置</h3>
+<p>打开vue.config.js，将下图位置配置为网关的端口和ip<br>
+<img src="a-a-z.png" alt=""></p>
+<h3 id="运行-2">运行</h3>
+<p>先在命令行执行<code>npm install</code><br>
+再执行<code>npm run dev</code>即可运行<br>
+<img src="a-a-z.png" alt=""></p>
+<h1>生产环境部署</h1>
+<p>在开发环境的基础上打包前后端代码即可对生产环境部署</p>
+<h2 id="前端部署">前端部署</h2>
+<p>在ruoyi-ui目录下执行<code>npm run build:prod</code>命令即可打包，打包完成后会生成dist目录，这个目录就是打包好的文件。<br>
+<img src="a-a-v.png" alt=""><br>
+<img src="a-a-n.png" alt=""><br>
+打开小皮面板将nginx启动并添加网站目录。<br>
+<img src="a-a-m.png" alt=""><br>
+<img src="a-b-a.png" alt=""><br>
+配置 Nginx 使前端的请求可以正确的转发到后端<br>
+<img src="a-b-b.png" alt=""></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  localhost;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="comment"># 设置为部署目录</span></span><br><span class="line">        <span class="attribute">root</span>   <span class="string">&quot;D:/website/localhost_80&quot;</span>;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">        <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /prod-api/&#123;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$http_host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> REMOTE-HOST <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8080/;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 避免actuator暴露</span></span><br><span class="line">    <span class="attribute">if</span> (<span class="variable">$uri</span> <span class="regexp">~ &quot;/actuator&quot;)</span> &#123;</span><br><span class="line">        <span class="attribute">return</span> <span class="number">403</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">    <span class="section">location</span> = /50x.html &#123;</span><br><span class="line">        <span class="attribute">root</span>   html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后重启Nginx没有抛出错误即完成前端部署<br>
+<img src="a-a-m.png" alt=""></p>
+<h2 id="后端部署">后端部署</h2>
+<p>部署前先运行起来 nacos,seata,mysql,redis，在开发环境中有写。<br>
+打开 ruoyi-master/bin 目录，执行 clean.bat,再执行package.bat进行打包<br>
+打包完成之后，根据下图把jar包复制出来用命令运行即可。<br>
+<img src="a-b-q.png" alt=""><br>
+<img src="a-b-w.png" alt=""><br>
+此处可扩展业务代码，每个模块下都有jar包。打包后都在每个模块下的target目录下。<br>
+<img src="a-b-e.png" alt=""><br>
+最后还有下载的jars下的 sentinel-dashboard-1.8.8.jar 也要放到一起。<br>
+<img src="a-b-r.png" alt=""><br>
+最后使用以下命令来运行所有jar包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java -jar xxx.jar</span><br><span class="line"><span class="comment"># sentinel需要用以下命令运行</span></span><br><span class="line">java -Dserver.port=8718 -Dcsp.sentinel.dashboard.server=localhost:8718 -Dproject.name=sentinel-dashboard -Dcsp.sentinel.api.port=8719 -jar sentinel-dashboard-1.8.8.jar</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://bestflyteng.github.io">FlyTeng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://bestflyteng.github.io/2025/05/09/202505091815/">https://bestflyteng.github.io/2025/05/09/202505091815/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://bestflyteng.github.io" target="_blank">FlyTeng</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/nacos/">nacos</a></div><div class="post-share"><div class="social-share" data-image="/assets/images/post/nacos.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/03/24/202503241931/" title="Vue3 和 Pinia 的使用"><img class="cover" src="/assets/images/post/pinia.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Vue3 和 Pinia 的使用</div></div><div class="info-2"><div class="info-item-1">Vue3 创建实例 使用 setup 1234567const &#123; createApp &#125; = VuecreateApp(&#123;    setup() &#123;        // ...    &#125;&#125;).mount(&#x27;#app&#x27;) // 挂载到 #app 使用 Options API 123456789const &#123; createApp &#125; = VuecreateApp(&#123;    data() &#123;        return &#123;&#125;    &#125;,    methods: &#123;&#125;,    // ...    &#125;).mount(&#x27;#app&#x27;) // 挂载到 #app Pinia 定义 Store defineStore 的第一个参数是 store 的 id，必须是唯一的。第二个参数是一个选项对象。 使用 Setup Store 12345678910const &#123; ref &#125; =...</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/assets/images/avatar/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FlyTeng</div><div class="author-info-description">这是我个人搭建的一个博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BestFlyTeng/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">下载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">下载项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-nacos"><span class="toc-number">1.2.</span> <span class="toc-text">下载 nacos</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-seata-server"><span class="toc-number">1.3.</span> <span class="toc-text">下载 seata-server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-redis"><span class="toc-number">1.4.</span> <span class="toc-text">下载 redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-MySQL-Nginx"><span class="toc-number">1.5.</span> <span class="toc-text">下载 MySQL,Nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-Java"><span class="toc-number">1.6.</span> <span class="toc-text">下载 Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-sentinel"><span class="toc-number">1.7.</span> <span class="toc-text">下载 sentinel</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">开发环境部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Java-%E7%8E%AF%E5%A2%83"><span class="toc-number">2.1.</span> <span class="toc-text">配置 Java 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-nacos"><span class="toc-number">2.2.</span> <span class="toc-text">部署 nacos</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.2.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8-nacos"><span class="toc-number">2.2.2.</span> <span class="toc-text">启动 nacos</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-seata-server"><span class="toc-number">2.3.</span> <span class="toc-text">部署 seata-server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEseata-server"><span class="toc-number">2.3.1.</span> <span class="toc-text">配置seata-server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C-seata-server"><span class="toc-number">2.3.2.</span> <span class="toc-text">运行 seata-server</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-redis"><span class="toc-number">2.4.</span> <span class="toc-text">部署 redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-redis"><span class="toc-number">2.4.1.</span> <span class="toc-text">配置 redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C-redis"><span class="toc-number">2.4.2.</span> <span class="toc-text">运行 redis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2-mysql"><span class="toc-number">2.5.</span> <span class="toc-text">部署 mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-%E8%8B%A5%E4%BE%9D%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.5.1.</span> <span class="toc-text">配置 若依数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C-sentinel"><span class="toc-number">2.6.</span> <span class="toc-text">运行 sentinel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E8%BF%90%E8%A1%8C"><span class="toc-number">2.7.</span> <span class="toc-text">后端运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-2"><span class="toc-number">2.7.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-number">2.7.2.</span> <span class="toc-text">运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E8%BF%90%E8%A1%8C"><span class="toc-number">2.8.</span> <span class="toc-text">前端运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-3"><span class="toc-number">2.8.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C-2"><span class="toc-number">2.8.2.</span> <span class="toc-text">运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">生产环境部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-number">3.1.</span> <span class="toc-text">前端部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-number">3.2.</span> <span class="toc-text">后端部署</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/09/202505091815/" title="Win10 部署若依微服务版本"><img src="/assets/images/post/nacos.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Win10 部署若依微服务版本"/></a><div class="content"><a class="title" href="/2025/05/09/202505091815/" title="Win10 部署若依微服务版本">Win10 部署若依微服务版本</a><time datetime="2025-05-09T10:16:10.000Z" title="发表于 2025-05-09 18:16:10">2025-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/24/202503241931/" title="Vue3 和 Pinia 的使用"><img src="/assets/images/post/pinia.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3 和 Pinia 的使用"/></a><div class="content"><a class="title" href="/2025/03/24/202503241931/" title="Vue3 和 Pinia 的使用">Vue3 和 Pinia 的使用</a><time datetime="2025-03-24T11:31:51.000Z" title="发表于 2025-03-24 19:31:51">2025-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/23/202503231943/" title="CSS 媒体查询"><img src="/assets/images/post/css.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS 媒体查询"/></a><div class="content"><a class="title" href="/2025/03/23/202503231943/" title="CSS 媒体查询">CSS 媒体查询</a><time datetime="2025-03-23T11:44:27.000Z" title="发表于 2025-03-23 19:44:27">2025-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/06/202503062032/" title="JavaScript Promise 的使用"><img src="/assets/images/post/promise.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript Promise 的使用"/></a><div class="content"><a class="title" href="/2025/03/06/202503062032/" title="JavaScript Promise 的使用">JavaScript Promise 的使用</a><time datetime="2025-03-06T12:32:55.000Z" title="发表于 2025-03-06 20:32:55">2025-03-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/202502261832/" title="蓝桥杯 Web 练习"><img src="/assets/images/post/lanqiao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蓝桥杯 Web 练习"/></a><div class="content"><a class="title" href="/2025/02/26/202502261832/" title="蓝桥杯 Web 练习">蓝桥杯 Web 练习</a><time datetime="2025-02-26T10:33:31.000Z" title="发表于 2025-02-26 18:33:31">2025-02-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FlyTeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-message"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'BestFlyTeng/BestFlyTeng.github.io',
+      'data-repo-id': 'R_kgDOMjtzGQ',
+      'data-category-id': 'DIC_kwDOMjtzGc4ChqnD',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = { startHidden: true }
+  
+    window.chatBtnFn = () => {
+      document.getElementById('chatra').classList.contains('chatra--expanded') ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => Chatra('hide'),
+      show: () => Chatra('show')
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = '36GeoKDyTpu2BLGaT'
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
