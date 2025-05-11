@@ -125,6 +125,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo 图片资源显示</title>
+    <url>/2024/08/18/202408181131/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
+<p><a href="https://github.com/hexojs/hexo-renderer-markdown-it/">hexo-renderer-markdown-it官网</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果安装过 hexo-renderer-marked，就卸载</span></span><br><span class="line"></span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
+<h3 id="修改-config-yml">修改_config.yml</h3>
+<p>将 post_asset_folder 改为true</p>
+<p><img src="1.png" alt=""></p>
+<h3 id="重新生成静态文件，并运行">重新生成静态文件，并运行</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo server</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>bug</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos7 的安装与配置 - 1</title>
     <url>/2024/08/18/202408181002/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载镜像">下载镜像</h3>
@@ -173,24 +191,6 @@
       <tags>
         <tag>Centos7</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 图片资源显示</title>
-    <url>/2024/08/18/202408181131/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
-<p><a href="https://github.com/hexojs/hexo-renderer-markdown-it/">hexo-renderer-markdown-it官网</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果安装过 hexo-renderer-marked，就卸载</span></span><br><span class="line"></span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
-<h3 id="修改-config-yml">修改_config.yml</h3>
-<p>将 post_asset_folder 改为true</p>
-<p><img src="1.png" alt=""></p>
-<h3 id="重新生成静态文件，并运行">重新生成静态文件，并运行</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo server</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>bug</tag>
       </tags>
   </entry>
   <entry>
@@ -1143,6 +1143,25 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 配置 IP 地址</title>
+    <url>/2024/10/30/202410301643/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<h4 id="查看网卡信息">查看网卡信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>IP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 映射端口外部设备访问不到</title>
     <url>/2024/11/15/202411151154/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="容器内部">容器内部</h3>
@@ -1193,25 +1212,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 <p>运行后可以看一下 nohup 的日志文件看看运行成功没有，这样是运行成功了。<br>
 <img src="h.png" alt=""></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>CentOS 7 配置 IP 地址</title>
-    <url>/2024/10/30/202410301643/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-<h4 id="查看网卡信息">查看网卡信息</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
-<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>IP</tag>
-      </tags>
   </entry>
   <entry>
     <title>Spark 增量抽取 (Scala 实现)</title>
@@ -1321,6 +1321,23 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 ]]></content>
   </entry>
   <entry>
+    <title>docker 部署 nginx</title>
+    <url>/2025/02/07/202502071354/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1-拉取-nginx-镜像">1. 拉取 nginx 镜像</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
+<h3 id="2-运行容器">2. 运行容器</h3>
+<p>这里我映射到了本地的9000端口，可以根据需要修改</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name nginx -p 9000:80 -d nginx</span><br></pre></td></tr></table></figure>
+<h3 id="3-浏览器访问">3. 浏览器访问</h3>
+<p>浏览器访问 <code>http://ip:9000</code>，如果看到下图则表示 nginx 部署成功<br>
+<img src="a.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring Boot 3.4.1 + Spring security 6.4.2 重写登录</title>
     <url>/2025/02/09/202502090917/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="依赖引入">依赖引入</h3>
@@ -1340,23 +1357,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>Spring</tag>
         <tag>Spring security</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>docker 部署 nginx</title>
-    <url>/2025/02/07/202502071354/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1-拉取-nginx-镜像">1. 拉取 nginx 镜像</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
-<h3 id="2-运行容器">2. 运行容器</h3>
-<p>这里我映射到了本地的9000端口，可以根据需要修改</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name nginx -p 9000:80 -d nginx</span><br></pre></td></tr></table></figure>
-<h3 id="3-浏览器访问">3. 浏览器访问</h3>
-<p>浏览器访问 <code>http://ip:9000</code>，如果看到下图则表示 nginx 部署成功<br>
-<img src="a.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -1456,6 +1456,25 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>CSS 媒体查询</title>
+    <url>/2025/03/23/202503231943/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="媒体类型（Media-Type）​">媒体类型（Media Type）​</h3>
+<h4 id="screen（屏幕）">screen（屏幕）</h4>
+<h4 id="print（打印）">print（打印）</h4>
+<h4 id="all（全部设备）">all（全部设备）</h4>
+<h3 id="​媒体特性条件（Media-Feature）">​媒体特性条件（Media Feature）</h3>
+<p>必须用括号包裹，如 (min-width: 900px)</p>
+<h3 id="基本语法">基本语法</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性条件) &#123;</span><br><span class="line">  <span class="comment">/* 样式规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px 时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备、宽度≥900px 且横屏时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">2rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 等效于 @media all and (min-width: 900px) */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 ,（逗号）表示 ​逻辑或（OR） */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px，或打印设备时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>), print &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>CSS</tag>
+        <tag>媒体查询</tag>
+        <tag>media</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript Promise 的使用</title>
     <url>/2025/03/06/202503062032/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Promise-的概念">Promise 的概念</h2>
@@ -1509,25 +1528,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>JavaScript</tag>
         <tag>Promise</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS 媒体查询</title>
-    <url>/2025/03/23/202503231943/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="媒体类型（Media-Type）​">媒体类型（Media Type）​</h3>
-<h4 id="screen（屏幕）">screen（屏幕）</h4>
-<h4 id="print（打印）">print（打印）</h4>
-<h4 id="all（全部设备）">all（全部设备）</h4>
-<h3 id="​媒体特性条件（Media-Feature）">​媒体特性条件（Media Feature）</h3>
-<p>必须用括号包裹，如 (min-width: 900px)</p>
-<h3 id="基本语法">基本语法</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性条件) &#123;</span><br><span class="line">  <span class="comment">/* 样式规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="示例">示例</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px 时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备、宽度≥900px 且横屏时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">2rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 等效于 @media all and (min-width: 900px) */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 ,（逗号）表示 ​逻辑或（OR） */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px，或打印设备时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>), print &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>CSS</tag>
-        <tag>媒体查询</tag>
-        <tag>media</tag>
       </tags>
   </entry>
   <entry>
