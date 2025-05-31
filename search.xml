@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Centos7 的安装与配置 - 1</title>
+    <url>/2024/08/18/202408181002/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载镜像">下载镜像</h3>
+<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
+<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
+<p><img src="1.png" alt=""></p>
+<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
+<p><img src="2.png" alt=""></p>
+<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
+<p><img src="3.png" alt=""></p>
+<h3 id="安装">安装</h3>
+<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
+<p><img src="4.png" alt=""></p>
+<p>选择自定义(高级)，然后下一步</p>
+<p><img src="5.png" alt=""></p>
+<p><img src="6.png" alt=""></p>
+<p>这里选择稍后安装操作系统，然后下一步</p>
+<p><img src="7.png" alt=""></p>
+<p>这里选择Centos7 64位</p>
+<p><img src="8.png" alt=""></p>
+<p>这里可以给虚拟机起名字。</p>
+<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
+<p><img src="9.png" alt=""></p>
+<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
+<p><img src="10.png" alt=""></p>
+<p>这里设置内存(不懂别瞎选，默认的就行)</p>
+<p><img src="11.png" alt=""></p>
+<p>这里建议选默认的 使用网络地址转换(NAT)</p>
+<p><img src="12.png" alt=""></p>
+<p>后面的默认推荐就可以</p>
+<p><img src="13.png" alt=""><br>
+<img src="14.png" alt=""></p>
+<p>创建新虚拟磁盘，而后下一步</p>
+<p><img src="15.png" alt=""></p>
+<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
+<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
+<p><img src="16.png" alt=""><br>
+<img src="17.png" alt=""></p>
+<p>完成！</p>
+<p><img src="18.png" alt=""><br>
+<img src="19.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇博客</title>
     <url>/2024/08/16/202408162041/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
@@ -125,57 +176,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Centos7 的安装与配置 - 1</title>
-    <url>/2024/08/18/202408181002/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载镜像">下载镜像</h3>
-<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
-<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
-<p><img src="1.png" alt=""></p>
-<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
-<p><img src="2.png" alt=""></p>
-<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
-<p><img src="3.png" alt=""></p>
-<h3 id="安装">安装</h3>
-<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
-<p><img src="4.png" alt=""></p>
-<p>选择自定义(高级)，然后下一步</p>
-<p><img src="5.png" alt=""></p>
-<p><img src="6.png" alt=""></p>
-<p>这里选择稍后安装操作系统，然后下一步</p>
-<p><img src="7.png" alt=""></p>
-<p>这里选择Centos7 64位</p>
-<p><img src="8.png" alt=""></p>
-<p>这里可以给虚拟机起名字。</p>
-<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
-<p><img src="9.png" alt=""></p>
-<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
-<p><img src="10.png" alt=""></p>
-<p>这里设置内存(不懂别瞎选，默认的就行)</p>
-<p><img src="11.png" alt=""></p>
-<p>这里建议选默认的 使用网络地址转换(NAT)</p>
-<p><img src="12.png" alt=""></p>
-<p>后面的默认推荐就可以</p>
-<p><img src="13.png" alt=""><br>
-<img src="14.png" alt=""></p>
-<p>创建新虚拟磁盘，而后下一步</p>
-<p><img src="15.png" alt=""></p>
-<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
-<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
-<p><img src="16.png" alt=""><br>
-<img src="17.png" alt=""></p>
-<p>完成！</p>
-<p><img src="18.png" alt=""><br>
-<img src="19.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo 图片资源显示</title>
     <url>/2024/08/18/202408181131/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
@@ -244,6 +244,108 @@
       <tags>
         <tag>Centos7</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换 yum 源</title>
+    <url>/2024/08/19/202408191114/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>备份原有源配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<p>刷新yum缓存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
+<p>检查是否更换成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
+<p>更新软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<p>至此，换源完成~</p>
+]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+        <tag>配置</tag>
+        <tag>config</tag>
+        <tag>yum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pandas 库的使用</title>
+    <url>/2024/08/24/202408240914/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
+<a href="https://pandas.ac.cn/docs/">https://pandas.ac.cn/docs/</a></p>
+<h3 id="安装-pandas">安装 pandas</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install pandas</span><br></pre></td></tr></table></figure>
+<h3 id="导入-pandas">导入 pandas</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<h3 id="读取表格或数据库">读取表格或数据库</h3>
+<p>数据库以MySQL为例</p>
+<p>支持相对路径，绝对路径，网络路径</p>
+<p>读取操作返回DataFrame</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在读取的时候添加parse_dates=[&quot;列名&quot;]，可使这个列变为Timestamp类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取csv表格文件</span></span><br><span class="line">pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取xlsx或者xls表格文件</span></span><br><span class="line">pd.read_excel(<span class="string">&quot;data.xlsx&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取MySQL</span></span><br><span class="line"><span class="comment"># 首先创建数据库连接对象</span></span><br><span class="line">conn = pymysql.connect(</span><br><span class="line">    host=<span class="string">&quot;localhost&quot;</span>, <span class="comment"># 数据库地址</span></span><br><span class="line">    port=<span class="number">3306</span>, <span class="comment"># 数据库端口</span></span><br><span class="line">    user=<span class="string">&quot;root&quot;</span>, <span class="comment"># 登录用户名</span></span><br><span class="line">    password=<span class="string">&quot;123456&quot;</span>, <span class="comment"># 登录密码</span></span><br><span class="line">    database=<span class="string">&quot;example&quot;</span>, <span class="comment"># 数据库名称</span></span><br><span class="line">    charset=<span class="string">&quot;utf8&quot;</span> <span class="comment"># 编码格式</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">#执行sql操作</span></span><br><span class="line"><span class="comment"># %s 是占位符, index_col 是索引字段,可以是字符串也可以是列表</span></span><br><span class="line">sql = <span class="string">&quot;select * from user limit %s,%s&quot;</span></span><br><span class="line">pd.read_sql(sql,con=conn,params=[<span class="number">10</span>,<span class="number">20</span>],index_col=[<span class="string">&quot;id&quot;</span>,<span class="string">&quot;type&quot;</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="写入表格">写入表格</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 写 csv 文件</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取read.csv表格</span></span><br><span class="line">data_read = pd.read_csv(<span class="string">&quot;read.csv&quot;</span>)</span><br><span class="line"><span class="comment"># 将read.csv表格写入到write.csv表格,并去除索引,在写入时不能打开write.csv</span></span><br><span class="line">data_read.to_csv(<span class="string">&quot;write.csv&quot;</span>,index=<span class="literal">False</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 将read.csv表格写入到write.txt文件里，并设置分割方式，去除索引,在写入时不能打开write.txt</span></span><br><span class="line">data_read.to_csv(<span class="string">&quot;write.txt&quot;</span>,sep=<span class="string">&quot;\t&quot;</span>,index=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将read.csv表格写入到write.xlsx表格,并去除索引,在写入时不能打开write.xlsx</span></span><br><span class="line">data_read.to_excel(<span class="string">&quot;write.xlsx&quot;</span>,index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="选择-DataFrame-的子集">选择 DataFrame 的子集</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="选择数值列">选择数值列</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.describe()</span><br></pre></td></tr></table></figure>
+<h4 id="选择特定列">选择特定列</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 选择Age列</span></span><br><span class="line">ages = data[<span class="string">&quot;Age&quot;</span>]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择Name列和Age列</span></span><br><span class="line">name_age = data[[<span class="string">&quot;Name&quot;</span>,<span class="string">&quot;Age&quot;</span>]]</span><br><span class="line">name_age.head()</span><br></pre></td></tr></table></figure>
+<h4 id="选择特定行">选择特定行</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 筛选年龄超过35岁的乘客</span></span><br><span class="line"><span class="comment"># data[&quot;Age&quot;] &gt; 35 将判断每一条数据的Age字段是否大于35</span></span><br><span class="line">ages = data[data[<span class="string">&quot;Age&quot;</span>] &gt; <span class="number">35</span>]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 筛选泰坦尼克号 2 等舱和 3 等舱的乘客</span></span><br><span class="line"><span class="comment"># 第一种写法</span></span><br><span class="line">class_23 = data[data[<span class="string">&quot;class&quot;</span>].isin([<span class="number">2</span>,<span class="number">3</span>])]</span><br><span class="line"><span class="comment"># 第二种写法</span></span><br><span class="line"><span class="comment"># 注: 不能用 or/and,需要用or运算符 | 和and运算符 &amp;</span></span><br><span class="line">class_23 = data[(data[<span class="string">&quot;class&quot;</span>] == <span class="number">2</span>) | (data[<span class="string">&quot;class&quot;</span>] == <span class="number">3</span>)]</span><br><span class="line">class_23.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取已知年龄的乘客数据</span></span><br><span class="line">ages_no_na = data[data[<span class="string">&quot;Age&quot;</span>].notna()]</span><br><span class="line">ages_no_na.head() </span><br></pre></td></tr></table></figure>
+<h4 id="选择特定的行和列">选择特定的行和列</h4>
+<p>需要在选择括号 [] 前面使用 loc/iloc 运算符。使用 loc/iloc 时，逗号前面的部分是要选择的行，逗号后面的部分是要选择的列</p>
+<p>loc是基于行标签和列标签进行索引的，基本用法为 DataFrame.loc[行标签,列标签]<br>
+iloc是基于行和列的位置进行索引的，索引从0开始，基本用法为 DataFrame.iloc[行位置,列位置]</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 年龄大于35岁的乘客的姓名</span></span><br><span class="line">names = data.loc[data[<span class="string">&quot;Age&quot;</span>] &gt; <span class="number">35</span>,<span class="string">&quot;Name&quot;</span>]</span><br><span class="line">names.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取第十行到30行的数据</span></span><br><span class="line">datas = data.iloc[<span class="number">9</span>,<span class="number">30</span>]</span><br><span class="line">datas.head()</span><br></pre></td></tr></table></figure>
+<h3 id="从现有列创建新列">从现有列创建新列</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建Age2列，值为Age列的2倍</span></span><br><span class="line">data[<span class="string">&#x27;Age2&#x27;</span>] = data[<span class="string">&#x27;Age&#x27;</span>] * <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="修改列名称">修改列名称</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line">data.rename(</span><br><span class="line">    columns=&#123;</span><br><span class="line">        <span class="string">&quot;现有列名称&quot;</span>:<span class="string">&quot;新名称&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Age&quot;</span>:<span class="string">&quot;年龄&quot;</span>,</span><br><span class="line">        <span class="string">&quot;name&quot;</span>:<span class="string">&quot;姓名&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以映射</span></span><br><span class="line">data.rename(columns=<span class="built_in">str</span>.lower)</span><br></pre></td></tr></table></figure>
+<h3 id="计算汇总统计量">计算汇总统计量</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="平均值">平均值</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data[<span class="string">&quot;Age&quot;</span>].mean()</span><br></pre></td></tr></table></figure>
+<h4 id="中位数">中位数</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data[<span class="string">&quot;Price&quot;</span>].median()</span><br></pre></td></tr></table></figure>
+<h4 id="特定组合">特定组合</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.agg(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Age&quot;</span>: [<span class="string">&quot;min&quot;</span>,<span class="string">&quot;max&quot;</span>,<span class="string">&quot;median&quot;</span>,<span class="string">&quot;skew&quot;</span>],</span><br><span class="line">        <span class="string">&quot;Fare&quot;</span>: [<span class="string">&quot;min&quot;</span>,<span class="string">&quot;max&quot;</span>,<span class="string">&quot;median&quot;</span>,<span class="string">&quot;mean&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="按类别分组的汇总统计量">按类别分组的汇总统计量</h4>
+<p>1、男性和女性泰坦尼克号乘客的平均年龄是多少？</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先查询出Sex字段和Age字段的数据，然后将数据根据Sex分组，最后求年龄的平均值</span></span><br><span class="line">data[[<span class="string">&#x27;Sex&#x27;</span>,<span class="string">&#x27;Age&#x27;</span>]].groupby(<span class="string">&quot;Sex&quot;</span>).mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有显式的选择Sex和Age两列，那么就需要使用numeric_only=True应用包含数值列的每一项</span></span><br><span class="line">data.groupby(<span class="string">&quot;Sex&quot;</span>).mean(numeric_only=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以对分组数据的列选择</span></span><br><span class="line">data.groupby(<span class="string">&quot;Sex&quot;</span>)[<span class="string">&#x27;Age&#x27;</span>].mean()</span><br></pre></td></tr></table></figure>
+<p>2、每个性别和客舱等级组合的平均票价是多少？</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.groupby([<span class="string">&quot;Sex&quot;</span>,<span class="string">&quot;Pclass&quot;</span>])[<span class="string">&#x27;Fare&#x27;</span>].mean()</span><br></pre></td></tr></table></figure>
+<h4 id="按类别统计记录数">按类别统计记录数</h4>
+<p>1、每个客舱等级有多少乘客？</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># value_counts是一个快捷方式，它实际上是分组操作与每个组内记录数的计数相结合</span></span><br><span class="line"><span class="comment"># 两个相同</span></span><br><span class="line">data[<span class="string">&#x27;Pclass&#x27;</span>].value_counts()</span><br><span class="line">data.groupby(<span class="string">&quot;Pclass&quot;</span>)[<span class="string">&#x27;Pclass&#x27;</span>].count()</span><br><span class="line"></span><br><span class="line"><span class="comment"># size 和 count 都可以与 groupby 结合使用。而 size 包含 NaN 值，只提供行数（表格的大小），count 排除缺失值。在 value_counts 方法中，使用 dropna 参数来包含或排除 NaN 值。</span></span><br><span class="line">data.groupby(<span class="string">&quot;Pclass&quot;</span>)[<span class="string">&#x27;Pclass&#x27;</span>].size()</span><br></pre></td></tr></table></figure>
+<h3 id="排序">排序</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 根据Age进行排序</span></span><br><span class="line"><span class="comment"># 基本用法: sort_values(by,axis,ascending,inplace,kind,na_position)</span></span><br><span class="line"><span class="comment"># by: 根据哪一列排序,可以为一个列表</span></span><br><span class="line"><span class="comment"># axis: 轴来指导排序</span></span><br><span class="line"><span class="comment"># ascending: 如果为真，按升序排序，否则按降序排序</span></span><br><span class="line"><span class="comment"># inplace: 如果为真，就地执行操作</span></span><br><span class="line"><span class="comment"># kind: 选择排序算法</span></span><br><span class="line"><span class="comment"># na_position: 参数&#x27;first&#x27;将NaNs放在开头，&#x27;last&#x27;将NaNs放在结尾</span></span><br><span class="line">titanic.sort_values(by=<span class="string">&quot;Age&quot;</span>).head()</span><br><span class="line"><span class="comment"># sort_index和sort_value基本相似,只是一个按索引排序，一个按字段排序</span></span><br></pre></td></tr></table></figure>
+<h3 id="数据重塑">数据重塑</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pivot(data,columns,index,values)</span></span><br><span class="line"><span class="comment"># data: 数据帧</span></span><br><span class="line"><span class="comment"># columns: str | object | str列表，用于创建新框架的列的列</span></span><br><span class="line"><span class="comment"># index: str | object | str列表，可选，用于创建新帧索引的Column，如果未给出，则使用现有索引</span></span><br><span class="line"><span class="comment"># values: str、对象或上一个列表，可选，用于填充新帧值的列，如果不指定，则将使用所有剩余列，结果将具有分层索引列</span></span><br><span class="line"><span class="comment"># 返回重塑的DataFrame</span></span><br><span class="line">data.pivot()</span><br></pre></td></tr></table></figure>
+<h3 id="透视表">透视表</h3>
+<p>在 pivot() 的情况下，数据只是重新排列。当需要聚合多个值时，可以使用 pivot_table()，它提供一个聚合函数（例如平均值）来组合这些值。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.pivot_table(values=<span class="string">&quot;value&quot;</span>, index=<span class="string">&quot;location&quot;</span>, columns=<span class="string">&quot;parameter&quot;</span>, aggfunc=<span class="string">&quot;mean&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="创建新索引">创建新索引</h3>
+<p>reset_index()</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.pivot(columns=<span class="string">&quot;location&quot;</span>, values=<span class="string">&quot;value&quot;</span>).reset_index()</span><br></pre></td></tr></table></figure>
+<h3 id="合并">合并</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data1 = pd.read_csv(<span class="string">&quot;data1.csv&quot;</span>)</span><br><span class="line">data2 = pd.read_csv(<span class="string">&quot;data2.csv&quot;</span>)</span><br><span class="line">pd.concat([data1,data2],axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="merge">merge</h3>
+<p>基本用法: merge(left,right,how,on,left_on,right_on,left_index,right_index,sort,suffixes,copy,indicator,validate)</p>
+<p>详细解释见: <a href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge">https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge</a></p>
+<h3 id="时间序列数据">时间序列数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.to_datetime(data[<span class="string">&quot;datetime&quot;</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="操作文本">操作文本</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将Name字段的所有内容全部转为小写</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.lower</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分割Name字段的所有内容</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基本用法: contains(pat,case,flags,na,regex)</span></span><br><span class="line"><span class="comment"># pat: 字符串或正则</span></span><br><span class="line"><span class="comment"># case: 是否区分大小写，默认True</span></span><br><span class="line"><span class="comment"># flags: 默认0，传递给 re 模块的标志，例如 re.IGNORECASE 的 CASE。</span></span><br><span class="line"><span class="comment"># na: 可选,默认对空值不处理，即输出结果还是nan</span></span><br><span class="line"><span class="comment"># 文本包含,是否包含Countess字符串，包含返回True，不包含返回False，NaN返回NaN</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&quot;Countess&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取Name长度</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">len</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取名字最长的那一个Name</span></span><br><span class="line">data.loc[data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.idxmax(),<span class="string">&quot;Name&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换，将“male”的值替换为“M”，将“female”的值替换为“F”。</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].replace(&#123;<span class="string">&quot;male&quot;</span>: <span class="string">&quot;M&quot;</span>, <span class="string">&quot;female&quot;</span>: <span class="string">&quot;F&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -375,32 +477,6 @@
       </tags>
   </entry>
   <entry>
-    <title>换 yum 源</title>
-    <url>/2024/08/19/202408191114/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>备份原有源配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
-<p>刷新yum缓存</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
-<p>检查是否更换成功</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
-<p>更新软件包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
-<p>至此，换源完成~</p>
-]]></content>
-      <categories>
-        <category>配置</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-        <tag>配置</tag>
-        <tag>config</tag>
-        <tag>yum</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CentOS 7 配置 IP 地址</title>
     <url>/2024/10/30/202410301643/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
@@ -420,79 +496,124 @@
       </tags>
   </entry>
   <entry>
-    <title>Pandas 库的使用</title>
-    <url>/2024/08/24/202408240914/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
-<a href="https://pandas.ac.cn/docs/">https://pandas.ac.cn/docs/</a></p>
-<h3 id="安装-pandas">安装 pandas</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install pandas</span><br></pre></td></tr></table></figure>
-<h3 id="导入-pandas">导入 pandas</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
-<h3 id="读取表格或数据库">读取表格或数据库</h3>
-<p>数据库以MySQL为例</p>
-<p>支持相对路径，绝对路径，网络路径</p>
-<p>读取操作返回DataFrame</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在读取的时候添加parse_dates=[&quot;列名&quot;]，可使这个列变为Timestamp类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取csv表格文件</span></span><br><span class="line">pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取xlsx或者xls表格文件</span></span><br><span class="line">pd.read_excel(<span class="string">&quot;data.xlsx&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取MySQL</span></span><br><span class="line"><span class="comment"># 首先创建数据库连接对象</span></span><br><span class="line">conn = pymysql.connect(</span><br><span class="line">    host=<span class="string">&quot;localhost&quot;</span>, <span class="comment"># 数据库地址</span></span><br><span class="line">    port=<span class="number">3306</span>, <span class="comment"># 数据库端口</span></span><br><span class="line">    user=<span class="string">&quot;root&quot;</span>, <span class="comment"># 登录用户名</span></span><br><span class="line">    password=<span class="string">&quot;123456&quot;</span>, <span class="comment"># 登录密码</span></span><br><span class="line">    database=<span class="string">&quot;example&quot;</span>, <span class="comment"># 数据库名称</span></span><br><span class="line">    charset=<span class="string">&quot;utf8&quot;</span> <span class="comment"># 编码格式</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">#执行sql操作</span></span><br><span class="line"><span class="comment"># %s 是占位符, index_col 是索引字段,可以是字符串也可以是列表</span></span><br><span class="line">sql = <span class="string">&quot;select * from user limit %s,%s&quot;</span></span><br><span class="line">pd.read_sql(sql,con=conn,params=[<span class="number">10</span>,<span class="number">20</span>],index_col=[<span class="string">&quot;id&quot;</span>,<span class="string">&quot;type&quot;</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="写入表格">写入表格</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 写 csv 文件</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取read.csv表格</span></span><br><span class="line">data_read = pd.read_csv(<span class="string">&quot;read.csv&quot;</span>)</span><br><span class="line"><span class="comment"># 将read.csv表格写入到write.csv表格,并去除索引,在写入时不能打开write.csv</span></span><br><span class="line">data_read.to_csv(<span class="string">&quot;write.csv&quot;</span>,index=<span class="literal">False</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 将read.csv表格写入到write.txt文件里，并设置分割方式，去除索引,在写入时不能打开write.txt</span></span><br><span class="line">data_read.to_csv(<span class="string">&quot;write.txt&quot;</span>,sep=<span class="string">&quot;\t&quot;</span>,index=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将read.csv表格写入到write.xlsx表格,并去除索引,在写入时不能打开write.xlsx</span></span><br><span class="line">data_read.to_excel(<span class="string">&quot;write.xlsx&quot;</span>,index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="选择-DataFrame-的子集">选择 DataFrame 的子集</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="选择数值列">选择数值列</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.describe()</span><br></pre></td></tr></table></figure>
-<h4 id="选择特定列">选择特定列</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 选择Age列</span></span><br><span class="line">ages = data[<span class="string">&quot;Age&quot;</span>]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择Name列和Age列</span></span><br><span class="line">name_age = data[[<span class="string">&quot;Name&quot;</span>,<span class="string">&quot;Age&quot;</span>]]</span><br><span class="line">name_age.head()</span><br></pre></td></tr></table></figure>
-<h4 id="选择特定行">选择特定行</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 筛选年龄超过35岁的乘客</span></span><br><span class="line"><span class="comment"># data[&quot;Age&quot;] &gt; 35 将判断每一条数据的Age字段是否大于35</span></span><br><span class="line">ages = data[data[<span class="string">&quot;Age&quot;</span>] &gt; <span class="number">35</span>]</span><br><span class="line">ages.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 筛选泰坦尼克号 2 等舱和 3 等舱的乘客</span></span><br><span class="line"><span class="comment"># 第一种写法</span></span><br><span class="line">class_23 = data[data[<span class="string">&quot;class&quot;</span>].isin([<span class="number">2</span>,<span class="number">3</span>])]</span><br><span class="line"><span class="comment"># 第二种写法</span></span><br><span class="line"><span class="comment"># 注: 不能用 or/and,需要用or运算符 | 和and运算符 &amp;</span></span><br><span class="line">class_23 = data[(data[<span class="string">&quot;class&quot;</span>] == <span class="number">2</span>) | (data[<span class="string">&quot;class&quot;</span>] == <span class="number">3</span>)]</span><br><span class="line">class_23.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取已知年龄的乘客数据</span></span><br><span class="line">ages_no_na = data[data[<span class="string">&quot;Age&quot;</span>].notna()]</span><br><span class="line">ages_no_na.head() </span><br></pre></td></tr></table></figure>
-<h4 id="选择特定的行和列">选择特定的行和列</h4>
-<p>需要在选择括号 [] 前面使用 loc/iloc 运算符。使用 loc/iloc 时，逗号前面的部分是要选择的行，逗号后面的部分是要选择的列</p>
-<p>loc是基于行标签和列标签进行索引的，基本用法为 DataFrame.loc[行标签,列标签]<br>
-iloc是基于行和列的位置进行索引的，索引从0开始，基本用法为 DataFrame.iloc[行位置,列位置]</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 年龄大于35岁的乘客的姓名</span></span><br><span class="line">names = data.loc[data[<span class="string">&quot;Age&quot;</span>] &gt; <span class="number">35</span>,<span class="string">&quot;Name&quot;</span>]</span><br><span class="line">names.head()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取第十行到30行的数据</span></span><br><span class="line">datas = data.iloc[<span class="number">9</span>,<span class="number">30</span>]</span><br><span class="line">datas.head()</span><br></pre></td></tr></table></figure>
-<h3 id="从现有列创建新列">从现有列创建新列</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建Age2列，值为Age列的2倍</span></span><br><span class="line">data[<span class="string">&#x27;Age2&#x27;</span>] = data[<span class="string">&#x27;Age&#x27;</span>] * <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h3 id="修改列名称">修改列名称</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br><span class="line"></span><br><span class="line">data.rename(</span><br><span class="line">    columns=&#123;</span><br><span class="line">        <span class="string">&quot;现有列名称&quot;</span>:<span class="string">&quot;新名称&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Age&quot;</span>:<span class="string">&quot;年龄&quot;</span>,</span><br><span class="line">        <span class="string">&quot;name&quot;</span>:<span class="string">&quot;姓名&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以映射</span></span><br><span class="line">data.rename(columns=<span class="built_in">str</span>.lower)</span><br></pre></td></tr></table></figure>
-<h3 id="计算汇总统计量">计算汇总统计量</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_csv(<span class="string">&quot;data.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="平均值">平均值</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data[<span class="string">&quot;Age&quot;</span>].mean()</span><br></pre></td></tr></table></figure>
-<h4 id="中位数">中位数</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data[<span class="string">&quot;Price&quot;</span>].median()</span><br></pre></td></tr></table></figure>
-<h4 id="特定组合">特定组合</h4>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.agg(</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;Age&quot;</span>: [<span class="string">&quot;min&quot;</span>,<span class="string">&quot;max&quot;</span>,<span class="string">&quot;median&quot;</span>,<span class="string">&quot;skew&quot;</span>],</span><br><span class="line">        <span class="string">&quot;Fare&quot;</span>: [<span class="string">&quot;min&quot;</span>,<span class="string">&quot;max&quot;</span>,<span class="string">&quot;median&quot;</span>,<span class="string">&quot;mean&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h4 id="按类别分组的汇总统计量">按类别分组的汇总统计量</h4>
-<p>1、男性和女性泰坦尼克号乘客的平均年龄是多少？</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先查询出Sex字段和Age字段的数据，然后将数据根据Sex分组，最后求年龄的平均值</span></span><br><span class="line">data[[<span class="string">&#x27;Sex&#x27;</span>,<span class="string">&#x27;Age&#x27;</span>]].groupby(<span class="string">&quot;Sex&quot;</span>).mean()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有显式的选择Sex和Age两列，那么就需要使用numeric_only=True应用包含数值列的每一项</span></span><br><span class="line">data.groupby(<span class="string">&quot;Sex&quot;</span>).mean(numeric_only=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以对分组数据的列选择</span></span><br><span class="line">data.groupby(<span class="string">&quot;Sex&quot;</span>)[<span class="string">&#x27;Age&#x27;</span>].mean()</span><br></pre></td></tr></table></figure>
-<p>2、每个性别和客舱等级组合的平均票价是多少？</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.groupby([<span class="string">&quot;Sex&quot;</span>,<span class="string">&quot;Pclass&quot;</span>])[<span class="string">&#x27;Fare&#x27;</span>].mean()</span><br></pre></td></tr></table></figure>
-<h4 id="按类别统计记录数">按类别统计记录数</h4>
-<p>1、每个客舱等级有多少乘客？</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># value_counts是一个快捷方式，它实际上是分组操作与每个组内记录数的计数相结合</span></span><br><span class="line"><span class="comment"># 两个相同</span></span><br><span class="line">data[<span class="string">&#x27;Pclass&#x27;</span>].value_counts()</span><br><span class="line">data.groupby(<span class="string">&quot;Pclass&quot;</span>)[<span class="string">&#x27;Pclass&#x27;</span>].count()</span><br><span class="line"></span><br><span class="line"><span class="comment"># size 和 count 都可以与 groupby 结合使用。而 size 包含 NaN 值，只提供行数（表格的大小），count 排除缺失值。在 value_counts 方法中，使用 dropna 参数来包含或排除 NaN 值。</span></span><br><span class="line">data.groupby(<span class="string">&quot;Pclass&quot;</span>)[<span class="string">&#x27;Pclass&#x27;</span>].size()</span><br></pre></td></tr></table></figure>
-<h3 id="排序">排序</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 根据Age进行排序</span></span><br><span class="line"><span class="comment"># 基本用法: sort_values(by,axis,ascending,inplace,kind,na_position)</span></span><br><span class="line"><span class="comment"># by: 根据哪一列排序,可以为一个列表</span></span><br><span class="line"><span class="comment"># axis: 轴来指导排序</span></span><br><span class="line"><span class="comment"># ascending: 如果为真，按升序排序，否则按降序排序</span></span><br><span class="line"><span class="comment"># inplace: 如果为真，就地执行操作</span></span><br><span class="line"><span class="comment"># kind: 选择排序算法</span></span><br><span class="line"><span class="comment"># na_position: 参数&#x27;first&#x27;将NaNs放在开头，&#x27;last&#x27;将NaNs放在结尾</span></span><br><span class="line">titanic.sort_values(by=<span class="string">&quot;Age&quot;</span>).head()</span><br><span class="line"><span class="comment"># sort_index和sort_value基本相似,只是一个按索引排序，一个按字段排序</span></span><br></pre></td></tr></table></figure>
-<h3 id="数据重塑">数据重塑</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pivot(data,columns,index,values)</span></span><br><span class="line"><span class="comment"># data: 数据帧</span></span><br><span class="line"><span class="comment"># columns: str | object | str列表，用于创建新框架的列的列</span></span><br><span class="line"><span class="comment"># index: str | object | str列表，可选，用于创建新帧索引的Column，如果未给出，则使用现有索引</span></span><br><span class="line"><span class="comment"># values: str、对象或上一个列表，可选，用于填充新帧值的列，如果不指定，则将使用所有剩余列，结果将具有分层索引列</span></span><br><span class="line"><span class="comment"># 返回重塑的DataFrame</span></span><br><span class="line">data.pivot()</span><br></pre></td></tr></table></figure>
-<h3 id="透视表">透视表</h3>
-<p>在 pivot() 的情况下，数据只是重新排列。当需要聚合多个值时，可以使用 pivot_table()，它提供一个聚合函数（例如平均值）来组合这些值。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.pivot_table(values=<span class="string">&quot;value&quot;</span>, index=<span class="string">&quot;location&quot;</span>, columns=<span class="string">&quot;parameter&quot;</span>, aggfunc=<span class="string">&quot;mean&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="创建新索引">创建新索引</h3>
-<p>reset_index()</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data.pivot(columns=<span class="string">&quot;location&quot;</span>, values=<span class="string">&quot;value&quot;</span>).reset_index()</span><br></pre></td></tr></table></figure>
-<h3 id="合并">合并</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data1 = pd.read_csv(<span class="string">&quot;data1.csv&quot;</span>)</span><br><span class="line">data2 = pd.read_csv(<span class="string">&quot;data2.csv&quot;</span>)</span><br><span class="line">pd.concat([data1,data2],axis=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="merge">merge</h3>
-<p>基本用法: merge(left,right,how,on,left_on,right_on,left_index,right_index,sort,suffixes,copy,indicator,validate)</p>
-<p>详细解释见: <a href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge">https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge</a></p>
-<h3 id="时间序列数据">时间序列数据</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.to_datetime(data[<span class="string">&quot;datetime&quot;</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="操作文本">操作文本</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将Name字段的所有内容全部转为小写</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.lower</span><br><span class="line"></span><br><span class="line"><span class="comment"># 分割Name字段的所有内容</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基本用法: contains(pat,case,flags,na,regex)</span></span><br><span class="line"><span class="comment"># pat: 字符串或正则</span></span><br><span class="line"><span class="comment"># case: 是否区分大小写，默认True</span></span><br><span class="line"><span class="comment"># flags: 默认0，传递给 re 模块的标志，例如 re.IGNORECASE 的 CASE。</span></span><br><span class="line"><span class="comment"># na: 可选,默认对空值不处理，即输出结果还是nan</span></span><br><span class="line"><span class="comment"># 文本包含,是否包含Countess字符串，包含返回True，不包含返回False，NaN返回NaN</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.contains(<span class="string">&quot;Countess&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取Name长度</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.<span class="built_in">len</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取名字最长的那一个Name</span></span><br><span class="line">data.loc[data[<span class="string">&#x27;Name&#x27;</span>].<span class="built_in">str</span>.idxmax(),<span class="string">&quot;Name&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换，将“male”的值替换为“M”，将“female”的值替换为“F”。</span></span><br><span class="line">data[<span class="string">&#x27;Name&#x27;</span>].replace(&#123;<span class="string">&quot;male&quot;</span>: <span class="string">&quot;M&quot;</span>, <span class="string">&quot;female&quot;</span>: <span class="string">&quot;F&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
+    <title>docker 映射端口外部设备访问不到</title>
+    <url>/2024/11/15/202411151154/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="容器内部">容器内部</h3>
+<p>查看服务是否开启，以nginx为例</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep nginx</span><br></pre></td></tr></table></figure>
+<p>返回类似于以下图片，说明服务已经启动<br>
+<img src="ps.png" alt=""></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<p>如果容器有防火墙，可以先关闭防火墙试一下<br>
+先查一下防火墙的状态，如果为下图就是关着呢<br>
+<img src="firewalld.png" alt=""></p>
+<h3 id="宿主机">宿主机</h3>
+<p>先看容器是否正确映射端口<br>
+下图画红框的地方就是将容器内部的nginx服务映射到宿主机的32770端口，如果这里没有映射，那么外部设备肯定访问不到。<br>
+<img src="a.png" alt=""></p>
+<p>查看宿主机端口是否开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ss -tlnp | grep 32770</span><br></pre></td></tr></table></figure>
+<p>类似于以下输出，说明端口没问题<br>
+<img src="b.png" alt=""><br>
+如果还是访问不了，那么就是防火墙的问题了，可以尝试关闭防火墙。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<p>类似于下图就是关着呢<br>
+<img src="c.png" alt=""><br>
+配置iptables使得所有流量都允许，可以通过以下命令清除当前的规则并设置允许所有的流量。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -F   <span class="comment"># 清除所有链中的规则</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -X   <span class="comment"># 删除所有自定义链</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -Z   <span class="comment"># 清空规则链中的计数器</span></span><br></pre></td></tr></table></figure>
+<p>设置默认链为 ACCEPT，表示允许所有的传入、传出流量。执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -P INPUT ACCEPT    <span class="comment"># 允许所有进入流量</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -P FORWARD ACCEPT  <span class="comment"># 允许所有转发流量</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -P OUTPUT ACCEPT   <span class="comment"># 允许所有输出流量</span></span><br></pre></td></tr></table></figure>
+<p>无需重启，立刻生效</p>
+<p>默认情况下，iptables 规则在系统重启后会丢失。</p>
+<p>根据系统版本不同，可以上网搜索对应的方法，将iptables规则保存下来，防止重启后失效。</p>
+<h3 id="容器内部-2">容器内部</h3>
+<p>外部设备访问 <a href="http://xn--tiq524a71i">http://宿主机</a>:映射的端口 如果是以下页面，说明连接没问题，大概率是内部服务或代理的问题</p>
+<p><img src="d.png" alt=""></p>
+<p>我这里是后端的jar包端口映射错了，需要改运行的端口为8080</p>
+<p>直接用命令复制jar包到宿主机再复制到本地windows电脑下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> b634d0b5d430:/root/question-1.0.jar ./</span><br></pre></td></tr></table></figure>
+<p>然后用解压工具打开question-1.0.jar，修改 BOOT-INF\classes\目录下的application.yml文件<br>
+<img src="f.png" alt=""><br>
+<img src="e.png" alt=""></p>
+<p>再复制回docker中，重新运行jar包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> ./question-1.0.jar b634d0b5d430:/root/question-1.0.jar</span><br></pre></td></tr></table></figure>
+<p>先查看之前运行的任务，然后结束他<br>
+<img src="g.png" alt=""><br>
+<img src="i.png" alt=""></p>
+<p>结束之后重新运行，因为之前已经复制jar包到容器中，所以直接运行就OK<br>
+这里的  nohup command &amp;  是让jar包在后台运行<br>
+<img src="j.png" alt=""></p>
+<p>运行后可以看一下 nohup 的日志文件看看运行成功没有，这样是运行成功了。<br>
+<img src="h.png" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Spark 增量抽取 (Scala 实现)</title>
+    <url>/2024/11/23/202411232112/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="题目">题目</h3>
+<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
+<h3 id="第一题">第一题</h3>
+<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
+<h4 id="代码">代码</h4>
+<p><img src="code.png" alt=""><br>
+<img src="a.png" alt=""></p>
+<h3 id="第二题">第二题</h3>
+<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
+<h4 id="代码-2">代码</h4>
+<p><img src="b.png" alt=""><br>
+<img src="c.png" alt=""></p>
+]]></content>
       <tags>
-        <tag>python</tag>
-        <tag>pandas</tag>
+        <tag>Spark</tag>
+        <tag>Scala</tag>
+        <tag>大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spark Sql 常用函数 (Scala 语言)</title>
+    <url>/2024/11/25/202411251836/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
+<h3 id="col">col</h3>
+<p>用于在DataFrame或Dataset中引用列，通常与Spark的SQL查询或者DataFrame操作一起使用。<br>
+语法：</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">col(colName: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="column">column</h3>
+<p>与 col 函数功能相同。</p>
+<h3 id="lit">lit</h3>
+<p>用于将一个常量值转换为 Column 类型，以便在 Spark SQL 操作中使用。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">lit(literal: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="typeLit">typeLit</h3>
+<p>typedLit 函数是一个类型安全的版本的 lit 函数。它用于将字面量（常量）转换为指定类型的 Column，并确保在编译时类型匹配。typedLit 适用于 Spark 3.x 版本，提供比 lit 更严格的类型检查，从而避免潜在的类型不匹配问题。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">typedLit[<span class="type">T</span>: <span class="type">TypeTag</span>](literal: <span class="type">T</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="greatest">greatest</h3>
+<p>用于比较多列的值，返回每行中这些列中的最大值。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">greatest(exprs: <span class="type">Column</span>*): <span class="type">Column</span></span><br><span class="line">greatest(columnName: <span class="type">String</span>, columnNames: <span class="type">String</span>*): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="current-date">current_date</h3>
+<p>返回当前的日期（以 yyyy-MM-dd 格式表示）。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">current_date(): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="date-sub">date_sub</h3>
+<p>用于从指定的日期中减去给定的天数，并返回新的日期。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_sub(start: <span class="type">Column</span>, days: <span class="type">Int</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="date-format">date_format</h3>
+<p>用于将日期类型的数据格式化为指定的字符串格式。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_format(dateExpr: <span class="type">Column</span>, format: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="when">when</h3>
+<p>条件表达式，通常与 otherwise() 函数一起使用，用于根据条件返回不同的值。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">when(condition: <span class="type">Column</span>, value: <span class="type">Any</span>): <span class="type">Column</span></span><br><span class="line">    .otherwise(value: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="max">max</h3>
+<p>它通常用于对数值型数据进行分组聚合，或者在没有分组时返回整个列的最大值。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">max(e: <span class="type">Column</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="to-timestamp">to_timestamp</h3>
+<p>将一个字符串或者日期列转换为 timestamp 类型。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">to_timestamp(s: <span class="type">Column</span>): <span class="type">Column</span></span><br><span class="line">to_timestamp(s: <span class="type">Column</span>, fmt: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="row-number">row_number</h3>
+<p>用于为每个分组中的行分配一个唯一的递增整数值。它通常与窗口函数一起使用，以实现更复杂的分组和排序操作。<br>
+以下示例是基于 id 列进行分组，并按照 time 列进行降序排序，为每个分组中的行分配一个唯一的行号。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">row_number()</span><br><span class="line">    .over(</span><br><span class="line">        <span class="type">Window</span></span><br><span class="line">            .partitionBy(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">            .orderBy(desc(<span class="string">&quot;time&quot;</span>))</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Scala</tag>
       </tags>
   </entry>
   <entry>
@@ -1162,80 +1283,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>Spark 增量抽取 (Scala 实现)</title>
-    <url>/2024/11/23/202411232112/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="题目">题目</h3>
-<p>编写Scala代码，使用Spark将MySQL的shtd_store库中表user_info、sku_info、base_province、base_region、order_info、order_detail的数据增量抽取到Hive的ods库中对应表user_info、sku_info、base_province、base_region、order_info、order_detail中。(若ods库中部分表没有数据，正常抽取即可)</p>
-<h3 id="第一题">第一题</h3>
-<p>1、抽取shtd_store库中user_info的增量数据进入Hive的ods库中表user_info。根据ods.user_info表中operate_time或create_time作为增量字段(即MySQL中每条数据取这两个时间中较大的那个时间作为增量字段去和ods里的这两个字段中较大的时间进行比较)，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.user_info命令。</p>
-<h4 id="代码">代码</h4>
-<p><img src="code.png" alt=""><br>
-<img src="a.png" alt=""></p>
-<h3 id="第二题">第二题</h3>
-<p>2、	抽取shtd_store库中sku_info的增量数据进入Hive的ods库中表sku_info。根据ods.sku_info表中create_time作为增量字段，只将新增的数据抽入，字段名称、类型不变，同时添加静态分区，分区字段为etl_date，类型为String，且值为当前比赛日的前一天日期（分区字段格式为yyyyMMdd）。使用hive cli执行show partitions ods.sku_info命令。</p>
-<h4 id="代码-2">代码</h4>
-<p><img src="b.png" alt=""><br>
-<img src="c.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Scala</tag>
-        <tag>大数据</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>docker 映射端口外部设备访问不到</title>
-    <url>/2024/11/15/202411151154/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="容器内部">容器内部</h3>
-<p>查看服务是否开启，以nginx为例</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -ef | grep nginx</span><br></pre></td></tr></table></figure>
-<p>返回类似于以下图片，说明服务已经启动<br>
-<img src="ps.png" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-<p>如果容器有防火墙，可以先关闭防火墙试一下<br>
-先查一下防火墙的状态，如果为下图就是关着呢<br>
-<img src="firewalld.png" alt=""></p>
-<h3 id="宿主机">宿主机</h3>
-<p>先看容器是否正确映射端口<br>
-下图画红框的地方就是将容器内部的nginx服务映射到宿主机的32770端口，如果这里没有映射，那么外部设备肯定访问不到。<br>
-<img src="a.png" alt=""></p>
-<p>查看宿主机端口是否开启</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ss -tlnp | grep 32770</span><br></pre></td></tr></table></figure>
-<p>类似于以下输出，说明端口没问题<br>
-<img src="b.png" alt=""><br>
-如果还是访问不了，那么就是防火墙的问题了，可以尝试关闭防火墙。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-<p>类似于下图就是关着呢<br>
-<img src="c.png" alt=""><br>
-配置iptables使得所有流量都允许，可以通过以下命令清除当前的规则并设置允许所有的流量。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -F   <span class="comment"># 清除所有链中的规则</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -X   <span class="comment"># 删除所有自定义链</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -Z   <span class="comment"># 清空规则链中的计数器</span></span><br></pre></td></tr></table></figure>
-<p>设置默认链为 ACCEPT，表示允许所有的传入、传出流量。执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -P INPUT ACCEPT    <span class="comment"># 允许所有进入流量</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -P FORWARD ACCEPT  <span class="comment"># 允许所有转发流量</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -P OUTPUT ACCEPT   <span class="comment"># 允许所有输出流量</span></span><br></pre></td></tr></table></figure>
-<p>无需重启，立刻生效</p>
-<p>默认情况下，iptables 规则在系统重启后会丢失。</p>
-<p>根据系统版本不同，可以上网搜索对应的方法，将iptables规则保存下来，防止重启后失效。</p>
-<h3 id="容器内部-2">容器内部</h3>
-<p>外部设备访问 <a href="http://xn--tiq524a71i">http://宿主机</a>:映射的端口 如果是以下页面，说明连接没问题，大概率是内部服务或代理的问题</p>
-<p><img src="d.png" alt=""></p>
-<p>我这里是后端的jar包端口映射错了，需要改运行的端口为8080</p>
-<p>直接用命令复制jar包到宿主机再复制到本地windows电脑下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> b634d0b5d430:/root/question-1.0.jar ./</span><br></pre></td></tr></table></figure>
-<p>然后用解压工具打开question-1.0.jar，修改 BOOT-INF\classes\目录下的application.yml文件<br>
-<img src="f.png" alt=""><br>
-<img src="e.png" alt=""></p>
-<p>再复制回docker中，重新运行jar包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> ./question-1.0.jar b634d0b5d430:/root/question-1.0.jar</span><br></pre></td></tr></table></figure>
-<p>先查看之前运行的任务，然后结束他<br>
-<img src="g.png" alt=""><br>
-<img src="i.png" alt=""></p>
-<p>结束之后重新运行，因为之前已经复制jar包到容器中，所以直接运行就OK<br>
-这里的  nohup command &amp;  是让jar包在后台运行<br>
-<img src="j.png" alt=""></p>
-<p>运行后可以看一下 nohup 的日志文件看看运行成功没有，这样是运行成功了。<br>
-<img src="h.png" alt=""></p>
-]]></content>
-  </entry>
-  <entry>
     <title>安装并使用 GitStack</title>
     <url>/2024/12/15/202412151508/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="下载-GitStack">下载 GitStack</h3>
@@ -1267,6 +1314,13 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>Vue3 + Element Plus 自定义验证</title>
+    <url>/2025/01/25/202501251533/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> type &#123;<span class="title class_">FormInstance</span>, <span class="title class_">FormRules</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"><span class="comment">// 判断是否是移动端的函数</span></span><br><span class="line"><span class="keyword">import</span> &#123;isMobileDevice&#125; <span class="keyword">from</span> <span class="string">&quot;@/utils/commonMethod&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义表单数据类型</span></span><br><span class="line">interface <span class="title class_">RuleForm</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: string</span><br><span class="line">  <span class="attr">password</span>: string</span><br><span class="line">  <span class="attr">confirmPassword</span>: string</span><br><span class="line">  <span class="attr">email</span>: string</span><br><span class="line">  <span class="attr">code</span>: string</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取表单实例，常量名对应ref属性</span></span><br><span class="line"><span class="keyword">const</span> ruleFormRef = ref&lt;<span class="title class_">FormInstance</span>&gt;()</span><br><span class="line"><span class="comment">// 以下两个 validate* 函数，必须调用回调函数，否则最后提交会卡住</span></span><br><span class="line"><span class="comment">// 定义验证确认密码函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">validatePass</span> = (<span class="params">rule: object, value: string, callback: (error?: <span class="built_in">Error</span>) =&gt; <span class="keyword">void</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (value !== form.<span class="property">password</span>) &#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;两次密码不一致&quot;</span>))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">callback</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义验证邮箱函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">validateEmail</span> = (<span class="params">rule: object, value: string, callback: (error?: <span class="built_in">Error</span>) =&gt; <span class="keyword">void</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> reg = <span class="regexp">/^[A-Za-z0-9_\-]+(\.[A-Za-z0-9_\-]+)*@[A-Za-z0-9\-]+\.[A-Za-z]&#123;2,&#125;$/</span></span><br><span class="line">  <span class="keyword">if</span> (!reg.<span class="title function_">test</span>(value)) &#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;邮箱不合法&quot;</span>))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">callback</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义表单数据</span></span><br><span class="line"><span class="keyword">const</span> form = reactive&lt;<span class="title class_">RuleForm</span>&gt;(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">password</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">confirmPassword</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">email</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">code</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 定义表单验证规则</span></span><br><span class="line"><span class="keyword">const</span> rules = reactive&lt;<span class="title class_">FormRules</span>&lt;<span class="title class_">RuleForm</span>&gt;&gt;(&#123;</span><br><span class="line">  <span class="attr">name</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入昵称&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">1</span>, <span class="attr">max</span>: <span class="number">20</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是1-20&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">email</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入邮箱&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">validator</span>: validateEmail, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">code</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入邮箱验证码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">6</span>, <span class="attr">max</span>: <span class="number">6</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是6&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">password</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入密码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">8</span>, <span class="attr">max</span>: <span class="number">16</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是8-16&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">confirmPassword</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请确认密码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">validator</span>: validatePass, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 提交表单</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">submitForm</span> = (<span class="params">formEl: FormInstance | <span class="literal">undefined</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!formEl) <span class="keyword">return</span></span><br><span class="line"><span class="comment">// 如果上面的两个 validate* 函数没有调用回调函数，则这里会卡住</span></span><br><span class="line">  formEl.<span class="title function_">validate</span>(<span class="function">(<span class="params">valid</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(valid)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重置表单</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resetForm</span> = (<span class="params">formEl: FormInstance | <span class="literal">undefined</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!formEl) <span class="keyword">return</span></span><br><span class="line">  formEl.<span class="title function_">resetFields</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> timer = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> show = <span class="title function_">ref</span>(<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> time = <span class="number">120</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getCode</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">//axios请求</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(form.<span class="property">email</span>);</span><br><span class="line">  <span class="comment">// 验证码倒计时</span></span><br><span class="line">  <span class="keyword">if</span> (timer.<span class="property">value</span> === <span class="number">0</span>) &#123;</span><br><span class="line">    count.<span class="property">value</span> = time;</span><br><span class="line">    show.<span class="property">value</span> = <span class="literal">false</span>;</span><br><span class="line">    timer.<span class="property">value</span> = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (count.<span class="property">value</span> &gt; <span class="number">0</span> &amp;&amp; count.<span class="property">value</span> &lt;= time) &#123;</span><br><span class="line">        count.<span class="property">value</span>--;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        show.<span class="property">value</span> = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">clearInterval</span>(timer.<span class="property">value</span>);</span><br><span class="line">        timer.<span class="property">value</span> = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;registry&quot;</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;width: isMobileDevice() ? &#x27;90%&#x27; : &#x27;50%&#x27;&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-form</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:ref</span>=<span class="string">&quot;ruleFormRef&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:model</span>=<span class="string">&quot;form&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:rules</span>=<span class="string">&quot;rules&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">label-width</span>=<span class="string">&quot;auto&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;demo-ruleForm&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">size</span>=<span class="string">&quot;default&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">status-icon</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;昵称&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;name&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.name&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;邮箱&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;email&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.email&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;验证码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;code&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.code&quot;</span> <span class="attr">style</span>=<span class="string">&quot;flex:10;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;success&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;getCode&quot;</span> <span class="attr">round</span> <span class="attr">style</span>=<span class="string">&quot;flex: 1;margin: 0 0 0 1rem&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;show&quot;</span>&gt;</span>发送验证码<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;!show&quot;</span>&gt;</span>&#123;&#123; count &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;密码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;form.password&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;确认密码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;confirmPassword&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;form.confirmPassword&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;success&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;submitForm(ruleFormRef)&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;resetForm(ruleFormRef)&quot;</span>&gt;</span>Reset<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>docker 部署 nginx</title>
     <url>/2025/02/07/202502071354/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1-拉取-nginx-镜像">1. 拉取 nginx 镜像</h3>
@@ -1281,68 +1335,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>docker</tag>
         <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spark Sql 常用函数 (Scala 语言)</title>
-    <url>/2024/11/25/202411251836/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
-<h3 id="col">col</h3>
-<p>用于在DataFrame或Dataset中引用列，通常与Spark的SQL查询或者DataFrame操作一起使用。<br>
-语法：</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">col(colName: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="column">column</h3>
-<p>与 col 函数功能相同。</p>
-<h3 id="lit">lit</h3>
-<p>用于将一个常量值转换为 Column 类型，以便在 Spark SQL 操作中使用。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">lit(literal: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="typeLit">typeLit</h3>
-<p>typedLit 函数是一个类型安全的版本的 lit 函数。它用于将字面量（常量）转换为指定类型的 Column，并确保在编译时类型匹配。typedLit 适用于 Spark 3.x 版本，提供比 lit 更严格的类型检查，从而避免潜在的类型不匹配问题。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">typedLit[<span class="type">T</span>: <span class="type">TypeTag</span>](literal: <span class="type">T</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="greatest">greatest</h3>
-<p>用于比较多列的值，返回每行中这些列中的最大值。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">greatest(exprs: <span class="type">Column</span>*): <span class="type">Column</span></span><br><span class="line">greatest(columnName: <span class="type">String</span>, columnNames: <span class="type">String</span>*): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="current-date">current_date</h3>
-<p>返回当前的日期（以 yyyy-MM-dd 格式表示）。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">current_date(): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="date-sub">date_sub</h3>
-<p>用于从指定的日期中减去给定的天数，并返回新的日期。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_sub(start: <span class="type">Column</span>, days: <span class="type">Int</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="date-format">date_format</h3>
-<p>用于将日期类型的数据格式化为指定的字符串格式。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_format(dateExpr: <span class="type">Column</span>, format: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="when">when</h3>
-<p>条件表达式，通常与 otherwise() 函数一起使用，用于根据条件返回不同的值。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">when(condition: <span class="type">Column</span>, value: <span class="type">Any</span>): <span class="type">Column</span></span><br><span class="line">    .otherwise(value: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="max">max</h3>
-<p>它通常用于对数值型数据进行分组聚合，或者在没有分组时返回整个列的最大值。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">max(e: <span class="type">Column</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="to-timestamp">to_timestamp</h3>
-<p>将一个字符串或者日期列转换为 timestamp 类型。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">to_timestamp(s: <span class="type">Column</span>): <span class="type">Column</span></span><br><span class="line">to_timestamp(s: <span class="type">Column</span>, fmt: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="row-number">row_number</h3>
-<p>用于为每个分组中的行分配一个唯一的递增整数值。它通常与窗口函数一起使用，以实现更复杂的分组和排序操作。<br>
-以下示例是基于 id 列进行分组，并按照 time 列进行降序排序，为每个分组中的行分配一个唯一的行号。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">row_number()</span><br><span class="line">    .over(</span><br><span class="line">        <span class="type">Window</span></span><br><span class="line">            .partitionBy(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">            .orderBy(desc(<span class="string">&quot;time&quot;</span>))</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Scala</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue3 + Element Plus 自定义验证</title>
-    <url>/2025/01/25/202501251533/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> type &#123;<span class="title class_">FormInstance</span>, <span class="title class_">FormRules</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"><span class="comment">// 判断是否是移动端的函数</span></span><br><span class="line"><span class="keyword">import</span> &#123;isMobileDevice&#125; <span class="keyword">from</span> <span class="string">&quot;@/utils/commonMethod&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义表单数据类型</span></span><br><span class="line">interface <span class="title class_">RuleForm</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: string</span><br><span class="line">  <span class="attr">password</span>: string</span><br><span class="line">  <span class="attr">confirmPassword</span>: string</span><br><span class="line">  <span class="attr">email</span>: string</span><br><span class="line">  <span class="attr">code</span>: string</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取表单实例，常量名对应ref属性</span></span><br><span class="line"><span class="keyword">const</span> ruleFormRef = ref&lt;<span class="title class_">FormInstance</span>&gt;()</span><br><span class="line"><span class="comment">// 以下两个 validate* 函数，必须调用回调函数，否则最后提交会卡住</span></span><br><span class="line"><span class="comment">// 定义验证确认密码函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">validatePass</span> = (<span class="params">rule: object, value: string, callback: (error?: <span class="built_in">Error</span>) =&gt; <span class="keyword">void</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (value !== form.<span class="property">password</span>) &#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;两次密码不一致&quot;</span>))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">callback</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义验证邮箱函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">validateEmail</span> = (<span class="params">rule: object, value: string, callback: (error?: <span class="built_in">Error</span>) =&gt; <span class="keyword">void</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> reg = <span class="regexp">/^[A-Za-z0-9_\-]+(\.[A-Za-z0-9_\-]+)*@[A-Za-z0-9\-]+\.[A-Za-z]&#123;2,&#125;$/</span></span><br><span class="line">  <span class="keyword">if</span> (!reg.<span class="title function_">test</span>(value)) &#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;邮箱不合法&quot;</span>))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">callback</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义表单数据</span></span><br><span class="line"><span class="keyword">const</span> form = reactive&lt;<span class="title class_">RuleForm</span>&gt;(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">password</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">confirmPassword</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">email</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">code</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 定义表单验证规则</span></span><br><span class="line"><span class="keyword">const</span> rules = reactive&lt;<span class="title class_">FormRules</span>&lt;<span class="title class_">RuleForm</span>&gt;&gt;(&#123;</span><br><span class="line">  <span class="attr">name</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入昵称&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">1</span>, <span class="attr">max</span>: <span class="number">20</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是1-20&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">email</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入邮箱&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">validator</span>: validateEmail, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">code</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入邮箱验证码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">6</span>, <span class="attr">max</span>: <span class="number">6</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是6&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">password</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入密码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">8</span>, <span class="attr">max</span>: <span class="number">16</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是8-16&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">confirmPassword</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请确认密码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">validator</span>: validatePass, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 提交表单</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">submitForm</span> = (<span class="params">formEl: FormInstance | <span class="literal">undefined</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!formEl) <span class="keyword">return</span></span><br><span class="line"><span class="comment">// 如果上面的两个 validate* 函数没有调用回调函数，则这里会卡住</span></span><br><span class="line">  formEl.<span class="title function_">validate</span>(<span class="function">(<span class="params">valid</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(valid)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重置表单</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resetForm</span> = (<span class="params">formEl: FormInstance | <span class="literal">undefined</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!formEl) <span class="keyword">return</span></span><br><span class="line">  formEl.<span class="title function_">resetFields</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> timer = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> show = <span class="title function_">ref</span>(<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> time = <span class="number">120</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getCode</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">//axios请求</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(form.<span class="property">email</span>);</span><br><span class="line">  <span class="comment">// 验证码倒计时</span></span><br><span class="line">  <span class="keyword">if</span> (timer.<span class="property">value</span> === <span class="number">0</span>) &#123;</span><br><span class="line">    count.<span class="property">value</span> = time;</span><br><span class="line">    show.<span class="property">value</span> = <span class="literal">false</span>;</span><br><span class="line">    timer.<span class="property">value</span> = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (count.<span class="property">value</span> &gt; <span class="number">0</span> &amp;&amp; count.<span class="property">value</span> &lt;= time) &#123;</span><br><span class="line">        count.<span class="property">value</span>--;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        show.<span class="property">value</span> = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">clearInterval</span>(timer.<span class="property">value</span>);</span><br><span class="line">        timer.<span class="property">value</span> = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;registry&quot;</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;width: isMobileDevice() ? &#x27;90%&#x27; : &#x27;50%&#x27;&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-form</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:ref</span>=<span class="string">&quot;ruleFormRef&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:model</span>=<span class="string">&quot;form&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:rules</span>=<span class="string">&quot;rules&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">label-width</span>=<span class="string">&quot;auto&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;demo-ruleForm&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">size</span>=<span class="string">&quot;default&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">status-icon</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;昵称&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;name&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.name&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;邮箱&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;email&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.email&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;验证码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;code&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.code&quot;</span> <span class="attr">style</span>=<span class="string">&quot;flex:10;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;success&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;getCode&quot;</span> <span class="attr">round</span> <span class="attr">style</span>=<span class="string">&quot;flex: 1;margin: 0 0 0 1rem&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;show&quot;</span>&gt;</span>发送验证码<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;!show&quot;</span>&gt;</span>&#123;&#123; count &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;密码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;form.password&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;确认密码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;confirmPassword&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;form.confirmPassword&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;success&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;submitForm(ruleFormRef)&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;resetForm(ruleFormRef)&quot;</span>&gt;</span>Reset<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>JS 用 Set 实现 交集、并集、差集</title>
-    <url>/2025/02/12/202502121335/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1368,13 +1360,11 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>Vue3 定义和使用 Porps</title>
-    <url>/2025/02/13/202502131026/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; description &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; defineProps &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="comment">// 定义 Props，在 setup 中props是自动解构的，不需要通过 props.title 来访问</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="title function_">defineProps</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">title</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 定义 props 的数据类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: string,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// required 标明这个 prop 是必传的，属性是可选的，默认为 false，</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">required</span>: <span class="literal">true</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">validator</span>(<span class="params">value</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">// 自定义校验函数，返回 true 表示校验通过，返回 false 表示校验失败</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span>, <span class="string">&#x27;warning&#x27;</span>, <span class="string">&#x27;danger&#x27;</span>].<span class="title function_">includes</span>(value)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">description</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: <span class="title class_">String</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 为 prop 提供默认值</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">default</span>: <span class="string">&#x27;Default description&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>JS 用 Set 实现 交集、并集、差集</title>
+    <url>/2025/02/12/202502121335/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>Vue3</tag>
-        <tag>Props</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1406,6 +1396,16 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取元素节点，参数为id名</span></span><br><span class="line">ele.<span class="title function_">getElementById</span>(<span class="string">&quot;id&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为class名</span></span><br><span class="line">ele.<span class="title function_">getElementsByClassName</span>(<span class="string">&quot;class&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为标签名</span></span><br><span class="line">ele.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;tag&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为任何选择器</span></span><br><span class="line">ele.<span class="title function_">querySelector</span>(<span class="string">&quot;selector&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为任何选择器</span></span><br><span class="line">ele.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;selector&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue3 定义和使用 Porps</title>
+    <url>/2025/02/13/202502131026/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; description &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">import</span> &#123; defineProps &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="comment">// 定义 Props，在 setup 中props是自动解构的，不需要通过 props.title 来访问</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="title function_">defineProps</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">title</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 定义 props 的数据类型</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: string,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// required 标明这个 prop 是必传的，属性是可选的，默认为 false，</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">required</span>: <span class="literal">true</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">validator</span>(<span class="params">value</span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">// 自定义校验函数，返回 true 表示校验通过，返回 false 表示校验失败</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="keyword">return</span> [<span class="string">&#x27;success&#x27;</span>, <span class="string">&#x27;warning&#x27;</span>, <span class="string">&#x27;danger&#x27;</span>].<span class="title function_">includes</span>(value)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">description</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">type</span>: <span class="title class_">String</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="comment">// 为 prop 提供默认值</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="attr">default</span>: <span class="string">&#x27;Default description&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;)</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Vue3</tag>
+        <tag>Props</tag>
       </tags>
   </entry>
   <entry>
