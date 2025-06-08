@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bestflyteng.github.io/music/index.html</loc>
+    
+    <lastmod>2025-06-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bestflyteng.github.io/2025/06/06/202506061717/</loc>
     
     <lastmod>2025-06-08</lastmod>
@@ -23,15 +32,6 @@
     <loc>https://bestflyteng.github.io/feedback/index.html</loc>
     
     <lastmod>2025-06-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/music/index.html</loc>
-    
-    <lastmod>2025-06-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -411,13 +411,6 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/tags/docker/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestflyteng.github.io/tags/%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -453,14 +446,7 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/tags/CentOS/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/tags/IP/</loc>
+    <loc>https://bestflyteng.github.io/tags/docker/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -475,6 +461,20 @@
   
   <url>
     <loc>https://bestflyteng.github.io/tags/Python/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/tags/CentOS/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/tags/IP/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -516,6 +516,13 @@
   </url>
   
   <url>
+    <loc>https://bestflyteng.github.io/tags/nginx/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bestflyteng.github.io/tags/Spring/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -524,13 +531,6 @@
   
   <url>
     <loc>https://bestflyteng.github.io/tags/Spring-security/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/tags/nginx/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -559,13 +559,6 @@
   
   <url>
     <loc>https://bestflyteng.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/tags/Computed/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -648,6 +641,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://bestflyteng.github.io/tags/Computed/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -679,13 +679,6 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/categories/%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2025-06-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestflyteng.github.io/categories/%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -700,7 +693,7 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/categories/Linux/</loc>
+    <loc>https://bestflyteng.github.io/categories/%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -708,6 +701,13 @@
   
   <url>
     <loc>https://bestflyteng.github.io/categories/Python/</loc>
+    <lastmod>2025-06-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/categories/Linux/</loc>
     <lastmod>2025-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
