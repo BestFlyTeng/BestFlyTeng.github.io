@@ -14,168 +14,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL的备份与恢复 (mysqldump)</title>
-    <url>/posts/4394775c/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="mysqldump-语法">mysqldump 语法</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump [选项] 数据库名 [表名] <span class="operator">&gt;</span> 脚本.<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
-<h3 id="选项">选项</h3>
-<table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>缩写</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>--host</td>
-<td>-h</td>
-<td>服务器IP地址</td>
-</tr>
-<tr>
-<td>--port</td>
-<td>-P (大写)</td>
-<td>服务器端口号</td>
-</tr>
-<tr>
-<td>--password</td>
-<td>-p (小写)</td>
-<td>MySQL密码</td>
-</tr>
-<tr>
-<td>--databases</td>
-<td></td>
-<td>指定要备份的数据库</td>
-</tr>
-<tr>
-<td>--all-databases</td>
-<td></td>
-<td>备份MySQL服务器上的所有数据库</td>
-</tr>
-<tr>
-<td>--compact</td>
-<td></td>
-<td>压缩模式，产生更少的输出</td>
-</tr>
-<tr>
-<td>--comments</td>
-<td></td>
-<td>添加注释信息</td>
-</tr>
-<tr>
-<td>--complete-insert</td>
-<td></td>
-<td>输出完成的插入语句</td>
-</tr>
-<tr>
-<td>--lock-tables</td>
-<td></td>
-<td>备份前，锁定所有数据库表</td>
-</tr>
-<tr>
-<td>--no-create-db/–no-create-info</td>
-<td></td>
-<td>禁止生成创建数据库语句</td>
-</tr>
-<tr>
-<td>--force</td>
-<td></td>
-<td>当出现错误时仍然继续备份操作</td>
-</tr>
-<tr>
-<td>--default-character-set</td>
-<td></td>
-<td>指定默认字符集</td>
-</tr>
-<tr>
-<td>--add-locks</td>
-<td></td>
-<td>备份数据库表时锁定数据库表</td>
-</tr>
-</tbody>
-</table>
-<h2 id="示例">示例</h2>
-<p>如果 -p 选项没有指定密码，那么控制台会等待输入密码</p>
-<h3 id="备份所有数据库">备份所有数据库</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p <span class="comment">--all-databases &gt; all.sql</span></span><br></pre></td></tr></table></figure>
-<h3 id="备份指定数据库">备份指定数据库</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p test <span class="operator">&gt;</span> test.sql</span><br></pre></td></tr></table></figure>
-<h3 id="备份指定数据库指定表-多个表以空格间隔">备份指定数据库指定表(多个表以空格间隔)</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p test table1 table2 <span class="operator">&gt;</span> test.sql </span><br></pre></td></tr></table></figure>
-<h3 id="备份指定数据库排除某些表">备份指定数据库排除某些表</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p test <span class="comment">--ignore-table=test.table1 --ignore-table=test.table2 &gt; test.sql</span></span><br></pre></td></tr></table></figure>
-<h2 id="恢复命令">恢复命令</h2>
-<h3 id="命令行命令">命令行命令</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">注：在导入备份数据库前，db_name如果没有，是需要创建的； 而且与db_name.sql中数据库名是一样的才可以导入。</span><br><span class="line">mysqladmin <span class="operator">-</span>uroot <span class="operator">-</span>p <span class="keyword">create</span> db_name </span><br><span class="line">mysql <span class="operator">-</span>uroot <span class="operator">-</span>p db_name <span class="operator">&lt;</span> <span class="operator">/</span>backup<span class="operator">/</span>mysqldump<span class="operator">/</span>db_name.sql</span><br></pre></td></tr></table></figure>
-<h3 id="soure-方法">soure 方法</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql <span class="operator">&gt;</span> use db_name</span><br><span class="line">mysql <span class="operator">&gt;</span> source <span class="operator">/</span>backup<span class="operator">/</span>db_name.sql</span><br></pre></td></tr></table></figure>
-<style>
-    table th:nth-child(2){
-        width: 5rem;
-    }
-</style>]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>SQL</tag>
-        <tag>MySQL</tag>
-        <tag>备份</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Centos7 的安装与配置 - 1</title>
-    <url>/posts/88be706e/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="下载镜像">下载镜像</h3>
-<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
-<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
-<p><img src="1.png" alt=""></p>
-<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
-<p><img src="2.png" alt=""></p>
-<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
-<p><img src="3.png" alt=""></p>
-<h3 id="安装">安装</h3>
-<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
-<p><img src="4.png" alt=""></p>
-<p>选择自定义(高级)，然后下一步</p>
-<p><img src="5.png" alt=""></p>
-<p><img src="6.png" alt=""></p>
-<p>这里选择稍后安装操作系统，然后下一步</p>
-<p><img src="7.png" alt=""></p>
-<p>这里选择Centos7 64位</p>
-<p><img src="8.png" alt=""></p>
-<p>这里可以给虚拟机起名字。</p>
-<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
-<p><img src="9.png" alt=""></p>
-<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
-<p><img src="10.png" alt=""></p>
-<p>这里设置内存(不懂别瞎选，默认的就行)</p>
-<p><img src="11.png" alt=""></p>
-<p>这里建议选默认的 使用网络地址转换(NAT)</p>
-<p><img src="12.png" alt=""></p>
-<p>后面的默认推荐就可以</p>
-<p><img src="13.png" alt=""><br>
-<img src="14.png" alt=""></p>
-<p>创建新虚拟磁盘，而后下一步</p>
-<p><img src="15.png" alt=""></p>
-<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
-<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
-<p><img src="16.png" alt=""><br>
-<img src="17.png" alt=""></p>
-<p>完成！</p>
-<p><img src="18.png" alt=""><br>
-<img src="19.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo 图片资源显示</title>
     <url>/posts/a6886184/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
@@ -237,6 +75,57 @@
 <p><img src="18.png" alt=""></p>
 <p>这样就装好了~</p>
 <p><img src="19.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Centos7 的安装与配置 - 1</title>
+    <url>/posts/88be706e/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="下载镜像">下载镜像</h3>
+<p>以下内容仅按照我的配置写的，如有不足评论一下。</p>
+<p>首先下载Centos7的镜像，这里我用的 <a href="https://mirrors.aliyun.com/centos/">阿里云的镜像</a></p>
+<p><img src="1.png" alt=""></p>
+<p>进入 7.9.2009/isos/x86_64/，下载 <a href="https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/CentOS-7-x86_64-NetInstall-2009.iso">CentOS-7-x86_64-NetInstall-2009.iso</a></p>
+<p><img src="2.png" alt=""></p>
+<p>如果打开只有一个 readme 文件，说明这个版本的镜像没有提供下载。</p>
+<p><img src="3.png" alt=""></p>
+<h3 id="安装">安装</h3>
+<p>首先打开 VMware，创建新的虚拟机，这里安装到虚拟机里面 (物理机应该也是一样的)</p>
+<p><img src="4.png" alt=""></p>
+<p>选择自定义(高级)，然后下一步</p>
+<p><img src="5.png" alt=""></p>
+<p><img src="6.png" alt=""></p>
+<p>这里选择稍后安装操作系统，然后下一步</p>
+<p><img src="7.png" alt=""></p>
+<p>这里选择Centos7 64位</p>
+<p><img src="8.png" alt=""></p>
+<p>这里可以给虚拟机起名字。</p>
+<p>位置选C盘以外的盘，因为最后生成的虚拟机文件比较大(只有一个C盘当我没说…)</p>
+<p><img src="9.png" alt=""></p>
+<p>这里可以设置虚拟机的处理器(不懂别瞎选，默认的就行)</p>
+<p><img src="10.png" alt=""></p>
+<p>这里设置内存(不懂别瞎选，默认的就行)</p>
+<p><img src="11.png" alt=""></p>
+<p>这里建议选默认的 使用网络地址转换(NAT)</p>
+<p><img src="12.png" alt=""></p>
+<p>后面的默认推荐就可以</p>
+<p><img src="13.png" alt=""><br>
+<img src="14.png" alt=""></p>
+<p>创建新虚拟磁盘，而后下一步</p>
+<p><img src="15.png" alt=""></p>
+<p>这里可以设置磁盘大小，也就是虚拟机的硬盘大小</p>
+<p>选 将虚拟磁盘存储为单个文件，而后下一步</p>
+<p><img src="16.png" alt=""><br>
+<img src="17.png" alt=""></p>
+<p>完成！</p>
+<p><img src="18.png" alt=""><br>
+<img src="19.png" alt=""></p>
 ]]></content>
       <categories>
         <category>操作系统</category>
@@ -474,6 +363,136 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
       <tags>
         <tag>python</tag>
         <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS 7 配置 IP 地址</title>
+    <url>/posts/57182686/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<h4 id="查看网卡信息">查看网卡信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>IP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL的备份与恢复 (mysqldump)</title>
+    <url>/posts/4394775c/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="mysqldump-语法">mysqldump 语法</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump [选项] 数据库名 [表名] <span class="operator">&gt;</span> 脚本.<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
+<h3 id="选项">选项</h3>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>缩写</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--host</td>
+<td>-h</td>
+<td>服务器IP地址</td>
+</tr>
+<tr>
+<td>--port</td>
+<td>-P (大写)</td>
+<td>服务器端口号</td>
+</tr>
+<tr>
+<td>--password</td>
+<td>-p (小写)</td>
+<td>MySQL密码</td>
+</tr>
+<tr>
+<td>--databases</td>
+<td></td>
+<td>指定要备份的数据库</td>
+</tr>
+<tr>
+<td>--all-databases</td>
+<td></td>
+<td>备份MySQL服务器上的所有数据库</td>
+</tr>
+<tr>
+<td>--compact</td>
+<td></td>
+<td>压缩模式，产生更少的输出</td>
+</tr>
+<tr>
+<td>--comments</td>
+<td></td>
+<td>添加注释信息</td>
+</tr>
+<tr>
+<td>--complete-insert</td>
+<td></td>
+<td>输出完成的插入语句</td>
+</tr>
+<tr>
+<td>--lock-tables</td>
+<td></td>
+<td>备份前，锁定所有数据库表</td>
+</tr>
+<tr>
+<td>--no-create-db/–no-create-info</td>
+<td></td>
+<td>禁止生成创建数据库语句</td>
+</tr>
+<tr>
+<td>--force</td>
+<td></td>
+<td>当出现错误时仍然继续备份操作</td>
+</tr>
+<tr>
+<td>--default-character-set</td>
+<td></td>
+<td>指定默认字符集</td>
+</tr>
+<tr>
+<td>--add-locks</td>
+<td></td>
+<td>备份数据库表时锁定数据库表</td>
+</tr>
+</tbody>
+</table>
+<h2 id="示例">示例</h2>
+<p>如果 -p 选项没有指定密码，那么控制台会等待输入密码</p>
+<h3 id="备份所有数据库">备份所有数据库</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p <span class="comment">--all-databases &gt; all.sql</span></span><br></pre></td></tr></table></figure>
+<h3 id="备份指定数据库">备份指定数据库</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p test <span class="operator">&gt;</span> test.sql</span><br></pre></td></tr></table></figure>
+<h3 id="备份指定数据库指定表-多个表以空格间隔">备份指定数据库指定表(多个表以空格间隔)</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p test table1 table2 <span class="operator">&gt;</span> test.sql </span><br></pre></td></tr></table></figure>
+<h3 id="备份指定数据库排除某些表">备份指定数据库排除某些表</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>uroot <span class="operator">-</span>p test <span class="comment">--ignore-table=test.table1 --ignore-table=test.table2 &gt; test.sql</span></span><br></pre></td></tr></table></figure>
+<h2 id="恢复命令">恢复命令</h2>
+<h3 id="命令行命令">命令行命令</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">注：在导入备份数据库前，db_name如果没有，是需要创建的； 而且与db_name.sql中数据库名是一样的才可以导入。</span><br><span class="line">mysqladmin <span class="operator">-</span>uroot <span class="operator">-</span>p <span class="keyword">create</span> db_name </span><br><span class="line">mysql <span class="operator">-</span>uroot <span class="operator">-</span>p db_name <span class="operator">&lt;</span> <span class="operator">/</span>backup<span class="operator">/</span>mysqldump<span class="operator">/</span>db_name.sql</span><br></pre></td></tr></table></figure>
+<h3 id="soure-方法">soure 方法</h3>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql <span class="operator">&gt;</span> use db_name</span><br><span class="line">mysql <span class="operator">&gt;</span> source <span class="operator">/</span>backup<span class="operator">/</span>db_name.sql</span><br></pre></td></tr></table></figure>
+<style>
+    table th:nth-child(2){
+        width: 5rem;
+    }
+</style>]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+        <tag>MySQL</tag>
+        <tag>备份</tag>
       </tags>
   </entry>
   <entry>
@@ -1143,25 +1162,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>CentOS 7 配置 IP 地址</title>
-    <url>/posts/57182686/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-<h4 id="查看网卡信息">查看网卡信息</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
-<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>IP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>docker 映射端口外部设备访问不到</title>
     <url>/posts/fa5b3dfc/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="容器内部">容器内部</h3>
@@ -1236,6 +1236,37 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
+    <title>安装并使用 GitStack</title>
+    <url>/posts/7baecab0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="下载-GitStack">下载 GitStack</h3>
+<p><a href="https://gitstack.com/download/">下载地址</a></p>
+<h3 id="安装-GitStack">安装 GitStack</h3>
+<ol>
+<li>下载完成后，双击运行 <code>GitStackSetup.exe</code> 文件，点击 <code>Next</code>。<br>
+<img src="a.png" alt=""></li>
+<li>点击 <code>I Agree</code>。<br>
+<img src="b.png" alt=""></li>
+<li>选择安装位置，点击 <code>Next</code>。<br>
+<img src="c.png" alt=""></li>
+<li>画红框的必须全选，不然会出一些意想不到的错误，而后点击 <code>Install</code><br>
+<img src="d.png" alt=""></li>
+<li>如果选择了Launch GitStack选项，那么点击<code>Finish</code>后会自动打开GitStack的管理页面。安装完成后，点击 <code>Finish</code>。<br>
+<img src="e.png" alt=""></li>
+</ol>
+<h3 id="使用-GitStack">使用 GitStack</h3>
+<ol>
+<li>打开浏览器，输入<code>http://localhost/gitstack</code>，跳转到以下页面，默认用户名密码是admin/admin，点击<code>Sign In</code>登录。<br>
+<img src="f.png" alt=""></li>
+<li>登录成功后，可以在这里添加一个新的仓库，输入新仓库的名称(字母和数字组合)，而后点击<code>Create</code>。<br>
+<img src="g.png" alt=""></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>GitStack</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spark Sql 常用函数 (Scala 语言)</title>
     <url>/posts/eca3873f/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
@@ -1280,37 +1311,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>Spark</tag>
         <tag>Scala</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装并使用 GitStack</title>
-    <url>/posts/7baecab0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="下载-GitStack">下载 GitStack</h3>
-<p><a href="https://gitstack.com/download/">下载地址</a></p>
-<h3 id="安装-GitStack">安装 GitStack</h3>
-<ol>
-<li>下载完成后，双击运行 <code>GitStackSetup.exe</code> 文件，点击 <code>Next</code>。<br>
-<img src="a.png" alt=""></li>
-<li>点击 <code>I Agree</code>。<br>
-<img src="b.png" alt=""></li>
-<li>选择安装位置，点击 <code>Next</code>。<br>
-<img src="c.png" alt=""></li>
-<li>画红框的必须全选，不然会出一些意想不到的错误，而后点击 <code>Install</code><br>
-<img src="d.png" alt=""></li>
-<li>如果选择了Launch GitStack选项，那么点击<code>Finish</code>后会自动打开GitStack的管理页面。安装完成后，点击 <code>Finish</code>。<br>
-<img src="e.png" alt=""></li>
-</ol>
-<h3 id="使用-GitStack">使用 GitStack</h3>
-<ol>
-<li>打开浏览器，输入<code>http://localhost/gitstack</code>，跳转到以下页面，默认用户名密码是admin/admin，点击<code>Sign In</code>登录。<br>
-<img src="f.png" alt=""></li>
-<li>登录成功后，可以在这里添加一个新的仓库，输入新仓库的名称(字母和数字组合)，而后点击<code>Create</code>。<br>
-<img src="g.png" alt=""></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>GitStack</tag>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -1360,14 +1360,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>JS 用 Set 实现 交集、并集、差集</title>
-    <url>/posts/4cafe26/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS DOM 创建与获取</title>
     <url>/posts/16e4e576/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="创建节点">创建节点</h3>
@@ -1394,6 +1386,14 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">ele.<span class="title function_">closest</span>(<span class="string">&quot;selector&quot;</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="获取节点">获取节点</h3>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取元素节点，参数为id名</span></span><br><span class="line">ele.<span class="title function_">getElementById</span>(<span class="string">&quot;id&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为class名</span></span><br><span class="line">ele.<span class="title function_">getElementsByClassName</span>(<span class="string">&quot;class&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为标签名</span></span><br><span class="line">ele.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;tag&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为任何选择器</span></span><br><span class="line">ele.<span class="title function_">querySelector</span>(<span class="string">&quot;selector&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为任何选择器</span></span><br><span class="line">ele.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;selector&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS 用 Set 实现 交集、并集、差集</title>
+    <url>/posts/4cafe26/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JavaScript</tag>
       </tags>
@@ -1512,25 +1512,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>CSS 媒体查询</title>
-    <url>/posts/3106d1e6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="媒体类型（Media-Type）​">媒体类型（Media Type）​</h3>
-<h4 id="screen（屏幕）">screen（屏幕）</h4>
-<h4 id="print（打印）">print（打印）</h4>
-<h4 id="all（全部设备）">all（全部设备）</h4>
-<h3 id="​媒体特性条件（Media-Feature）">​媒体特性条件（Media Feature）</h3>
-<p>必须用括号包裹，如 (min-width: 900px)</p>
-<h3 id="基本语法">基本语法</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性条件) &#123;</span><br><span class="line">  <span class="comment">/* 样式规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="示例">示例</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px 时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备、宽度≥900px 且横屏时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">2rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 等效于 @media all and (min-width: 900px) */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 ,（逗号）表示 ​逻辑或（OR） */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px，或打印设备时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>), print &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>CSS</tag>
-        <tag>媒体查询</tag>
-        <tag>media</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue3 和 Pinia 的使用</title>
     <url>/posts/ffa41da9/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="Vue3-创建实例">Vue3 创建实例</h2>
@@ -1552,6 +1533,25 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       <tags>
         <tag>Vue3</tag>
         <tag>Pinia</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS 媒体查询</title>
+    <url>/posts/3106d1e6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="媒体类型（Media-Type）​">媒体类型（Media Type）​</h3>
+<h4 id="screen（屏幕）">screen（屏幕）</h4>
+<h4 id="print（打印）">print（打印）</h4>
+<h4 id="all（全部设备）">all（全部设备）</h4>
+<h3 id="​媒体特性条件（Media-Feature）">​媒体特性条件（Media Feature）</h3>
+<p>必须用括号包裹，如 (min-width: 900px)</p>
+<h3 id="基本语法">基本语法</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性条件) &#123;</span><br><span class="line">  <span class="comment">/* 样式规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px 时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备、宽度≥900px 且横屏时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">2rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 等效于 @media all and (min-width: 900px) */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 ,（逗号）表示 ​逻辑或（OR） */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px，或打印设备时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>), print &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>CSS</tag>
+        <tag>媒体查询</tag>
+        <tag>media</tag>
       </tags>
   </entry>
   <entry>
