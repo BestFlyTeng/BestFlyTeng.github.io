@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>我的第一篇博客</title>
+    <url>/posts/d95d7e09/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
+<p>同时我也会吸取一些建议或意见，进行修正。</p>
+]]></content>
+      <categories>
+        <category>分享</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL的备份与恢复 (mysqldump)</title>
     <url>/posts/4394775c/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="mysqldump-语法">mysqldump 语法</h2>
@@ -163,16 +176,47 @@
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇博客</title>
-    <url>/posts/d95d7e09/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这是我的第一篇博客，我以后会在这里分享一些技术，生活或记录学习状况。</p>
-<p>同时我也会吸取一些建议或意见，进行修正。</p>
-]]></content>
+    <title>Hexo 图片资源显示</title>
+    <url>/posts/a6886184/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
+<p><a href="https://github.com/hexojs/hexo-renderer-markdown-it/">hexo-renderer-markdown-it官网</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果安装过 hexo-renderer-marked，就卸载</span></span><br><span class="line"></span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
+<h3 id="修改-config-yml">修改_config.yml</h3>
+<p>将 post_asset_folder 改为true</p>
+<p><img src="1.png" alt=""></p>
+<h3 id="重新生成静态文件，并运行">重新生成静态文件，并运行</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo server</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>分享</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>记录</tag>
+        <tag>bug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>换 yum 源</title>
+    <url>/posts/241dfea9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>备份原有源配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
+<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
+<p>刷新yum缓存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
+<p>检查是否更换成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
+<p>更新软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<p>至此，换源完成~</p>
+]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>Centos7</tag>
+        <tag>Linux</tag>
+        <tag>配置</tag>
+        <tag>config</tag>
+        <tag>yum</tag>
       </tags>
   </entry>
   <entry>
@@ -226,50 +270,6 @@
       <tags>
         <tag>Centos7</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 图片资源显示</title>
-    <url>/posts/a6886184/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="安装-hexo-renderer-markdown-it">安装 hexo-renderer-markdown-it</h3>
-<p><a href="https://github.com/hexojs/hexo-renderer-markdown-it/">hexo-renderer-markdown-it官网</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 如果安装过 hexo-renderer-marked，就卸载</span></span><br><span class="line"></span><br><span class="line">npm un hexo-renderer-marked</span><br><span class="line"></span><br><span class="line">npm i hexo-renderer-markdown-it</span><br></pre></td></tr></table></figure>
-<h3 id="修改-config-yml">修改_config.yml</h3>
-<p>将 post_asset_folder 改为true</p>
-<p><img src="1.png" alt=""></p>
-<h3 id="重新生成静态文件，并运行">重新生成静态文件，并运行</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo server</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>bug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>换 yum 源</title>
-    <url>/posts/241dfea9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>备份原有源配置文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure>
-<p>下载国内源配置文件(这里用的是阿里云的仓库)，并移动到源目录里</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -O http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> Centos-7.repo /etc/yum.repos.d/CentOS-Base.repo</span><br></pre></td></tr></table></figure>
-<p>刷新yum缓存</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum clean all</span><br><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
-<p>检查是否更换成功</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum repolist</span><br></pre></td></tr></table></figure>
-<p>更新软件包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
-<p>至此，换源完成~</p>
-]]></content>
-      <categories>
-        <category>配置</category>
-      </categories>
-      <tags>
-        <tag>Centos7</tag>
-        <tag>Linux</tag>
-        <tag>配置</tag>
-        <tag>config</tag>
-        <tag>yum</tag>
       </tags>
   </entry>
   <entry>
@@ -1067,25 +1067,6 @@ L = (点赞数 * 1 + 投币数 * 2 + 收藏数 * 3 + 分享数 * 4) / (播放量
       </tags>
   </entry>
   <entry>
-    <title>CentOS 7 配置 IP 地址</title>
-    <url>/posts/57182686/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-<h4 id="查看网卡信息">查看网卡信息</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
-<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>CentOS</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>CentOS</tag>
-        <tag>IP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pandas 库的使用</title>
     <url>/posts/1701cff7/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>本文按照pandas文档来总结的，如果有错误的地方，欢迎指正<br>
@@ -1162,6 +1143,25 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
       </tags>
   </entry>
   <entry>
+    <title>CentOS 7 配置 IP 地址</title>
+    <url>/posts/57182686/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h4 id="切换至特权模式，并输入密码">切换至特权模式，并输入密码</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<h4 id="查看网卡信息">查看网卡信息</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+<h4 id="修改网卡配置文件">修改网卡配置文件</h4>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33     //进入网卡ens33的配置页面</span><br><span class="line">i        //输i进入文件编辑模式(i=insert)</span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span>       //修改：将dhcp修改为static，修改后为BOOTPROTO=static</span><br><span class="line">ONBOOT=<span class="built_in">yes</span>               //修改为<span class="built_in">yes</span>, 网卡开机自启动</span><br><span class="line">Esc或Ctrl+c   //退出文件编辑模式</span><br><span class="line">:wq           //保存文件修改并退出</span><br><span class="line">service network restart     //重启网卡</span><br><span class="line">ip add  //查看网卡ens33的IP地址已经变成配置的静态IP地址</span><br><span class="line">ping xxx.xxx.xxx.xxx      //ping自己，ping网关，验证网络能通</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>CentOS</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>CentOS</tag>
+        <tag>IP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker 映射端口外部设备访问不到</title>
     <url>/posts/fa5b3dfc/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="容器内部">容器内部</h3>
@@ -1212,6 +1212,53 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
 <p>运行后可以看一下 nohup 的日志文件看看运行成功没有，这样是运行成功了。<br>
 <img src="h.png" alt=""></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Spark Sql 常用函数 (Scala 语言)</title>
+    <url>/posts/eca3873f/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
+<h3 id="col">col</h3>
+<p>用于在DataFrame或Dataset中引用列，通常与Spark的SQL查询或者DataFrame操作一起使用。<br>
+语法：</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">col(colName: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="column">column</h3>
+<p>与 col 函数功能相同。</p>
+<h3 id="lit">lit</h3>
+<p>用于将一个常量值转换为 Column 类型，以便在 Spark SQL 操作中使用。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">lit(literal: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="typeLit">typeLit</h3>
+<p>typedLit 函数是一个类型安全的版本的 lit 函数。它用于将字面量（常量）转换为指定类型的 Column，并确保在编译时类型匹配。typedLit 适用于 Spark 3.x 版本，提供比 lit 更严格的类型检查，从而避免潜在的类型不匹配问题。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">typedLit[<span class="type">T</span>: <span class="type">TypeTag</span>](literal: <span class="type">T</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="greatest">greatest</h3>
+<p>用于比较多列的值，返回每行中这些列中的最大值。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">greatest(exprs: <span class="type">Column</span>*): <span class="type">Column</span></span><br><span class="line">greatest(columnName: <span class="type">String</span>, columnNames: <span class="type">String</span>*): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="current-date">current_date</h3>
+<p>返回当前的日期（以 yyyy-MM-dd 格式表示）。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">current_date(): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="date-sub">date_sub</h3>
+<p>用于从指定的日期中减去给定的天数，并返回新的日期。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_sub(start: <span class="type">Column</span>, days: <span class="type">Int</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="date-format">date_format</h3>
+<p>用于将日期类型的数据格式化为指定的字符串格式。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_format(dateExpr: <span class="type">Column</span>, format: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="when">when</h3>
+<p>条件表达式，通常与 otherwise() 函数一起使用，用于根据条件返回不同的值。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">when(condition: <span class="type">Column</span>, value: <span class="type">Any</span>): <span class="type">Column</span></span><br><span class="line">    .otherwise(value: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="max">max</h3>
+<p>它通常用于对数值型数据进行分组聚合，或者在没有分组时返回整个列的最大值。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">max(e: <span class="type">Column</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="to-timestamp">to_timestamp</h3>
+<p>将一个字符串或者日期列转换为 timestamp 类型。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">to_timestamp(s: <span class="type">Column</span>): <span class="type">Column</span></span><br><span class="line">to_timestamp(s: <span class="type">Column</span>, fmt: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
+<h3 id="row-number">row_number</h3>
+<p>用于为每个分组中的行分配一个唯一的递增整数值。它通常与窗口函数一起使用，以实现更复杂的分组和排序操作。<br>
+以下示例是基于 id 列进行分组，并按照 time 列进行降序排序，为每个分组中的行分配一个唯一的行号。</p>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">row_number()</span><br><span class="line">    .over(</span><br><span class="line">        <span class="type">Window</span></span><br><span class="line">            .partitionBy(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">            .orderBy(desc(<span class="string">&quot;time&quot;</span>))</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Scala</tag>
+      </tags>
   </entry>
   <entry>
     <title>Spark 增量抽取 (Scala 实现)</title>
@@ -1267,83 +1314,11 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
       </tags>
   </entry>
   <entry>
-    <title>Spark Sql 常用函数 (Scala 语言)</title>
-    <url>/posts/eca3873f/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>基于 org.apache.spark.sql.functions._ 包下的函数</p>
-<h3 id="col">col</h3>
-<p>用于在DataFrame或Dataset中引用列，通常与Spark的SQL查询或者DataFrame操作一起使用。<br>
-语法：</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">col(colName: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="column">column</h3>
-<p>与 col 函数功能相同。</p>
-<h3 id="lit">lit</h3>
-<p>用于将一个常量值转换为 Column 类型，以便在 Spark SQL 操作中使用。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">lit(literal: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="typeLit">typeLit</h3>
-<p>typedLit 函数是一个类型安全的版本的 lit 函数。它用于将字面量（常量）转换为指定类型的 Column，并确保在编译时类型匹配。typedLit 适用于 Spark 3.x 版本，提供比 lit 更严格的类型检查，从而避免潜在的类型不匹配问题。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">typedLit[<span class="type">T</span>: <span class="type">TypeTag</span>](literal: <span class="type">T</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="greatest">greatest</h3>
-<p>用于比较多列的值，返回每行中这些列中的最大值。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">greatest(exprs: <span class="type">Column</span>*): <span class="type">Column</span></span><br><span class="line">greatest(columnName: <span class="type">String</span>, columnNames: <span class="type">String</span>*): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="current-date">current_date</h3>
-<p>返回当前的日期（以 yyyy-MM-dd 格式表示）。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">current_date(): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="date-sub">date_sub</h3>
-<p>用于从指定的日期中减去给定的天数，并返回新的日期。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_sub(start: <span class="type">Column</span>, days: <span class="type">Int</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="date-format">date_format</h3>
-<p>用于将日期类型的数据格式化为指定的字符串格式。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">date_format(dateExpr: <span class="type">Column</span>, format: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="when">when</h3>
-<p>条件表达式，通常与 otherwise() 函数一起使用，用于根据条件返回不同的值。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">when(condition: <span class="type">Column</span>, value: <span class="type">Any</span>): <span class="type">Column</span></span><br><span class="line">    .otherwise(value: <span class="type">Any</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="max">max</h3>
-<p>它通常用于对数值型数据进行分组聚合，或者在没有分组时返回整个列的最大值。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">max(e: <span class="type">Column</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="to-timestamp">to_timestamp</h3>
-<p>将一个字符串或者日期列转换为 timestamp 类型。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">to_timestamp(s: <span class="type">Column</span>): <span class="type">Column</span></span><br><span class="line">to_timestamp(s: <span class="type">Column</span>, fmt: <span class="type">String</span>): <span class="type">Column</span></span><br></pre></td></tr></table></figure>
-<h3 id="row-number">row_number</h3>
-<p>用于为每个分组中的行分配一个唯一的递增整数值。它通常与窗口函数一起使用，以实现更复杂的分组和排序操作。<br>
-以下示例是基于 id 列进行分组，并按照 time 列进行降序排序，为每个分组中的行分配一个唯一的行号。</p>
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">row_number()</span><br><span class="line">    .over(</span><br><span class="line">        <span class="type">Window</span></span><br><span class="line">            .partitionBy(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">            .orderBy(desc(<span class="string">&quot;time&quot;</span>))</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Scala</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue3 + Element Plus 自定义验证</title>
     <url>/posts/f5b25be3/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> type &#123;<span class="title class_">FormInstance</span>, <span class="title class_">FormRules</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;element-plus&#x27;</span></span><br><span class="line"><span class="comment">// 判断是否是移动端的函数</span></span><br><span class="line"><span class="keyword">import</span> &#123;isMobileDevice&#125; <span class="keyword">from</span> <span class="string">&quot;@/utils/commonMethod&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义表单数据类型</span></span><br><span class="line">interface <span class="title class_">RuleForm</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: string</span><br><span class="line">  <span class="attr">password</span>: string</span><br><span class="line">  <span class="attr">confirmPassword</span>: string</span><br><span class="line">  <span class="attr">email</span>: string</span><br><span class="line">  <span class="attr">code</span>: string</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取表单实例，常量名对应ref属性</span></span><br><span class="line"><span class="keyword">const</span> ruleFormRef = ref&lt;<span class="title class_">FormInstance</span>&gt;()</span><br><span class="line"><span class="comment">// 以下两个 validate* 函数，必须调用回调函数，否则最后提交会卡住</span></span><br><span class="line"><span class="comment">// 定义验证确认密码函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">validatePass</span> = (<span class="params">rule: object, value: string, callback: (error?: <span class="built_in">Error</span>) =&gt; <span class="keyword">void</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (value !== form.<span class="property">password</span>) &#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;两次密码不一致&quot;</span>))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">callback</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义验证邮箱函数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">validateEmail</span> = (<span class="params">rule: object, value: string, callback: (error?: <span class="built_in">Error</span>) =&gt; <span class="keyword">void</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> reg = <span class="regexp">/^[A-Za-z0-9_\-]+(\.[A-Za-z0-9_\-]+)*@[A-Za-z0-9\-]+\.[A-Za-z]&#123;2,&#125;$/</span></span><br><span class="line">  <span class="keyword">if</span> (!reg.<span class="title function_">test</span>(value)) &#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&quot;邮箱不合法&quot;</span>))</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_">callback</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义表单数据</span></span><br><span class="line"><span class="keyword">const</span> form = reactive&lt;<span class="title class_">RuleForm</span>&gt;(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">password</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">confirmPassword</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">email</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">code</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 定义表单验证规则</span></span><br><span class="line"><span class="keyword">const</span> rules = reactive&lt;<span class="title class_">FormRules</span>&lt;<span class="title class_">RuleForm</span>&gt;&gt;(&#123;</span><br><span class="line">  <span class="attr">name</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入昵称&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">1</span>, <span class="attr">max</span>: <span class="number">20</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是1-20&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">email</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入邮箱&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">validator</span>: validateEmail, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">code</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入邮箱验证码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">6</span>, <span class="attr">max</span>: <span class="number">6</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是6&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">password</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请输入密码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">min</span>: <span class="number">8</span>, <span class="attr">max</span>: <span class="number">16</span>, <span class="attr">message</span>: <span class="string">&#x27;长度应是8-16&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">confirmPassword</span>: [</span><br><span class="line">    &#123;<span class="attr">required</span>: <span class="literal">true</span>, <span class="attr">message</span>: <span class="string">&#x27;请确认密码&#x27;</span>, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">validator</span>: validatePass, <span class="attr">trigger</span>: <span class="string">&#x27;blur&#x27;</span>&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 提交表单</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">submitForm</span> = (<span class="params">formEl: FormInstance | <span class="literal">undefined</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!formEl) <span class="keyword">return</span></span><br><span class="line"><span class="comment">// 如果上面的两个 validate* 函数没有调用回调函数，则这里会卡住</span></span><br><span class="line">  formEl.<span class="title function_">validate</span>(<span class="function">(<span class="params">valid</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(valid)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 重置表单</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resetForm</span> = (<span class="params">formEl: FormInstance | <span class="literal">undefined</span></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!formEl) <span class="keyword">return</span></span><br><span class="line">  formEl.<span class="title function_">resetFields</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> timer = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> show = <span class="title function_">ref</span>(<span class="literal">true</span>)</span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> time = <span class="number">120</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getCode</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">//axios请求</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(form.<span class="property">email</span>);</span><br><span class="line">  <span class="comment">// 验证码倒计时</span></span><br><span class="line">  <span class="keyword">if</span> (timer.<span class="property">value</span> === <span class="number">0</span>) &#123;</span><br><span class="line">    count.<span class="property">value</span> = time;</span><br><span class="line">    show.<span class="property">value</span> = <span class="literal">false</span>;</span><br><span class="line">    timer.<span class="property">value</span> = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (count.<span class="property">value</span> &gt; <span class="number">0</span> &amp;&amp; count.<span class="property">value</span> &lt;= time) &#123;</span><br><span class="line">        count.<span class="property">value</span>--;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        show.<span class="property">value</span> = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">clearInterval</span>(timer.<span class="property">value</span>);</span><br><span class="line">        timer.<span class="property">value</span> = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;registry&quot;</span> <span class="attr">:style</span>=<span class="string">&quot;&#123;width: isMobileDevice() ? &#x27;90%&#x27; : &#x27;50%&#x27;&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-form</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:ref</span>=<span class="string">&quot;ruleFormRef&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:model</span>=<span class="string">&quot;form&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:rules</span>=<span class="string">&quot;rules&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">label-width</span>=<span class="string">&quot;auto&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;demo-ruleForm&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">size</span>=<span class="string">&quot;default&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">status-icon</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;昵称&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;name&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.name&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;邮箱&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;email&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.email&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;验证码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;code&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">&quot;form.code&quot;</span> <span class="attr">style</span>=<span class="string">&quot;flex:10;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;success&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;getCode&quot;</span> <span class="attr">round</span> <span class="attr">style</span>=<span class="string">&quot;flex: 1;margin: 0 0 0 1rem&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;show&quot;</span>&gt;</span>发送验证码<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;!show&quot;</span>&gt;</span>&#123;&#123; count &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;密码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;form.password&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">&quot;确认密码&quot;</span> <span class="attr">prop</span>=<span class="string">&quot;confirmPassword&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;form.confirmPassword&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;success&quot;</span> @<span class="attr">click</span>=<span class="string">&quot;submitForm(ruleFormRef)&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">&quot;resetForm(ruleFormRef)&quot;</span>&gt;</span>Reset<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>docker 部署 nginx</title>
-    <url>/posts/837c427b/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="1-拉取-nginx-镜像">1. 拉取 nginx 镜像</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
-<h3 id="2-运行容器">2. 运行容器</h3>
-<p>这里我映射到了本地的9000端口，可以根据需要修改</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name nginx -p 9000:80 -d nginx</span><br></pre></td></tr></table></figure>
-<h3 id="3-浏览器访问">3. 浏览器访问</h3>
-<p>浏览器访问 <code>http://ip:9000</code>，如果看到下图则表示 nginx 部署成功<br>
-<img src="a.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>nginx</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS 用 Set 实现 交集、并集、差集</title>
-    <url>/posts/4cafe26/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
   </entry>
   <entry>
     <title>Spring Boot 3.4.1 + Spring security 6.4.2 重写登录</title>
@@ -1396,6 +1371,31 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取元素节点，参数为id名</span></span><br><span class="line">ele.<span class="title function_">getElementById</span>(<span class="string">&quot;id&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为class名</span></span><br><span class="line">ele.<span class="title function_">getElementsByClassName</span>(<span class="string">&quot;class&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为标签名</span></span><br><span class="line">ele.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;tag&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为任何选择器</span></span><br><span class="line">ele.<span class="title function_">querySelector</span>(<span class="string">&quot;selector&quot;</span>)</span><br><span class="line"><span class="comment">// 获取元素节点，参数为任何选择器</span></span><br><span class="line">ele.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;selector&quot;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS 用 Set 实现 交集、并集、差集</title>
+    <url>/posts/4cafe26/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]);</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="title class_">Set</span>([<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="title class_">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// Set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="title class_">Set</span>([...a].<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> !b.<span class="title function_">has</span>(x)));</span><br><span class="line"><span class="comment">// Set &#123;1&#125;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker 部署 nginx</title>
+    <url>/posts/837c427b/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="1-拉取-nginx-镜像">1. 拉取 nginx 镜像</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull nginx</span><br></pre></td></tr></table></figure>
+<h3 id="2-运行容器">2. 运行容器</h3>
+<p>这里我映射到了本地的9000端口，可以根据需要修改</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name nginx -p 9000:80 -d nginx</span><br></pre></td></tr></table></figure>
+<h3 id="3-浏览器访问">3. 浏览器访问</h3>
+<p>浏览器访问 <code>http://ip:9000</code>，如果看到下图则表示 nginx 部署成功<br>
+<img src="a.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -1509,25 +1509,6 @@ iloc是基于行和列的位置进行索引的，索引从0开始，基本用法
       <tags>
         <tag>JavaScript</tag>
         <tag>Promise</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS 媒体查询</title>
-    <url>/posts/3106d1e6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="媒体类型（Media-Type）​">媒体类型（Media Type）​</h3>
-<h4 id="screen（屏幕）">screen（屏幕）</h4>
-<h4 id="print（打印）">print（打印）</h4>
-<h4 id="all（全部设备）">all（全部设备）</h4>
-<h3 id="​媒体特性条件（Media-Feature）">​媒体特性条件（Media Feature）</h3>
-<p>必须用括号包裹，如 (min-width: 900px)</p>
-<h3 id="基本语法">基本语法</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性条件) &#123;</span><br><span class="line">  <span class="comment">/* 样式规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="示例">示例</h3>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px 时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备、宽度≥900px 且横屏时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">2rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 等效于 @media all and (min-width: 900px) */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 ,（逗号）表示 ​逻辑或（OR） */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px，或打印设备时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>), print &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>CSS</tag>
-        <tag>媒体查询</tag>
-        <tag>media</tag>
       </tags>
   </entry>
   <entry>
@@ -1715,100 +1696,128 @@ run-gateway.bat,run-auth.bat,run-modules-system.bat这三个必须运行，其�
       </tags>
   </entry>
   <entry>
+    <title>CSS 媒体查询</title>
+    <url>/posts/3106d1e6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h3 id="媒体类型（Media-Type）​">媒体类型（Media Type）​</h3>
+<h4 id="screen（屏幕）">screen（屏幕）</h4>
+<h4 id="print（打印）">print（打印）</h4>
+<h4 id="all（全部设备）">all（全部设备）</h4>
+<h3 id="​媒体特性条件（Media-Feature）">​媒体特性条件（Media Feature）</h3>
+<p>必须用括号包裹，如 (min-width: 900px)</p>
+<h3 id="基本语法">基本语法</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 <span class="keyword">and</span> (媒体特性条件) &#123;</span><br><span class="line">  <span class="comment">/* 样式规则 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="示例">示例</h3>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 单条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px 时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 多条件 */</span></span><br><span class="line"><span class="comment">/* 屏幕设备、宽度≥900px 且横屏时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) <span class="keyword">and</span> (<span class="attribute">orientation</span>: landscape) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">2rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 等效于 @media all and (min-width: 900px) */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>) &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使用 ,（逗号）表示 ​逻辑或（OR） */</span></span><br><span class="line"><span class="comment">/* 屏幕设备且宽度≥900px，或打印设备时生效 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">900px</span>), print &#123;</span><br><span class="line">  <span class="selector-tag">article</span> &#123; <span class="attribute">padding</span>: <span class="number">1rem</span> <span class="number">3rem</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>CSS</tag>
+        <tag>媒体查询</tag>
+        <tag>media</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux 系统部署与维护练习题</title>
     <url>/posts/8f70eb62/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1>试题下载</h1>
-<p><a href="Linux.docx">Linux 试题</a></p>
-<h1>准备</h1>
-<p>准备两台虚拟机，一台用作<code>Server</code>，一台用作<code>Client</code>。<br>
-网络配置都一样，如下：<br>
-<img src="a-a-a.png" alt=""><br>
-<img src="a-a-q.png" alt=""></p>
-<h1>项目实训内容</h1>
-<h2 id="任务1：-配置虚拟机的网络参数">任务1： 配置虚拟机的网络参数</h2>
-<h3 id="（1）在服务器上编辑-etc-sysconfig-network-scripts-ifcfg-ens160文件，手工指定静态IP地址，将配置文件截图。">（1）在服务器上编辑/etc/sysconfig/network-scripts/ifcfg-ens160文件，手工指定静态IP地址，将配置文件截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 切换到管理员用户</span></span><br><span class="line">su - root</span><br><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens160</span><br><span class="line"></span><br><span class="line">TYPE=<span class="string">&quot;Ethernet&quot;</span></span><br><span class="line">PROXY_METHOD=<span class="string">&quot;none&quot;</span></span><br><span class="line">BROWSER_ONLY=<span class="string">&quot;no&quot;</span></span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span> <span class="comment"># 修改为static</span></span><br><span class="line">IPADDR=10.1.80.62 <span class="comment"># 设置静态IP</span></span><br><span class="line">NETMASK=255.255.255.0 <span class="comment"># 设置子网掩码</span></span><br><span class="line">DNS1=10.1.80.62</span><br><span class="line">DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV4_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6INIT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_AUTOCONF=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6_ADDR_GEN_MODE=<span class="string">&quot;stable-privacy&quot;</span></span><br><span class="line">NAME=<span class="string">&quot;ens160&quot;</span></span><br><span class="line">UUID=<span class="string">&quot;bdabe3a4-6e87-4325-8471-0cc5598d2e22&quot;</span></span><br><span class="line">DEVICE=<span class="string">&quot;ens160&quot;</span></span><br><span class="line">ONBOOT=<span class="string">&quot;yes&quot;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重启网络</span></span><br><span class="line">nmcli c reload</span><br><span class="line">nmcli c up ens160</span><br><span class="line"><span class="comment"># 查看网络是否配置成功</span></span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p>每个人的配置可能都不一样，大致差不多。<br>
-<img src="a-a-b.png" alt=""></p>
-<h3 id="（2）在客户端上编辑-etc-sysconfig-network-scripts-ifcfg-ens160文件，采用DHCP动态获取IP地址，将配置文件截图。">（2）在客户端上编辑/etc/sysconfig/network-scripts/ifcfg-ens160文件，采用DHCP动态获取IP地址，将配置文件截图。</h3>
-<p>文件几乎保持默认即可。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 切换到管理员用户</span></span><br><span class="line">su - root</span><br><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens160</span><br><span class="line"></span><br><span class="line">TYPE=<span class="string">&quot;Ethernet&quot;</span></span><br><span class="line">PROXY_METHOD=<span class="string">&quot;none&quot;</span></span><br><span class="line">BROWSER_ONLY=<span class="string">&quot;no&quot;</span></span><br><span class="line">BOOTPROTO=<span class="string">&quot;dhcp&quot;</span></span><br><span class="line">DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV4_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6INIT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_AUTOCONF=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_DEFROUTE=<span class="string">&quot;yes&quot;</span></span><br><span class="line">IPV6_FAILURE_FATAL=<span class="string">&quot;no&quot;</span></span><br><span class="line">IPV6_ADDR_GEN_MODE=<span class="string">&quot;stable-privacy&quot;</span></span><br><span class="line">NAME=<span class="string">&quot;ens160&quot;</span></span><br><span class="line">UUID=<span class="string">&quot;bdabe3a4-6e87-4325-8471-0cc5598d2e22&quot;</span></span><br><span class="line">DEVICE=<span class="string">&quot;ens160&quot;</span></span><br><span class="line">ONBOOT=<span class="string">&quot;yes&quot;</span></span><br><span class="line">DNS1=10.1.80.62</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重启网络</span></span><br><span class="line">nmcli c reload</span><br></pre></td></tr></table></figure>
-<p>每个人的配置可能都不一样，大致差不多。<br>
-<img src="a-a-c.png" alt=""></p>
-<h2 id="任务二：实现DHCP功能">任务二：实现DHCP功能</h2>
-<h3 id="（1）在服务器上安装DHCP软件包，安装成功截图。">（1）在服务器上安装DHCP软件包，安装成功截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/fstab</span><br><span class="line"></span><br><span class="line">/dev/mapper/rhel-root   /                       xfs     defaults        0 0</span><br><span class="line">UUID=45e0536b-9c7f-4105-b449-acc267badf50 /boot                   xfs     defaults        0 0</span><br><span class="line">/dev/mapper/rhel-swap   swap                    swap    defaults        0 0</span><br><span class="line"><span class="comment"># 添加下面一行</span></span><br><span class="line">/dev/cdrom              /media                  iso9660 defaults,ro,loop        0 0</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount -a</span><br><span class="line"><span class="comment"># 新建local.repo文件并写入以下内容</span></span><br><span class="line">vim /etc/yum.repos.d/local.repo</span><br><span class="line"></span><br><span class="line">[local-BaseOS]</span><br><span class="line">name=RHEL-BaseOS-8.4</span><br><span class="line">baseurl=file:///media/BaseOS</span><br><span class="line">gpgcheck=0</span><br><span class="line">enalble=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release</span><br><span class="line"></span><br><span class="line">[local-AppStream]</span><br><span class="line">name=RHEL-AppStream-8.4</span><br><span class="line">baseurl=file:///media/AppStream</span><br><span class="line">gpgcheck=0</span><br><span class="line">enalble=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf clean all</span><br><span class="line">dnf makecache</span><br><span class="line"><span class="comment"># 查看是否有两个仓库</span></span><br><span class="line">dnf repolist</span><br><span class="line"><span class="comment"># 安装dncp服务</span></span><br><span class="line">dnf install dhcp-server -y</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-d.png" alt=""></p>
-<h3 id="（2）配置DHCP服务，编辑vim-etc-dhcp-dhcpd-conf文件，创建一个subnet作用域，为客户端分配IP地址，地址范围10-1-80-60-10-1-80-100，网关10-1-80-254，DNS10-1-80-62，将服务器的网卡绑定到10-1-80-62地址。将配置文件截图。">（2）配置DHCP服务，编辑vim /etc/dhcp/dhcpd.conf文件，创建一个subnet作用域，为客户端分配IP地址，地址范围10.1.80.60~10.1.80.100，网关10.1.80.254，DNS10.1.80.62，将服务器的网卡绑定到10.1.80.62地址。将配置文件截图。</h3>
-<p>在dhcpd.conf添加以下内容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/dhcp/dhcpd.conf</span><br><span class="line"></span><br><span class="line">subnet 10.1.80.0 netmask 255.255.255.0 &#123;</span><br><span class="line">    range 10.1.80.60 10.1.80.100;       <span class="comment"># 客户端IP地址池[1,3](@ref)</span></span><br><span class="line">    option routers 10.1.80.254;          <span class="comment"># 默认网关（子网内独立配置）[1,3](@ref)</span></span><br><span class="line">    option subnet-mask 255.255.255.0;    <span class="comment"># 子网掩码（强制覆盖全局）[3](@ref)</span></span><br><span class="line">    option domain-name-servers 10.1.80.62; <span class="comment"># DNS服务器（仅本子网生效）[3,8](@ref)</span></span><br><span class="line">    default-lease-time 600;               <span class="comment"># 租约时间（默认值可调整）[2,3](@ref)</span></span><br><span class="line">    max-lease-time 7200;                  <span class="comment"># 最大租约时间[2,3](@ref)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 服务器的网卡绑定到10.1.80.62地址</span></span><br><span class="line">host localhost &#123;</span><br><span class="line">    hardware ethernet 00:0c:29:5c:49:9d;</span><br><span class="line">    fixed-address 10.1.80.62;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-e.png" alt=""></p>
-<h3 id="（3）启动DHCP并设置开机自动启动，启动成功截图。">（3）启动DHCP并设置开机自动启动，启动成功截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start dhcpd</span><br><span class="line">systemctl <span class="built_in">enable</span> dhcpd</span><br><span class="line">systemctl status dhcpd  </span><br></pre></td></tr></table></figure>
-<p><img src="a-a-f.png" alt=""></p>
-<h3 id="（4）测试客户端是否获取到IP地址等网络参数并截图。">（4）测试客户端是否获取到IP地址等网络参数并截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重启网络，并查看是否分配ip</span></span><br><span class="line">nmcli c reload</span><br><span class="line">nmcli c up ens160</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-w.png" alt=""></p>
-<h2 id="任务三：搭建unbound-DNS服务器">任务三：搭建unbound DNS服务器</h2>
-<h3 id="（1）在服务器上安装unbound-DNS软件包，安装成功截图。">（1）在服务器上安装unbound DNS软件包，安装成功截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf install unbound -y</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-r.png" alt=""></p>
-<h3 id="（2）服务器上编辑-etc-unbound-unbound-conf-文件将本机配置为能解析域jsjy-edu的DNS服务器，并添加下表中的资源记录，将配置文件截图。">（2）服务器上编辑/etc/unbound/unbound.conf 文件将本机配置为能解析域jsjy.edu的DNS服务器，并添加下表中的资源记录，将配置文件截图。</h3>
-<table>
-    <tr>
-        <th>资源记录类型</th>
-        <th>域名/IP地址</th>
-        <th>IP地址/域名</th>
-    </tr>
-    <tr>
-        <td rowspan='2'>A记录</td>
-        <td>dns.jsjy.edu</td>
-        <td>10.1.80.62</td>
-    </tr>
-    <tr>
-        <td>www.jsjy.edu</td>
-        <td>10.1.80.62</td>
-    </tr>
-    <tr>
-        <td rowspan='2'>PRI反向记录</td>
-        <td>10.1.80.62</td>
-        <td>www.jsjy.edu</td>
-    </tr>
-    <tr>
-        <td>10.1.80.62</td>
-        <td>dns.jsjy.edu</td>
-    </tr>
-</table>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/unbound/unbound.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在server下添加或修改下面几行，注意缩进，都在server下</span></span><br><span class="line">interface: 0.0.0.0</span><br><span class="line">access-control: 0.0.0.0/0 allow</span><br><span class="line">local-data: <span class="string">&quot;dns.jsjy.edu. IN A 10.1.80.62&quot;</span></span><br><span class="line">local-data: <span class="string">&quot;www.jsjy.edu. IN A 10.1.80.62&quot;</span></span><br><span class="line">local-data-ptr: <span class="string">&quot;10.1.80.62 www.jsjy.edu&quot;</span></span><br><span class="line">local-data-ptr: <span class="string">&quot;10.1.80.62 dns.jsjy.edu&quot;</span></span><br></pre></td></tr></table></figure>
-<p><img src="a-a-t.png" alt=""></p>
-<p>检查是否有其他服务占用端口，如果有的话把那个服务kill掉，如果没有跳过这一步</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsof -i :53</span><br><span class="line"><span class="built_in">kill</span> -9 上条命令查出来的PID</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-g.png" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 重启unbound</span></span><br><span class="line">systemctl restart unbound</span><br><span class="line"><span class="comment"># 允许dns服务通过防火墙</span></span><br><span class="line">firewall-cmd --permanent --add-service=dns</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-<h3 id="（3）使用nslookup命令验证DNS查询结果并截图。">（3）使用nslookup命令验证DNS查询结果并截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nslookup dns.jsjy.edu</span><br><span class="line">nslookup www.jsjy.edu</span><br><span class="line">nslookup 10.1.80.62</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-y.png" alt=""></p>
-<h2 id="任务四：架设Apache-Web-站点">任务四：架设Apache Web 站点</h2>
-<h3 id="（1）在服务器上安装httpd服务软件包及相关依赖包，安装成功截图。">（1）在服务器上安装httpd服务软件包及相关依赖包，安装成功截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf install httpd -y</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-u.png" alt=""></p>
-<h3 id="（2）使用mkdir创建站点的根目录-var-www-myweb，使用echo创建默认首页文件。配置命令截图。">（2）使用mkdir创建站点的根目录/var/www/myweb，使用echo创建默认首页文件。配置命令截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /var/www/myweb</span><br><span class="line"><span class="built_in">cd</span> /var/www/myweb/</span><br><span class="line">vim index.html</span><br><span class="line"></span><br><span class="line">Hello World!!!</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-i.png" alt=""></p>
-<h3 id="（3）编辑httpd-conf配置文件，设置站点的侦听端口、IP地址、域名等信息。配置文件截图。">（3）编辑httpd.conf配置文件，设置站点的侦听端口、IP地址、域名等信息。配置文件截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/httpd/conf/httpd.conf</span><br><span class="line"><span class="comment"># 查找字符串</span></span><br><span class="line">/DocumentRoot</span><br></pre></td></tr></table></figure>
-<p>修改配置为下图：<br>
-<img src="a-a-o.png" alt=""></p>
-<h3 id="（4）启动httpd服务并设置开机启动，开放防火墙的http流量，配置命令截图。">（4）启动httpd服务并设置开机启动，开放防火墙的http流量，配置命令截图。</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start httpd</span><br><span class="line">systemctl <span class="built_in">enable</span> httpd</span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-p.png" alt=""></p>
-<h3 id="（5）测试能否在客户端上通过域名访问WEb网站。打开页面截图。">（5）测试能否在客户端上通过域名访问WEb网站。打开页面截图。</h3>
-<p><img src="a-a-s.png" alt=""></p>
-]]></content>
+    <content><![CDATA[
+          <style>
+              #best-form {
+                  width: 80%;
+                  text-align: center;
+                  margin: auto;
+              }
+              #best-form .inp {
+                  width: 100%;
+                  padding: 1em 0.5em;
+                  margin: 0 0 1em 0;
+                  border: 0;
+                  outline: none;
+                  border-bottom: 2px solid #ccc;
+                  transition: ease .5s;
+              }
+              #best-form .inp:focus {
+                  border: 0;
+                  border-bottom: 2px solid orange;
+              }
+              #best-form input[type='submit'] {
+                  font-size: 1.5em;
+                  background: orange;
+                  padding: 0.2em 0.5em;
+                  color: white;
+                  border-radius: 1em;
+                  cursor: pointer;
+                  border: 0;
+              }
+          </style>
+          <form id="best-form">
+              <h2>刷新页面即可恢复加密</h2>
+              <input class="inp" type="text" id="best-name" placeholder="输入你的姓名">
+              <input class="inp" type="password" id="best-username" placeholder="输入提供的账号">
+              <input class="inp" type="password" id="best-password" placeholder="输入提供的密码">
+              <input type="submit" value="验证">
+          </form>
+          <script>
+              const sha256 = (text) => CryptoJS.SHA256(text).toString(CryptoJS.enc.Hex);
+              document.querySelector('#best-form').addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const name = this['best-name'].value;
+                const username = this['best-username'].value;
+                const password = this['best-password'].value;
+                const users = undefined;
+                if(name.trim() === '' || username.trim() === '' || password.trim() === '') {
+                  alert("请输入信息");
+                  return;
+                };
+                const id = '8f70eb62';
+                let login = false;
+                let index = -1;
+                for(let i = 0;i<users.length;i++){
+                  if(users[i].name === await sha256(name) && users[i].account === await sha256(username + password)){
+                    for(let j = 0;j<users[i].post.length;j++){
+                      if(users[i].post[j] === await sha256(id)){
+                        login = true;
+                        index = i
+                      };
+                    };
+                  };
+                };
+                if(!login){
+                  alert("检查信息是否有误，或是否申请本文权限。");
+                  return;
+                };
+                const decryptData = decrypt(users[index].result,password,users[index].salt);
+                this.style.display = 'none';
+                document.querySelector("#article-container").innerHTML = decryptData;
+            });
+            function decrypt(data, password, slat) {
+                const ivLength = 16;
+                console.log("密文：",data);
+                const ivHex = data.substring(0, ivLength * 2);
+                const encryptDataHex = data.substring(ivLength * 2);
+                const slatBuffer = CryptoJS.enc.Hex.parse(slat);
+                const key = CryptoJS.PBKDF2(password, slatBuffer, {
+                    keySize: 256 / 32,
+                    iterations: 100000,
+                    hasher: CryptoJS.algo.SHA256
+                });
+                const iv = CryptoJS.enc.Hex.parse(ivHex);
+                const ciphertext = CryptoJS.enc.Hex.parse(encryptDataHex);
+                try {
+                    const decrypted = CryptoJS.AES.decrypt(
+                        { ciphertext: ciphertext },
+                        key,
+                        {
+                            iv,
+                            mode: CryptoJS.mode.CFB,
+                            padding: CryptoJS.pad.NoPadding
+                        }
+                    );
+                    return decrypted.toString(CryptoJS.enc.Utf8);
+                } catch (err) {
+                    alert("解密失败", err.message);
+                    return null;
+                };
+            };
+          </script>
+    ]]></content>
       <tags>
         <tag>Linux</tag>
         <tag>RHEL8</tag>
@@ -1818,198 +1827,107 @@ run-gateway.bat,run-auth.bat,run-modules-system.bat这三个必须运行，其�
   <entry>
     <title>路由交换技术考试</title>
     <url>/posts/ef817dbb/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1>试题下载</h1>
-<p><a href="%E8%B7%AF%E7%94%B1%E4%BA%A4%E6%8D%A2.docx">路由交换 试题</a></p>
-<h1>知识</h1>
-<table><thead><tr><th>​<strong>​CIDR 前缀​</strong>​</th><th>​<strong>​子网掩码​</strong>​</th><th>​<strong>​反掩码​</strong>​</th><th>​<strong>​可用主机数​</strong>​</th><th>​<strong>​二进制反掩码计算逻辑​</strong>​</th></tr></thead><tbody><tr><td>​<strong>​/26​</strong>​</td><td><code>255.255.255.192</code></td><td><code>0.0.0.63</code></td><td>62</td><td><code>00000000.00000000.00000000.00111111</code> (后6位为1)</td></tr><tr><td>​<strong>​/27​</strong>​</td><td><code>255.255.255.224</code></td><td><code>0.0.0.31</code></td><td>30</td><td><code>00000000.00000000.00000000.00011111</code> (后5位为1)</td></tr><tr><td>​<strong>​/28​</strong>​</td><td><code>255.255.255.240</code></td><td><code>0.0.0.15</code></td><td>14</td><td><code>00000000.00000000.00000000.00001111</code> (后4位为1)</td></tr><tr><td>​<strong>​/29​</strong>​</td><td><code>255.255.255.248</code></td><td><code>0.0.0.7</code></td><td>6</td><td><code>00000000.00000000.00000000.00000111</code> (后3位为1)</td></tr><tr><td>​<strong>​/30​</strong>​</td><td><code>255.255.255.252</code></td><td><code>0.0.0.3</code></td><td>2</td><td><code>00000000.00000000.00000000.00000011</code> (后2位为1)</td></tr></tbody></table>
-<h1>所需设备</h1>
-<table>
-<thead>
-<tr>
-<th>设备</th>
-<th>型号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>路由器</td>
-<td>2911</td>
-</tr>
-<tr>
-<td>交换机</td>
-<td>2960</td>
-</tr>
-</tbody>
-</table>
-<h1>实验背景</h1>
-<p>项目拓扑结构如图所示，作为网络工程师，你需要按照拓扑图完成网络部署。在实施期间，你需要配置交换机上的VLAN、中继、端口安全和SSH远程访问；接下来在路由器上实施VLAN间路由和NAT；最后通过测试端到端的连接来检验实施。</p>
-<h1>实验拓扑</h1>
-<p><img src="a-a-a.png" alt=""></p>
-<h1>VLAN和端口分配表</h1>
-<p>见文档</p>
-<h1>地址分配表</h1>
-<p>见文档</p>
-<h1>实验内容</h1>
-<h2 id="准备">准备</h2>
-<p><img src="a-a-q.png" alt=""></p>
-<p>路由器添加一个接口</p>
-<p><img src="a-a-w.png" alt=""></p>
-<h2 id="配置Sw1">配置Sw1</h2>
-<h3 id="配置远程管理访问（包括-IP-编址和-SSH）：">配置远程管理访问（包括 IP 编址和 SSH）：</h3>
-<ul>
-<li>域为 <a href="http://cisco.com">cisco.com</a></li>
-<li>用户 admin ，密码为 cisco</li>
-<li>加密密钥长度为 1024</li>
-<li>SSH第2版，限制为2次身份验证尝试和 60 秒的超时时间</li>
-<li>应加密明文密码。</li>
-<li>将配置命令及登录结果截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Switch(config)#hostname SW1</span><br><span class="line">SW1(config)#ip domain-name cisco.com</span><br><span class="line">SW1(config)#username admin secret cisco</span><br><span class="line">SW1(config)#crypto key generate rsa</span><br><span class="line">The name <span class="keyword">for</span> the keys will be: SW1.cisco.com</span><br><span class="line">Choose the size of the key modulus <span class="keyword">in</span> the range of 360 to 2048 <span class="keyword">for</span> your</span><br><span class="line">  General Purpose Keys. Choosing a key modulus greater than 512 may take</span><br><span class="line">  a few minutes.</span><br><span class="line"></span><br><span class="line">How many bits <span class="keyword">in</span> the modulus [512]: 1024  <span class="comment"># 这里输入1024</span></span><br><span class="line">% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]</span><br><span class="line"></span><br><span class="line">SW1(config)#ip ssh version 2</span><br><span class="line">SW1(config)#ip ssh time-out 60</span><br><span class="line">SW1(config)#ip ssh authentication-retries 2</span><br><span class="line">SW1(config)#line vty 0 15</span><br><span class="line">SW1(config-line)#transport input ssh</span><br><span class="line">SW1(config-line)#login <span class="built_in">local</span> </span><br><span class="line">SW1(config-line)#<span class="built_in">exit</span></span><br><span class="line">SW1(config)#ex</span><br><span class="line">SW1#show run</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-e.png" alt=""><br>
-完成所有配置后，再在Admin登录ssh。<br>
-<img src="a-a-j.png" alt=""></p>
-<h3 id="配置、命名和分配-VLAN。端口应手动配置为接入端口。">配置、命名和分配 VLAN。端口应手动配置为接入端口。</h3>
-<ul>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置、命名vlan</span></span><br><span class="line">SW1(config)#vlan 15</span><br><span class="line">SW1(config-vlan)#name server</span><br><span class="line">SW1(config-vlan)#ex</span><br><span class="line">SW1(config)#vlan 30</span><br><span class="line">SW1(config-vlan)#name PCs</span><br><span class="line">SW1(config-vlan)#ex</span><br><span class="line">SW1(config)#vlan 40</span><br><span class="line">SW1(config-vlan)#name native</span><br><span class="line">SW1(config-vlan)#ex</span><br><span class="line">SW1(config)#vlan 60</span><br><span class="line">SW1(config-vlan)#name manage</span><br><span class="line">SW1(config-vlan)#ex</span><br><span class="line"><span class="comment"># 分配vlan</span></span><br><span class="line">SW1(config)#int range f0/1-10</span><br><span class="line">SW1(config-if-range)#switchport mode access </span><br><span class="line">SW1(config-if-range)#switchport access vlan 15</span><br><span class="line">SW1(config-if-range)#ex</span><br><span class="line">SW1(config)#int range f0/11-20</span><br><span class="line">SW1(config-if-range)#switchport mode access </span><br><span class="line">SW1(config-if-range)#switchport access vlan 30</span><br><span class="line">SW1(config-if-range)#ex</span><br><span class="line">SW1(config)#int vlan 60</span><br><span class="line">SW1(config-if)#ip add</span><br><span class="line">SW1(config-if)#ip address 192.168.1.146 255.255.255.240</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-r.png" alt=""></p>
-<h3 id="配置中继。">配置中继。</h3>
-<ul>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SW1(config)#int g0/2</span><br><span class="line">SW1(config-if)#switchport mode trunk</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-t.png" alt=""></p>
-<h3 id="实施端口安全">实施端口安全</h3>
-<ul>
-<li>在 Fa0/1 上，当检测到 MAC 地址时，允许 2 个 MAC 地址自动添加到配置文件中。不应禁用端口，但当发生违规时，应捕获 syslog 消息。</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SW1(config)#int f0/1</span><br><span class="line">SW1(config-if)#switchport port-security </span><br><span class="line">SW1(config-if)#switchport port-security maximum 2</span><br><span class="line">SW1(config-if)#switchport port-security violation restrict</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-y.png" alt=""></p>
-<ul>
-<li>禁用其他所有未使用的端口。</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SW1(config)#int range f0/21-24</span><br><span class="line">SW1(config-if-range)#shutdown</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-u.png" alt=""></p>
-<h2 id="配置Admin">配置Admin</h2>
-<h3 id="配置-VLAN-间路由。">配置 VLAN 间路由。</h3>
-<ul>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#int g0/0</span><br><span class="line">Router(config-if)#no shutdown </span><br><span class="line">Router(config-if)#ex</span><br><span class="line">Router(config)#int g0/0.15</span><br><span class="line">Router(config-subif)#encapsulation dot1Q 15</span><br><span class="line">Router(config-subif)#ip address 192.168.1.161 255.255.255.224</span><br><span class="line">Router(config-subif)#ex</span><br><span class="line">Router(config)#int g0/0.30</span><br><span class="line">Router(config-subif)#encapsulation dot1Q 30</span><br><span class="line">Router(config-subif)#ip address 192.168.1.193 255.255.255.192</span><br><span class="line">Router(config-subif)#ex</span><br><span class="line">Router(config)#int g0/0.40</span><br><span class="line">Router(config-subif)#encapsulation dot1Q 40</span><br><span class="line">Router(config-subif)#ip address 192.168.1.129 255.255.255.240</span><br><span class="line">Router(config-subif)#ex</span><br><span class="line">Router(config)#int g0/0.60</span><br><span class="line">Router(config-subif)#encapsulation dot1Q 60</span><br><span class="line">Router(config-subif)#ip address 192.168.1.145 255.255.255.240</span><br><span class="line">Router(config-subif)#ex</span><br><span class="line">Router(config)#int s0/0/1</span><br><span class="line">Router(config-if)#ip address 209.165.202.138 255.255.255.240</span><br><span class="line">Router(config-if)#no shutdown </span><br><span class="line">Router(config)#int s0/0/0</span><br><span class="line">Router(config-if)#ip address 192.168.1.125 255.255.255.252</span><br><span class="line">Router(config-if)#no shutdown </span><br><span class="line">Router(config)#ex</span><br><span class="line">Router#show run</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-i.png" alt=""></p>
-<h3 id="配置-VLAN-30-中的-DHCP-服务。将-LAN-用作区分大小写的池名称。">配置 VLAN 30 中的 DHCP 服务。将 LAN 用作区分大小写的池名称。</h3>
-<ul>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#ip dhcp excluded-address 192.168.1.193</span><br><span class="line">Router(config)#ip dhcp pool LAN</span><br><span class="line">Router(dhcp-config)#network 192.168.1.192 255.255.255.192</span><br><span class="line">Router(dhcp-config)#default-router 192.168.1.193</span><br><span class="line">Router(dhcp-config)#dns-server 8.8.8.8</span><br><span class="line">Router(dhcp-config)#domain-name jsjy</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-o.png" alt=""><br>
-<img src="a-a-p.png" alt=""></p>
-<h3 id="实施路由：">实施路由：</h3>
-<ul>
-<li>使用 OSPF 进程 ID 1 和路由器 ID 1.1.1.1</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#router ospf 1</span><br><span class="line">Router(config-router)#router-id 1.1.1.1</span><br><span class="line">Router(config-router)#network 209.165.202.136 255.255.255.248 area 0</span><br><span class="line">Router(config-router)#network 192.168.1.124 255.255.255.252 area 0</span><br><span class="line">Router(config-router)#network 192.168.1.160 255.255.255.224 area 0</span><br><span class="line">Router(config-router)#network 192.168.1.192 255.255.255.192 area 0</span><br><span class="line">Router(config-router)#network 192.168.1.128 255.255.255.240 area 0</span><br><span class="line">Router(config-router)#network 192.168.1.144 255.255.255.240 area 0</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-s.png" alt=""></p>
-<ul>
-<li>禁用不应发送 OSPF 消息的接口。</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config-router)#passive-interface g0/0</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-d.png" alt=""></p>
-<ul>
-<li>配置通往互联网的默认路由。</li>
-<li>配置截图</li>
-</ul>
-<!-- TODO: 默认路由 -->
-<ul>
-<li>配置编号为1的访问控制列表，禁止私有地址访问互联网。</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#access-list 1 deny 192.168.0.0 0.0.255.255</span><br><span class="line">Router(config)#access-list 1 deny 172.16.0.0 0.15.255.255</span><br><span class="line">Router(config)#access-list 1 deny 10.0.0.0 0.255.255.255</span><br><span class="line">Router(config)#access-list 1 permit any </span><br><span class="line">Router(config)#int s0/0/1</span><br><span class="line">Router(config-if)#ip access-group 1 out</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-f.png" alt=""></p>
-<h3 id="实施-NAT：">实施 NAT：</h3>
-<ul>
-<li>配置一个只含一条语句，编号为 10 的标准 ACL。允许所有属于 192.168.X.0/24 地址空间的 IP 地址。</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#access-list 10 permit 192.168.1.0 0.0.0.255</span><br><span class="line">Router(config)#access-list 10 deny any</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-g.png" alt=""></p>
-<ul>
-<li>为文件服务器配置静态 NAT。</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#ip nat inside <span class="built_in">source</span> static 192.168.1.162 209.165.202.139</span><br><span class="line">Router(config)#int g0/0.15</span><br><span class="line">Router(config-if)#ip nat inside </span><br><span class="line">Router(config-if)#ex</span><br><span class="line">Router(config)#int s0/0/1</span><br><span class="line">Router(config-if)#ip nat outside </span><br><span class="line">Router(config-if)#ex</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-h.png" alt=""></p>
-<ul>
-<li>通过 PAT 使用您选择的池名称和这两个公有地址配置动态 NAT：209.165.202.140 and 209.165.202.141</li>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#ip nat pool jsjy 209.165.202.140 209.165.202.141 netmask 255.255.255.248</span><br><span class="line">Router(config)#ip nat inside <span class="built_in">source</span> list 10 pool jsjy overload </span><br><span class="line">Router(config)#int s0/0/0</span><br><span class="line">Router(config-if)#ip nat inside </span><br><span class="line">Router(config-if)#ex</span><br><span class="line">Router(config)#int g0/0.30</span><br><span class="line">Router(config-subif)#ip nat inside </span><br></pre></td></tr></table></figure>
-<h2 id="配置intranet">配置intranet</h2>
-<ul>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#int s0/0/0</span><br><span class="line">Router(config-if)#ip address 192.168.1.126 255.255.255.252</span><br><span class="line">Router(config-if)#no shutdown </span><br><span class="line">Router(config-if)#ex</span><br><span class="line">Router(config)#int g0/0</span><br><span class="line">Router(config-if)#ip address 192.168.1.30 255.255.255.224</span><br><span class="line">Router(config-if)#no shutdown</span><br><span class="line">Router(config)#router ospf 1</span><br><span class="line">Router(config-router)#network 192.168.1.124 255.255.255.252 area 0</span><br><span class="line">Router(config-router)#network 192.168.1.0 255.255.255.224 area 0</span><br></pre></td></tr></table></figure>
-<h2 id="配置internet">配置internet</h2>
-<ul>
-<li>配置截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router(config)#int s0/0/0</span><br><span class="line">Router(config-if)#ip address 209.165.202.137 255.255.255.240</span><br><span class="line">Router(config-if)#no shutdown </span><br><span class="line">Router(config-if)#ex</span><br><span class="line">Router(config)#int g0/0</span><br><span class="line">Router(config-if)#ip address 64.100.150.254 255.255.255.0</span><br><span class="line">Router(config-if)#no shutdown</span><br><span class="line">Router(config-if)#ex</span><br><span class="line">Router(config)#router ospf 1</span><br><span class="line">Router(config-router)#network 64.100.150.0 255.255.255.0 area 0</span><br><span class="line">Router(config-router)#network 209.165.202.136 255.255.255.248 area 0</span><br></pre></td></tr></table></figure>
-<h2 id="配置ITsupport">配置ITsupport</h2>
-<h3 id="检验-ITsupport-是否已收到来自-Admin-的完整编址信息。">检验 ITsupport 是否已收到来自 Admin 的完整编址信息。</h3>
-<ul>
-<li>截图<br>
-<img src="a-a-p.png" alt=""></li>
-</ul>
-<h2 id="验证">验证</h2>
-<h3 id="所有设备现在应能够对所有其他设备执行-ping-操作。否则，请对配置进行故障排除以隔离和解决问题。测试包括：">所有设备现在应能够对所有其他设备执行 ping 操作。否则，请对配置进行故障排除以隔离和解决问题。测试包括：</h3>
-<ul>
-<li>从 Admin 使用 SSH 检验对 Admin-Sw 的远程访问。</li>
-<li>结果截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router#ssh -l admin 192.168.1.146</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-j.png" alt=""></p>
-<ul>
-<li>检验 VLAN 是否已分配给适当的端口，端口安全是否生效。</li>
-<li>结果截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SW1#show vlan brief</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-l.png" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SW1#show port-security interface f0/1</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-k.png" alt=""></p>
-<ul>
-<li>检验 OSPF 邻居和完整的路由表。</li>
-<li>结果截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router#show ip ospf neighbor</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-b.png" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router#show ip route </span><br></pre></td></tr></table></figure>
-<p><img src="a-a-n.png" alt=""></p>
-<ul>
-<li>检验 NAT 转换和静态路由。</li>
-<li>结果截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router#show ip nat translations</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-z.png" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Router#show ip route</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-v.png" alt=""></p>
-<ul>
-<li>外部主机 应该可以通过公有地址访问文件服务器 。</li>
-<li>结果截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping 209.165.202.139</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-c.png" alt=""></p>
-<ul>
-<li>内部 PC 应该可以访问 Web 服务器 。</li>
-<li>结果截图</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping 64.100.150.10</span><br></pre></td></tr></table></figure>
-<p><img src="a-a-x.png" alt=""></p>
-]]></content>
+    <content><![CDATA[
+          <style>
+              #best-form {
+                  width: 80%;
+                  text-align: center;
+                  margin: auto;
+              }
+              #best-form .inp {
+                  width: 100%;
+                  padding: 1em 0.5em;
+                  margin: 0 0 1em 0;
+                  border: 0;
+                  outline: none;
+                  border-bottom: 2px solid #ccc;
+                  transition: ease .5s;
+              }
+              #best-form .inp:focus {
+                  border: 0;
+                  border-bottom: 2px solid orange;
+              }
+              #best-form input[type='submit'] {
+                  font-size: 1.5em;
+                  background: orange;
+                  padding: 0.2em 0.5em;
+                  color: white;
+                  border-radius: 1em;
+                  cursor: pointer;
+                  border: 0;
+              }
+          </style>
+          <form id="best-form">
+              <h2>刷新页面即可恢复加密</h2>
+              <input class="inp" type="text" id="best-name" placeholder="输入你的姓名">
+              <input class="inp" type="password" id="best-username" placeholder="输入提供的账号">
+              <input class="inp" type="password" id="best-password" placeholder="输入提供的密码">
+              <input type="submit" value="验证">
+          </form>
+          <script>
+              const sha256 = (text) => CryptoJS.SHA256(text).toString(CryptoJS.enc.Hex);
+              document.querySelector('#best-form').addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const name = this['best-name'].value;
+                const username = this['best-username'].value;
+                const password = this['best-password'].value;
+                const users = undefined;
+                if(name.trim() === '' || username.trim() === '' || password.trim() === '') {
+                  alert("请输入信息");
+                  return;
+                };
+                const id = 'ef817dbb';
+                let login = false;
+                let index = -1;
+                for(let i = 0;i<users.length;i++){
+                  if(users[i].name === await sha256(name) && users[i].account === await sha256(username + password)){
+                    for(let j = 0;j<users[i].post.length;j++){
+                      if(users[i].post[j] === await sha256(id)){
+                        login = true;
+                        index = i
+                      };
+                    };
+                  };
+                };
+                if(!login){
+                  alert("检查信息是否有误，或是否申请本文权限。");
+                  return;
+                };
+                const decryptData = decrypt(users[index].result,password,users[index].salt);
+                this.style.display = 'none';
+                document.querySelector("#article-container").innerHTML = decryptData;
+            });
+            function decrypt(data, password, slat) {
+                const ivLength = 16;
+                console.log("密文：",data);
+                const ivHex = data.substring(0, ivLength * 2);
+                const encryptDataHex = data.substring(ivLength * 2);
+                const slatBuffer = CryptoJS.enc.Hex.parse(slat);
+                const key = CryptoJS.PBKDF2(password, slatBuffer, {
+                    keySize: 256 / 32,
+                    iterations: 100000,
+                    hasher: CryptoJS.algo.SHA256
+                });
+                const iv = CryptoJS.enc.Hex.parse(ivHex);
+                const ciphertext = CryptoJS.enc.Hex.parse(encryptDataHex);
+                try {
+                    const decrypted = CryptoJS.AES.decrypt(
+                        { ciphertext: ciphertext },
+                        key,
+                        {
+                            iv,
+                            mode: CryptoJS.mode.CFB,
+                            padding: CryptoJS.pad.NoPadding
+                        }
+                    );
+                    return decrypted.toString(CryptoJS.enc.Utf8);
+                } catch (err) {
+                    alert("解密失败", err.message);
+                    return null;
+                };
+            };
+          </script>
+    ]]></content>
       <tags>
         <tag>路由</tag>
         <tag>网络</tag>
