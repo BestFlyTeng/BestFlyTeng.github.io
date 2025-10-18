@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://bestflyteng.github.io/posts/9a12c6d2/</loc>
+    
+    <lastmod>2025-10-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://bestflyteng.github.io/posts/304b10ed/</loc>
     
     <lastmod>2025-10-17</lastmod>
@@ -137,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/posts/1701cff7/</loc>
+    <loc>https://bestflyteng.github.io/posts/ef59dde3/</loc>
     
     <lastmod>2025-06-11</lastmod>
     
@@ -146,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/posts/ef59dde3/</loc>
+    <loc>https://bestflyteng.github.io/posts/1701cff7/</loc>
     
     <lastmod>2025-06-11</lastmod>
     
@@ -484,20 +493,6 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/tags/python/</loc>
-    <lastmod>2025-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bestflyteng.github.io/tags/pandas/</loc>
-    <lastmod>2025-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bestflyteng.github.io/tags/Pandas/</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -506,6 +501,20 @@
   
   <url>
     <loc>https://bestflyteng.github.io/tags/Python/</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/tags/python/</loc>
+    <lastmod>2025-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bestflyteng.github.io/tags/pandas/</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -843,14 +852,14 @@
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/categories/python/</loc>
+    <loc>https://bestflyteng.github.io/categories/Python/</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bestflyteng.github.io/categories/Python/</loc>
+    <loc>https://bestflyteng.github.io/categories/python/</loc>
     <lastmod>2025-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
