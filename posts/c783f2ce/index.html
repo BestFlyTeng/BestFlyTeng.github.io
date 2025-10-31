@@ -1,0 +1,866 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机基础 | FlyTeng</title><meta name="author" content="FlyTeng"><meta name="copyright" content="FlyTeng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="计算机的诞生 ENIAC  ENIAC 是在第二次世界大战，美国军方为了精确计算新式火炮的弹道轨迹而研制的。   1946 年 2 月 14 日诞生 世界上第一台电子数字积分计算机 美国宾夕法尼亚大学 17468 个真空电子管、1500 个继电器、70000 只电阻以及其他各类电子元件，功率 150 千瓦 占地约 170 平方米，重达 30 吨 使用十进制表示数据，没有使用存储程序和程序控制原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机基础">
+<meta property="og:url" content="https://bestflyteng.github.io/posts/c783f2ce/index.html">
+<meta property="og:site_name" content="FlyTeng">
+<meta property="og:description" content="计算机的诞生 ENIAC  ENIAC 是在第二次世界大战，美国军方为了精确计算新式火炮的弹道轨迹而研制的。   1946 年 2 月 14 日诞生 世界上第一台电子数字积分计算机 美国宾夕法尼亚大学 17468 个真空电子管、1500 个继电器、70000 只电阻以及其他各类电子元件，功率 150 千瓦 占地约 170 平方米，重达 30 吨 使用十进制表示数据，没有使用存储程序和程序控制原理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bestflyteng.github.io/assets/images/post/computer-basics.png">
+<meta property="article:published_time" content="2025-10-31T06:29:48.000Z">
+<meta property="article:modified_time" content="2025-10-31T15:33:47.540Z">
+<meta property="article:author" content="FlyTeng">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bestflyteng.github.io/assets/images/post/computer-basics.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://bestflyteng.github.io/posts/c783f2ce/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9968579390713495" crossorigin="anonymous"></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?442ae94fe4ec95c1ddf19e7f4f6ac291";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+btf.addGlobalFn('pjaxComplete', () => {
+  _hmt.push(['_trackPageview',window.location.pathname])
+}, 'baidu_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="FlyTeng" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-image: url(img/bg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/assets/images/avatar/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/feedback/"><i class="fa-fw fa-solid fa-comment"></i><span> 反馈和建议</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/assets/images/post/computer-basics.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">FlyTeng</span></a><a class="nav-page-title" href="/"><span class="site-name">计算机基础</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/say/"><i class="fa-fw fa-brands fa-rocketchat"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/feedback/"><i class="fa-fw fa-solid fa-comment"></i><span> 反馈和建议</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">计算机基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-31T06:29:48.000Z" title="发表于 2025-10-31 14:29:48">2025-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-31T15:33:47.540Z" title="更新于 2025-10-31 23:33:47">2025-10-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1>计算机的诞生</h1>
+<h2 id="ENIAC">ENIAC</h2>
+<blockquote>
+<p>ENIAC 是在第二次世界大战，美国军方为了精确计算新式火炮的弹道轨迹而研制的。</p>
+</blockquote>
+<ol>
+<li>1946 年 2 月 14 日诞生</li>
+<li>世界上第一台电子数字积分计算机</li>
+<li>美国宾夕法尼亚大学</li>
+<li>17468 个真空电子管、1500 个继电器、70000 只电阻以及其他各类电子元件，功率 150 千瓦</li>
+<li>占地约 170 平方米，重达 30 吨</li>
+<li>使用十进制表示数据，没有使用存储程序和程序控制原理</li>
+</ol>
+<h2 id="EDVAC">EDVAC</h2>
+<ol>
+<li>1945 年由冯·诺伊曼、莫奇利、埃克特等提出，1951 年完成</li>
+<li>电子离散变量自动计算机</li>
+<li>使用二进制表示数据</li>
+<li>采用存储程序和程序控制</li>
+<li>由运算器、控制器、存储器、输入设备、输出设备 5 部分组成</li>
+</ol>
+<h2 id="EDSAC">EDSAC</h2>
+<ol>
+<li>1949 年 5 月 6 日首次试运行成功</li>
+<li>电子延迟存储自动计算器</li>
+<li>使用二进制表示数据</li>
+<li>采用存储程序和程序控制</li>
+<li>由运算器、控制器、存储器、输入设备、输出设备 5 部分组成</li>
+</ol>
+<h1>计算机的发展</h1>
+<table>
+<thead>
+<tr>
+<th>分代</th>
+<th>电子元件</th>
+<th>运算速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一代<br/>(1946-1957)</td>
+<td>电子管</td>
+<td>几千次</td>
+</tr>
+<tr>
+<td>第二代<br/>(1958-1964)</td>
+<td>晶体管</td>
+<td>几十万次</td>
+</tr>
+<tr>
+<td>第三代<br/>(1965-1970)</td>
+<td>中小规模集成电路</td>
+<td>几百万次</td>
+</tr>
+<tr>
+<td>第四代<br/>(1971 年至今)</td>
+<td>大规模/超大规模集成电路</td>
+<td>上亿次甚至亿亿次</td>
+</tr>
+</tbody>
+</table>
+<h2 id="计算机的发展趋势">计算机的发展趋势</h2>
+<ol>
+<li>巨型化</li>
+<li>微型化</li>
+<li>网络化</li>
+<li>智能化</li>
+</ol>
+<h2 id="计算机的特点">计算机的特点</h2>
+<ol>
+<li>运算速度快</li>
+<li>计算精度高</li>
+<li>具有记忆和逻辑判断功能</li>
+<li>具有自动执行功能</li>
+</ol>
+<h2 id="计算机的分类">计算机的分类</h2>
+<h3 id="按照性能划分">按照性能划分</h3>
+<ol>
+<li>巨型机</li>
+<li>大型机</li>
+<li>小型机</li>
+<li>微型机</li>
+<li>工作站</li>
+</ol>
+<blockquote>
+<p>在 2017 年 6 月进行的世界前 500 强高性能计算机（Top500）测试中，我国国家并行计算机工程技术研究中心研发的“神威· 太<br>
+湖之光”巨型机排名第一，峰值速度达到每秒 12.5 亿亿次浮点运算。</p>
+</blockquote>
+<h3 id="按照处理的数据划分">按照处理的数据划分</h3>
+<ol>
+<li>数字计算机</li>
+<li>模拟计算机</li>
+<li>数模混合计算机</li>
+</ol>
+<blockquote>
+<p>目前日常生活应用的计算机多为数字计算机</p>
+</blockquote>
+<h3 id="按照功能用途划分">按照功能用途划分</h3>
+<ol>
+<li>通用计算机</li>
+<li>专用计算机</li>
+</ol>
+<h2 id="计算机的应用">计算机的应用</h2>
+<ol>
+<li>
+<p>科学计算</p>
+</li>
+<li>
+<p>过程检测与控制</p>
+</li>
+<li>
+<p>数据处理</p>
+</li>
+<li>
+<p>计算机辅助系统</p>
+<blockquote>
+<p>计算机辅助系统指通过人机对话，使计算机辅助人们进行设计、加工、计划和学习等工作</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>简写</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算机辅助设计</td>
+<td>CAD</td>
+</tr>
+<tr>
+<td>计算机辅助制造</td>
+<td>CAM</td>
+</tr>
+<tr>
+<td>计算机辅助测试</td>
+<td>CAT</td>
+</tr>
+<tr>
+<td>计算机辅助教学</td>
+<td>CAI</td>
+</tr>
+<tr>
+<td>计算机辅助教育</td>
+<td>CBE</td>
+</tr>
+<tr>
+<td>计算机管理教学</td>
+<td>CMI</td>
+</tr>
+<tr>
+<td>计算机集成制造系统</td>
+<td>CIMS</td>
+</tr>
+<tr>
+<td>计算机辅助工程</td>
+<td>CAE</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>多媒体</p>
+</li>
+<li>
+<p>生活工作和学习</p>
+</li>
+</ol>
+<h1>计算机系统</h1>
+<ol>
+<li>由硬件和软件构两大系统组成</li>
+<li>计算机硬件系统包括主机(由 CPU 和内存组成)和外部设备(由外存储器、输入/输出设备)组成</li>
+<li>计算机软件系统是计算机所需的各种程序、数据及其相关文件的集合，可分为系统软件和应用软件两类</li>
+</ol>
+<p><img src="a-a-a.png" alt=""></p>
+<h2 id="计算机硬件系统">计算机硬件系统</h2>
+<ol>
+<li>运算器</li>
+<li>控制器</li>
+<li>存储器</li>
+<li>输入设备</li>
+<li>输出设备</li>
+</ol>
+<h2 id="微型计算机的主要性能指标">微型计算机的主要性能指标</h2>
+<ol>
+<li>主频</li>
+<li>字长</li>
+<li>存储容量</li>
+<li>存取周期</li>
+<li>运算速度
+<blockquote>
+<p>运算速度是一项综合性的性能指标，单位有 MIPS（每秒百万（106）条指令）和 BIPS（每秒十亿（109）条指令）等</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="计算机软件系统">计算机软件系统</h2>
+<p>软件是指计算机运行所需的程序、数据和有关文档的总和。没有安装任何软件的计算机称为“裸机”，无法完成任何工作。计算机软件系统通常分为系统软件和应用软件两大类</p>
+<p><img src="a-a-b.png" alt=""></p>
+<h2 id="程序设计语言">程序设计语言</h2>
+<table>
+<thead>
+<tr>
+<th>语言种类</th>
+<th>可读性</th>
+<th>可移植性</th>
+<th>执行速度</th>
+<th>能否被计算机直接执行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>机器语言</td>
+<td>差</td>
+<td>差</td>
+<td>快</td>
+<td>能</td>
+</tr>
+<tr>
+<td>汇编语言</td>
+<td>较好</td>
+<td>差</td>
+<td>较快</td>
+<td>不能</td>
+</tr>
+<tr>
+<td>高级语言</td>
+<td>好</td>
+<td>好</td>
+<td>慢</td>
+<td>不能</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>用高级语言编写的程序称为源程序，是源代码和数据构成的文件。目标程序是指源程序 经过翻译程序翻译后的二进制目标代码文件。可执行文件是链接程序将目标代码链接后生成的可以执行的文件。</p>
+</blockquote>
+<h2 id="数据单位">数据单位</h2>
+<ol>
+<li>位(bit,b)</li>
+<li>字节(Byte,B)
+<blockquote>
+<p>字节是计算机中用来表示存储空间大小的基本单位。在计算机中，通常将 8 个二进制组成一个存储单元，称为字节，用大写字母 B 表示。计算机的主存储器容量、磁盘容量都是以字节为单位表示的。</p>
+</blockquote>
+</li>
+</ol>
+<p>存储器可容纳的二进制信息量称为存储容量。目前，度量存储容量的基本单位是字节，此外，常用的存储容量单位还有 KB（千字节）、MB（兆字节）、GB（吉字节）和 TB（太字节）。存储容量计量单位之间的换算关系如下：<br>
+1B=8b<br>
+1KB=1024B=2<sup>10</sup>B<br>
+1MB=1024KB=2<sup>20</sup>B<br>
+1GB=1024MB=2<sup>30</sup>B<br>
+1TB=1024GB=2<sup>40</sup>B,其中 1024=2<sup>10</sup>。</p>
+<ol start="3">
+<li>字(word)<br>
+字通常取字节的整倍数，是计算机进行数据存储和处理的运算单位。字和计算机中的字长概念相关，字长是指计算机同时处理信息的二进制的位数，具有这一长度的二进制数则被称为计算机中的一个字。计算机按照字长可以分为 8 位、16 位、32 位和 64 位机，例如，在 64 位机中，一个字则含有 64 个二进制位。</li>
+</ol>
+<h1>数制转换</h1>
+<h2 id="概念">概念</h2>
+<p>数制是用一组固定的数字和一套统一的规则来表示数目的方法。其中，十进制主要作用于计算机的输入输出，实现人机交互；二进制是计算机内部所采用的数制；八进制和十六进制是为了方便书写或显示二进制，被看成二进制的缩写形式。</p>
+<h2 id="基数和权">基数和权</h2>
+<p>一个数无论采用何种进位制表示，都包含两个基本要素：基数和权。</p>
+<ol>
+<li>基数<br>
+基数是指各种进位计数制中允许选用基本数码的个数。例如，十进制的数码有 0~9 共 10 个，因此十进制的基数为 10。</li>
+<li>权<br>
+每个数码所表示的数值等于该数码乘以一个与数码所在位置相关的常数，这个常数称为权或权值。权的大小以基数为底、数码所在的位置的序号为指数的整数次幂。</li>
+</ol>
+<p>例如，一个十进制数 3643.76 可表示为：<br>
+3643.76=3×10<sup>3</sup>+6×10<sup>2</sup>+4×10<sup>1</sup>+3×10<sup>0</sup>+7×10<sup>-1</sup>+6×10<sup>-2</sup><br>
+在这个数中，有些相同的数字由于处在不同的位置，他们代表的数值大小也不同，如千位的 3 和个位的 3 大小就不一样。各位数值的大小由权值决定，该数的权值从左到右分别是 10<sup>3</sup>、10<sup>2</sup>、10<sup>1</sup>、10<sup>0</sup>、10<sup>-1</sup>、10<sup>-2</sup>，此表示也称为位权展开式。</p>
+<h2 id="数值的表示">数值的表示</h2>
+<table>
+<thead>
+<tr>
+<th>进位制</th>
+<th>基数</th>
+<th>基本符号(数码)</th>
+<th>权</th>
+<th>表示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二进制</td>
+<td>2</td>
+<td>0,1</td>
+<td>2</td>
+<td>B</td>
+</tr>
+<tr>
+<td>八进制</td>
+<td>8</td>
+<td>0-7</td>
+<td>8</td>
+<td>O</td>
+</tr>
+<tr>
+<td>十进制</td>
+<td>10</td>
+<td>0-9</td>
+<td>10</td>
+<td>D</td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td>16</td>
+<td>0-9, A-F</td>
+<td>16</td>
+<td>H 或 0x</td>
+</tr>
+</tbody>
+</table>
+<h2 id="数制转换">数制转换</h2>
+<h3 id="r-进制转换为十进制数">r 进制转换为十进制数</h3>
+<p>对于任意 r 进制数，均可以先写出它的位权展开式，然后在按十进制进行计算即可将其转换为十进制数。<br>
+例如：<br>
+(1111.11)<sub>B</sub>=1×2<sup>3</sup>+1×2<sup>2</sup>+1×2<sup>1</sup>+1×2<sup>0</sup>+1×2<sup>-1</sup>+1×2<sup>-2</sup>=15.75<br>
+(543.2)<sub>O</sub>=5×8<sup>2</sup>+4×8<sup>1</sup>+3×8<sup>0</sup>+2×8<sup>-1</sup>=355.25<br>
+(A10B.8)<sub>H</sub>=10×16<sup>3</sup>+1×16<sup>2</sup>×0+16<sup>1</sup>+11×16<sup>0</sup>+8×16<sup>-1</sup>=41227.5</p>
+<h3 id="十进制数转换为-r-进制">十进制数转换为 r 进制</h3>
+<p>十进制数的整数部分和小数部分在转换时需作不同的计算，分别求值后在组合。</p>
+<p>整数部分：采用“除 r 取余，先余为低，后余为高”法。即用十进制的整数反复地除以 r，记下每次得到的余数，直到商为 0，然后将所得到的余数倒排即为 r 进制各位的数码。<br>
+小数部分：采用“乘 r 取整，先整为高，后整为低”法。即用十进制的小数乘 r，得到一个乘积，将乘积的整数部分取出来，将乘积的小数部分再乘以 r，重复以上过程，直到小数部分为 0，然后将所得到的整数正排即为转换结果。</p>
+<p>例如：将十进制数 100.125 转换为二进制数。先对整数 100 进行转换：</p>
+<p><img src="a-a-c.png" alt=""><br>
+由上得出，100D=1100100B。<br>
+对小数部分 0.125 进行转换：<br>
+<img src="a-a-q.png" alt=""><br>
+由上得出，0.125D=0.001B<br>
+最终得出，100.125D=1100100.001B。</p>
+<h3 id="二进制、八进制、十六进制数的相互转换">二进制、八进制、十六进制数的相互转换</h3>
+<p>由于二进制、八进制、十六进制之间存在特殊关系：23=81，24=161，即 1 位八进制数相当于 3 位二进制数，1 位十六进制数相当于 4 位二进制数，因此转换方法就比较容易。</p>
+<blockquote>
+<p><strong><font color="red">八进制和十六进制不能直接互相转换</font></strong></p>
+</blockquote>
+<h4 id="二进制数与八进制数的相互转换">二进制数与八进制数的相互转换</h4>
+<p>二进制数转换成八进制数的方法是：将二进制数从小数点开始，对二进制整数部分向左每 3 位分成一组，不足 3 位的向高位补 0 凑成 3 位；对二进制小数部分向右每 3 位分成一组，不足 3 位的向低位补 0 凑成 3 位。每一组 3 位二进制数，分别转换成八进制数码中的一个数字，全部连接起来即可。</p>
+<p>例如：11111101.1011B</p>
+<table>
+<thead>
+<tr>
+<th>二进制三位分组</th>
+<th>011</th>
+<th>111</th>
+<th>101.</th>
+<th>101</th>
+<th>100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转换为八进制数</td>
+<td>3</td>
+<td>7</td>
+<td>5.</td>
+<td>5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>因此 11111101.1011B=375.54O</p>
+<h4 id="将八进制数转换成二进制数">将八进制数转换成二进制数</h4>
+<p>将每一位八进制数转换成相应的 3 位二进制数，依次连接起来即可。<br>
+例如：375.54O</p>
+<table>
+<thead>
+<tr>
+<th>八进制数</th>
+<th>3</th>
+<th>7</th>
+<th>5.</th>
+<th>5</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转换为二进制数</td>
+<td>011</td>
+<td>111</td>
+<td>101.</td>
+<td>101</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p>因此 375.54O=11111101.1011B</p>
+<h4 id="二进制数与十六进制数的相互转换">二进制数与十六进制数的相互转换</h4>
+<p>二进制数与十六进制数的转换，与二进制数和八进制数的转换类似，只不过是每 4 位二进制数与 1 位十六进制数的相互转换。<br>
+例如：11111101.1011B</p>
+<table>
+<thead>
+<tr>
+<th>二进制四位分组</th>
+<th>1111</th>
+<th>1101.</th>
+<th>1011</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转换为十六进制数</td>
+<td>F</td>
+<td>D.</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<p>因此 <a target="_blank" rel="noopener" href="http://11111101.1011B=FD.BH">11111101.1011B=FD.BH</a></p>
+<h4 id="将十六进制数转换成二进制数">将十六进制数转换成二进制数</h4>
+<p>将每一位十六进制数转换成相应的 4 位二进制数，然后依次连接起来即可。<br>
+例如：11111101.1011B</p>
+<table>
+<thead>
+<tr>
+<th>十六进制数</th>
+<th>F</th>
+<th>D.</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转换为二进制数</td>
+<td>1111</td>
+<td>1101.</td>
+<td>1011</td>
+</tr>
+</tbody>
+</table>
+<p>因此 FD.BH=11111101.1011B</p>
+<h2 id="字符的编码表示">字符的编码表示</h2>
+<h3 id="西文字符编码">西文字符编码</h3>
+<p>西文字符编码最常用的是 ASCII（美国信息交换标准代码）字符编码，该编码标准已经被国际标准化组织（ISO）指定为国际标准，是国际上使用最广泛的一种字符编码。标准的 ASCII 码采用 7 位二进制编码，它可以表示 27 即 128 个字符。<br>
+计算机的内部存储与操作常以字节为单位，即 8 个二进制为单位，因此一个 ASCII 码在计算机内实际是用一个字节（8 位）表示，正常情况下，最高位为 0。在需要奇偶校验时，这一位可用于存放奇偶效验的值，此时称这一位为效验位。<br>
+ASCII 编码，编码范围从 0000000B-1111111B。<br>
+编码值 0~31（0000000-0011111）不对应任何可印刷字符，通常为控制符，用于计算机通信中的通信控制或对设备的功能控制；编码值 32（0100000）是空格字符，编码值 127（1111111）是删除控制 DEL 码；其余 94 个字符为可印刷字符。在这些字符中，从 0~9、从 A~Z、从 a~z 都是顺序排列，逐次增加 1 的，有利于计算得出 ASCII 码值，并且小写字符比对应大写字符的码值大 32，这有利于大、小写字母之间的编码转换。<br>
+由上 ASCII 码值表述可知，控制符&lt;空格字符&lt;数字字符&lt;大写字母&lt;小写字母。</p>
+<h3 id="汉字字符编码">汉字字符编码</h3>
+<p>计算机中汉字的表示也是用二进制编码，根据应用目的的不同，汉字编码分为输入码（外码）、国标码、机内码和字形码。汉字编码的转换过程如下图：<br>
+<img src="a-a-w.png" alt=""></p>
+<h4 id="汉字输入码">汉字输入码</h4>
+<p>汉字输入码又称为汉字外码，是一种用计算机标准键盘的不同排列组合来对汉字的输入进行的编码。目前汉字输入编码的研究和发展迅速，已有上百种汉字输入编码法。衡量一个输入编码法的好坏应有以下要求：编码短，可以减少击键的次数；重码少，可以实现盲打；好学好记，便于学习和掌握。但现在还没有一种全部符合上述要求的汉字输入编码方法。目前常用的汉字编码主要分成为以下三类。</p>
+<ol>
+<li>音码<br>
+主要是以汉语拼音为基础的编码方案，如全拼、双拼、简拼和智能 ABC 等。音码的重码率高，单字输入速度慢，但容易掌握。</li>
+<li>型码<br>
+型码主要是根据汉字的特点，按汉字固有的形状，把汉字先拆分成部首，然后进行组合，代表有五笔字形法、郑码输入法等。型码重码较少，单字输入速度快，但学习和掌握较难。</li>
+<li>数字编码<br>
+常用的是国标区位码，用数字串输入一个汉字。区位码是将国家标准局公布的 6763 个两级汉字分为 94 个区，每个区分 94 位，实际上把汉字集排列成二维数组的形式，行为区，列为位，每个汉字在数组中的下标就是区位码。区码和位码各用两位十进制数表示，因此输入一个汉字需要按键 4 次。例如“中”字位于第 54 区 48 位，区位码为 5448.数字编码输入的优点是无重码，与内部编码的转换比较方便，缺点是代码难以记忆。<br>
+为了提高输入速度，输入方法现已走向了智能化，智能化方向是基于模式识别的语音识别输入，手写输入或扫描输入。</li>
+</ol>
+<h4 id="汉字国标码">汉字国标码</h4>
+<p>汉字国标码是我国 1980 年发布的《信息交换用汉字编码字符集—基本集》（代号为 GB2312-80），是中文信息处理的国家标准，也称汉字交换码，简称 GB 码。国标码对汉字进行编码时，每个汉字的编码占两个字节。国标码使用了每个字节的低位 7 位进行编码，每个字节最高位仍为“0”，最大可容纳 128×128=16384 个汉字集字符。根据统计，把最常用的 6763 个汉字分成两级：一级汉字有 3755 个，按拼音字母排序排列；二级汉字有 3008 个，按偏旁部首排列排序。</p>
+<h4 id="汉字机内码">汉字机内码</h4>
+<p>汉字在计算机内部使用的编码就是汉字机内码，又称汉字内码。每个汉字内码占用两个字节，并且每个字节的最高位为 1，这是为了避免汉字的内码与英文字符编码（ASCII 码）发生冲突，容易区分汉字编码与英文字符编码，同时为了用尽可能少的存储空间来表示尽可能对的汉字而做出的约定。<br>
+汉字机内码的计算公式：<br>
+<strong>汉字机内码 = 汉字国标码+8080H = 区位码+A0A0H</strong></p>
+<h4 id="汉字字形码">汉字字形码</h4>
+<p>汉字字形码也叫汉字字模或汉字输出码，用于汉字在显示屏或打印机输出。汉字字形码通常有两种表示方法：点阵式和矢量式。<br>
+点阵式表示字形时，将汉字图像一样置于网状方格上，每格是存储器中的一个位（bit）。例如，16×16 点阵是在纵向 16 点、横向 16 点的网状方格上写一个汉字，有笔划的格对应 1，无笔划的格对应 0。点阵式包括 16×16 点阵、24×24 点阵、32×32 点阵、48×48 点阵等，点阵越大，描述的字形越细致美观，质量越高，所占存储空间也越大。在计算机中，8 个二进制位组成一个字节，它是度量空间的基本单位。一个 16×16 点阵的字形码需要 16×16/8=32 字节的存储空间，即</p>
+<p><strong>点阵字形码所占字节数=点阵行数 × 点阵列数/8</strong></p>
+<p>矢量式是描述汉字字形的轮廓特征，当要输出汉字时，字形和大小与计算机的分辨率无关，可以产生高质量的汉字输出，并节省存储空间。用矢量式记录的字体可以任意放缩甚至变形，而不用担心会出现锯齿状的边缘。<br>
+汉字字形数字化后，以二进制文件的形式存储在存储器中，所有汉字的输出码就构成了汉字字形库，简称汉字库。</p>
+<h3 id="BCD-码">BCD 码</h3>
+<p>计算机内部采用二进制表示和处理数据。因此，在计算机中输入和输出数据时，就要进行从十进制到二进制和从二进制到十进制的转换处理。人们通常采用把十进制数的每一位分别写成二进制数形式的编码，称为 BCD 码。<br>
+BCD 编码的方法很多，通常采用的是 8421 编码，其方法是用四位二进制数表示一位十进制数，自左至右每一位对应的权是 8、4、2、1.四位二进制数有 0000~1111 十六个状态，只取 0000~1001 十种状态，而 1010~1111 六个状态没有意义。</p>
+<table>
+<thead>
+<tr>
+<th>十进制数</th>
+<th>8421</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>10</td>
+<td>0001 0000</td>
+</tr>
+</tbody>
+</table>
+<h1>计算机信息安全</h1>
+<p>等待补充。</p>
+<h1>计算机病毒</h1>
+<p>等待补充。</p>
+<h1>计算机多媒体技术基础</h1>
+<p>等待补充。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://bestflyteng.github.io">FlyTeng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://bestflyteng.github.io/posts/c783f2ce/">https://bestflyteng.github.io/posts/c783f2ce/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://bestflyteng.github.io" target="_blank">FlyTeng</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a><a class="post-meta__tags" href="/tags/%E5%9F%BA%E7%A1%80/">基础</a></div><div class="post-share"><div class="social-share" data-image="/assets/images/post/computer-basics.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wx.png" target="_blank"><img class="post-qr-code-img" src="/img/wx.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/zfb.png" target="_blank"><img class="post-qr-code-img" src="/img/zfb.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width no-desc" href="/posts/9a12c6d2/" title="docker 安装并使用 MySQL"><img class="cover" src="/assets/images/post/mysql.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">docker 安装并使用 MySQL</div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/assets/images/avatar/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">FlyTeng</div><div class="author-info-description">这是我个人搭建的一个博客</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">58</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BestFlyTeng/"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">计算机的诞生</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ENIAC"><span class="toc-number">1.1.</span> <span class="toc-text">ENIAC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EDVAC"><span class="toc-number">1.2.</span> <span class="toc-text">EDVAC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EDSAC"><span class="toc-number">1.3.</span> <span class="toc-text">EDSAC</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">计算机的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-number">2.1.</span> <span class="toc-text">计算机的发展趋势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">计算机的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.3.</span> <span class="toc-text">计算机的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E6%80%A7%E8%83%BD%E5%88%92%E5%88%86"><span class="toc-number">2.3.1.</span> <span class="toc-text">按照性能划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E5%A4%84%E7%90%86%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%92%E5%88%86"><span class="toc-number">2.3.2.</span> <span class="toc-text">按照处理的数据划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E5%8A%9F%E8%83%BD%E7%94%A8%E9%80%94%E5%88%92%E5%88%86"><span class="toc-number">2.3.3.</span> <span class="toc-text">按照功能用途划分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">计算机的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">计算机系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.1.</span> <span class="toc-text">计算机硬件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E4%B8%BB%E8%A6%81%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">3.2.</span> <span class="toc-text">微型计算机的主要性能指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.</span> <span class="toc-text">计算机软件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80"><span class="toc-number">3.4.</span> <span class="toc-text">程序设计语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%95%E4%BD%8D"><span class="toc-number">3.5.</span> <span class="toc-text">数据单位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">数制转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%95%B0%E5%92%8C%E6%9D%83"><span class="toc-number">4.2.</span> <span class="toc-text">基数和权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">4.3.</span> <span class="toc-text">数值的表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.4.</span> <span class="toc-text">数制转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#r-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0"><span class="toc-number">4.4.1.</span> <span class="toc-text">r 进制转换为十进制数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E6%8D%A2%E4%B8%BA-r-%E8%BF%9B%E5%88%B6"><span class="toc-number">4.4.2.</span> <span class="toc-text">十进制数转换为 r 进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%81%E5%85%AB%E8%BF%9B%E5%88%B6%E3%80%81%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.4.3.</span> <span class="toc-text">二进制、八进制、十六进制数的相互转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E4%B8%8E%E5%85%AB%E8%BF%9B%E5%88%B6%E6%95%B0%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.4.3.1.</span> <span class="toc-text">二进制数与八进制数的相互转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E5%85%AB%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E6%8D%A2%E6%88%90%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0"><span class="toc-number">4.4.3.2.</span> <span class="toc-text">将八进制数转换成二进制数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.4.3.3.</span> <span class="toc-text">二进制数与十六进制数的相互转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E6%8D%A2%E6%88%90%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0"><span class="toc-number">4.4.3.4.</span> <span class="toc-text">将十六进制数转换成二进制数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%9A%84%E7%BC%96%E7%A0%81%E8%A1%A8%E7%A4%BA"><span class="toc-number">4.5.</span> <span class="toc-text">字符的编码表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A5%BF%E6%96%87%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-number">4.5.1.</span> <span class="toc-text">西文字符编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%89%E5%AD%97%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-number">4.5.2.</span> <span class="toc-text">汉字字符编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%89%E5%AD%97%E8%BE%93%E5%85%A5%E7%A0%81"><span class="toc-number">4.5.2.1.</span> <span class="toc-text">汉字输入码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%89%E5%AD%97%E5%9B%BD%E6%A0%87%E7%A0%81"><span class="toc-number">4.5.2.2.</span> <span class="toc-text">汉字国标码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%89%E5%AD%97%E6%9C%BA%E5%86%85%E7%A0%81"><span class="toc-number">4.5.2.3.</span> <span class="toc-text">汉字机内码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%89%E5%AD%97%E5%AD%97%E5%BD%A2%E7%A0%81"><span class="toc-number">4.5.2.4.</span> <span class="toc-text">汉字字形码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BCD-%E7%A0%81"><span class="toc-number">4.5.3.</span> <span class="toc-text">BCD 码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">计算机信息安全</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">计算机病毒</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">计算机多媒体技术基础</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/c783f2ce/" title="计算机基础"><img src="/assets/images/post/computer-basics.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机基础"/></a><div class="content"><a class="title" href="/posts/c783f2ce/" title="计算机基础">计算机基础</a><time datetime="2025-10-31T06:29:48.000Z" title="发表于 2025-10-31 14:29:48">2025-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9a12c6d2/" title="docker 安装并使用 MySQL"><img src="/assets/images/post/mysql.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="docker 安装并使用 MySQL"/></a><div class="content"><a class="title" href="/posts/9a12c6d2/" title="docker 安装并使用 MySQL">docker 安装并使用 MySQL</a><time datetime="2025-10-18T06:45:38.000Z" title="发表于 2025-10-18 14:45:38">2025-10-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/304b10ed/" title="sqlmap 注入"><img src="/assets/images/post/sql_injection.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sqlmap 注入"/></a><div class="content"><a class="title" href="/posts/304b10ed/" title="sqlmap 注入">sqlmap 注入</a><time datetime="2025-08-31T07:01:15.000Z" title="发表于 2025-08-31 15:01:15">2025-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/621e92f2/" title="Win10 部署若依前端分离版"><img src="/assets/images/post/ruoyi.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Win10 部署若依前端分离版"/></a><div class="content"><a class="title" href="/posts/621e92f2/" title="Win10 部署若依前端分离版">Win10 部署若依前端分离版</a><time datetime="2025-08-21T07:04:04.000Z" title="发表于 2025-08-21 15:04:04">2025-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4fedeb6/" title="Web安全 SQL注入"><img src="/assets/images/post/sql_injection.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Web安全 SQL注入"/></a><div class="content"><a class="title" href="/posts/4fedeb6/" title="Web安全 SQL注入">Web安全 SQL注入</a><time datetime="2025-08-18T11:48:32.000Z" title="发表于 2025-08-18 19:48:32">2025-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By FlyTeng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat-btn" type="button" title="聊天"><i class="fas fa-message"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.isShuoshuo
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'BestFlyTeng/BestFlyTeng.github.io',
+      'data-repo-id': 'R_kgDOMjtzGQ',
+      'data-category-id': 'DIC_kwDOMjtzGc4ChqnD',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script src="/assets/js/crypto.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script>(() => {
+  const isChatBtn = true
+  const isChatHideShow = true
+
+  if (isChatBtn) {
+    const close = () => {
+      Chatra('minimizeWidget')
+      Chatra('hide')
+    }
+
+    const open = () => {
+      Chatra('openChat', true)
+      Chatra('show')
+    }
+
+    window.ChatraSetup = { startHidden: true }
+  
+    window.chatBtnFn = () => {
+      document.getElementById('chatra').classList.contains('chatra--expanded') ? close() : open()
+    }
+  } else if (isChatHideShow) {
+    window.chatBtn = {
+      hide: () => Chatra('hide'),
+      show: () => Chatra('show')
+    }
+  }
+
+  (function(d, w, c) {
+    w.ChatraID = '36GeoKDyTpu2BLGaT'
+    var s = d.createElement('script')
+    w[c] = w[c] || function() {
+      (w[c].q = w[c].q || []).push(arguments)
+    }
+    s.async = true
+    s.src = 'https://call.chatra.io/chatra.js'
+    if (d.head) d.head.appendChild(s)
+  })(document, window, 'Chatra')
+})()</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script>(() => {
+  const destroyAplayer = () => {
+    if (window.aplayers) {
+      for (let i = 0; i < window.aplayers.length; i++) {
+        if (!window.aplayers[i].options.fixed) {
+          window.aplayers[i].destroy()
+        }
+      }
+    }
+  }
+
+  const runMetingJS = () => {
+    typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+  }
+
+  btf.addGlobalFn('pjaxSend', destroyAplayer, 'destroyAplayer')
+  btf.addGlobalFn('pjaxComplete', loadMeting, 'runMetingJS')
+})()</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["link[rel=\"canonical\"]","meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/music/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => fn())
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
